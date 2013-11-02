@@ -1,0 +1,703 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D001B46216D7441F00F8E413 /* Launchable.m in Sources */ = {isa = PBXBuildFile; fileRef = D001B43316D7441F00F8E413 /* Launchable.m */; };
+		D001B46316D7441F00F8E413 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = D001B43516D7441F00F8E413 /* AppController.m */; };
+		D001B46616D7441F00F8E413 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D001B43A16D7441F00F8E413 /* background.png */; };
+		D001B46C16D7441F00F8E413 /* GestureRecognitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D001B44516D7441F00F8E413 /* GestureRecognitionController.m */; };
+		D001B46D16D7441F00F8E413 /* GestureRecognitionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D001B44716D7441F00F8E413 /* GestureRecognitionView.m */; };
+		D001B46E16D7441F00F8E413 /* GestureRecognitionWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D001B44916D7441F00F8E413 /* GestureRecognitionWindow.m */; };
+		D001B46F16D7441F00F8E413 /* GestureSetupController.m in Sources */ = {isa = PBXBuildFile; fileRef = D001B44B16D7441F00F8E413 /* GestureSetupController.m */; };
+		D001B47016D7441F00F8E413 /* GestureSetupView.m in Sources */ = {isa = PBXBuildFile; fileRef = D001B44D16D7441F00F8E413 /* GestureSetupView.m */; };
+		D001B47116D7441F00F8E413 /* GestureSetupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D001B44F16D7441F00F8E413 /* GestureSetupWindow.m */; };
+		D001B47516D7441F00F8E413 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D001B45516D7441F00F8E413 /* main.m */; };
+		D001B47616D7441F00F8E413 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D001B45616D7441F00F8E413 /* MainMenu.xib */; };
+		D001B47B16D7441F00F8E413 /* tableCellBack.png in Resources */ = {isa = PBXBuildFile; fileRef = D001B45B16D7441F00F8E413 /* tableCellBack.png */; };
+		D0124A2916FC01E800D85CEF /* AppTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0124A2716FC01E800D85CEF /* AppTableCellView.m */; };
+		D0124A2C16FC02C900D85CEF /* AppTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0124A2B16FC02C900D85CEF /* AppTableView.m */; };
+		D0140F8B17EFD6EE004C19F3 /* MultitouchEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = D0140F8417EFD6EE004C19F3 /* MultitouchEvent.m */; };
+		D0140F8C17EFD6EE004C19F3 /* MultitouchListener.m in Sources */ = {isa = PBXBuildFile; fileRef = D0140F8617EFD6EE004C19F3 /* MultitouchListener.m */; };
+		D0140F8D17EFD6EE004C19F3 /* MultitouchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0140F8817EFD6EE004C19F3 /* MultitouchManager.m */; };
+		D0140F8E17EFD6EE004C19F3 /* MultitouchTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = D0140F8A17EFD6EE004C19F3 /* MultitouchTouch.m */; };
+		D016016516FFB03B007A197E /* AppTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D016016416FFB03A007A197E /* AppTextFieldCell.m */; };
+		D02D55E71809D97C001F0AC3 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = D02D55E61809D97C001F0AC3 /* Application.m */; };
+		D04BF23C180C8A59007467CC /* WebPage.m in Sources */ = {isa = PBXBuildFile; fileRef = D04BF23B180C8A59007467CC /* WebPage.m */; };
+		D04BF23F180C92B8007467CC /* SafariPage.m in Sources */ = {isa = PBXBuildFile; fileRef = D04BF23E180C92B8007467CC /* SafariPage.m */; };
+		D0516E2317EFCFDE00C48BD8 /* Gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = D0516E1617EFCFDE00C48BD8 /* Gesture.m */; };
+		D0516E2417EFCFDE00C48BD8 /* GesturePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D0516E1817EFCFDE00C48BD8 /* GesturePoint.m */; };
+		D0516E2517EFCFDE00C48BD8 /* GestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D0516E1A17EFCFDE00C48BD8 /* GestureRecognizer.m */; };
+		D0516E2617EFCFDE00C48BD8 /* GestureResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D0516E1C17EFCFDE00C48BD8 /* GestureResult.m */; };
+		D0516E2717EFCFDE00C48BD8 /* GestureStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = D0516E1E17EFCFDE00C48BD8 /* GestureStroke.m */; };
+		D0516E2817EFCFDE00C48BD8 /* GestureTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0516E2017EFCFDE00C48BD8 /* GestureTemplate.m */; };
+		D0516E2917EFCFDE00C48BD8 /* GestureUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D0516E2217EFCFDE00C48BD8 /* GestureUtils.m */; };
+		D054A8DF15C3596000EA4E4D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07340F0152578F400FC7910 /* Cocoa.framework */; };
+		D05E69CE18086F7800BD4646 /* GestureSetupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D05E69CD18086F7800BD4646 /* GestureSetupModel.m */; };
+		D066470017EFD66A00A59967 /* MultitouchSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06646FF17EFD66A00A59967 /* MultitouchSupport.framework */; };
+		D071F8BD1810E2C4002B3DD0 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D071F8BB1810E2B2002B3DD0 /* Sparkle.framework */; };
+		D071F8BE1810E321002B3DD0 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D071F8BB1810E2B2002B3DD0 /* Sparkle.framework */; };
+		D071FF99180888E300CDC8FF /* GestureRecognitionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D071FF98180888E300CDC8FF /* GestureRecognitionModel.m */; };
+		D073F55D15C358FF00843B5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D073F55C15C358FF00843B5D /* QuartzCore.framework */; };
+		D09D13AC181CD2B500DE2F02 /* NSStatusItemPrioritizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D09D13AB181CD2B500DE2F02 /* NSStatusItemPrioritizer.m */; };
+		D09EF01316FE4EC2009DEE99 /* trackpadBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = D09EF01216FE4EC2009DEE99 /* trackpadBackground.png */; };
+		D09FCFCB1809DA1B00EBCFF7 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09FCFCA1809DA1B00EBCFF7 /* ScriptingBridge.framework */; };
+		D09FCFCE1809DA5E00EBCFF7 /* ChromePage.m in Sources */ = {isa = PBXBuildFile; fileRef = D09FCFCD1809DA5E00EBCFF7 /* ChromePage.m */; };
+		D0B502EA16FBC87C0018781C /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B502E916FBC87C0018781C /* background2.png */; };
+		D0B502ED16FBC9850018781C /* RepeatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B502EC16FBC9850018781C /* RepeatedImageView.m */; };
+		D0B502F516FBCDD10018781C /* AppButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B502F116FBCDD00018781C /* AppButtonCell.m */; };
+		D0B502F616FBCDD10018781C /* NSColor+ColorExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B502F316FBCDD00018781C /* NSColor+ColorExtensions.m */; };
+		D0B5030316FBECB70018781C /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D0B5030216FBECB70018781C /* Icon.icns */; };
+		D0CB917416DD419100BE0E9A /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CB917316DD419100BE0E9A /* Carbon.framework */; };
+		D0CFB9A417089746005EDAB3 /* ShadowTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CFB9A317089746005EDAB3 /* ShadowTextFieldCell.m */; };
+		D0F13B9416FFE7B800EA2B87 /* AppSegmentedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F13B9316FFE7B800EA2B87 /* AppSegmentedCell.m */; };
+		D0F13B9716FFE7F300EA2B87 /* NSBezierPath+MCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F13B9616FFE7F300EA2B87 /* NSBezierPath+MCAdditions.m */; };
+		D0F13B9916FFEE1A00EA2B87 /* niceLine.png in Resources */ = {isa = PBXBuildFile; fileRef = D0F13B9816FFEE1A00EA2B87 /* niceLine.png */; };
+		D0F13B9B16FFEF3500EA2B87 /* niceLineFlipped.png in Resources */ = {isa = PBXBuildFile; fileRef = D0F13B9A16FFEF3500EA2B87 /* niceLineFlipped.png */; };
+		D0F2DEA317000E8D009A19B9 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F2DEA217000E8D009A19B9 /* CoreServices.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D0A1ED1A1810B7110034FC34 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D071F8BD1810E2C4002B3DD0 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D001B43216D7441F00F8E413 /* Launchable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Launchable.h; sourceTree = "<group>"; };
+		D001B43316D7441F00F8E413 /* Launchable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Launchable.m; sourceTree = "<group>"; };
+		D001B43416D7441F00F8E413 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		D001B43516D7441F00F8E413 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		D001B43A16D7441F00F8E413 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		D001B44416D7441F00F8E413 /* GestureRecognitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureRecognitionController.h; sourceTree = "<group>"; };
+		D001B44516D7441F00F8E413 /* GestureRecognitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureRecognitionController.m; sourceTree = "<group>"; };
+		D001B44616D7441F00F8E413 /* GestureRecognitionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureRecognitionView.h; sourceTree = "<group>"; };
+		D001B44716D7441F00F8E413 /* GestureRecognitionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureRecognitionView.m; sourceTree = "<group>"; };
+		D001B44816D7441F00F8E413 /* GestureRecognitionWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureRecognitionWindow.h; sourceTree = "<group>"; };
+		D001B44916D7441F00F8E413 /* GestureRecognitionWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureRecognitionWindow.m; sourceTree = "<group>"; };
+		D001B44A16D7441F00F8E413 /* GestureSetupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureSetupController.h; sourceTree = "<group>"; };
+		D001B44B16D7441F00F8E413 /* GestureSetupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureSetupController.m; sourceTree = "<group>"; };
+		D001B44C16D7441F00F8E413 /* GestureSetupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureSetupView.h; sourceTree = "<group>"; };
+		D001B44D16D7441F00F8E413 /* GestureSetupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureSetupView.m; sourceTree = "<group>"; };
+		D001B44E16D7441F00F8E413 /* GestureSetupWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureSetupWindow.h; sourceTree = "<group>"; };
+		D001B44F16D7441F00F8E413 /* GestureSetupWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureSetupWindow.m; sourceTree = "<group>"; };
+		D001B45516D7441F00F8E413 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D001B45616D7441F00F8E413 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		D001B45B16D7441F00F8E413 /* tableCellBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableCellBack.png; sourceTree = "<group>"; };
+		D001B45C16D7441F00F8E413 /* Tapr-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tapr-Info.plist"; sourceTree = "<group>"; };
+		D001B45D16D7441F00F8E413 /* Tapr-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tapr-Prefix.pch"; sourceTree = "<group>"; };
+		D0124A2716FC01E800D85CEF /* AppTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppTableCellView.m; sourceTree = "<group>"; };
+		D0124A2816FC01E800D85CEF /* AppTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppTableCellView.h; sourceTree = "<group>"; };
+		D0124A2A16FC02C900D85CEF /* AppTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppTableView.h; sourceTree = "<group>"; };
+		D0124A2B16FC02C900D85CEF /* AppTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppTableView.m; sourceTree = "<group>"; };
+		D0140F8317EFD6EE004C19F3 /* MultitouchEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultitouchEvent.h; sourceTree = "<group>"; };
+		D0140F8417EFD6EE004C19F3 /* MultitouchEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultitouchEvent.m; sourceTree = "<group>"; };
+		D0140F8517EFD6EE004C19F3 /* MultitouchListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultitouchListener.h; sourceTree = "<group>"; };
+		D0140F8617EFD6EE004C19F3 /* MultitouchListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultitouchListener.m; sourceTree = "<group>"; };
+		D0140F8717EFD6EE004C19F3 /* MultitouchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultitouchManager.h; sourceTree = "<group>"; };
+		D0140F8817EFD6EE004C19F3 /* MultitouchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultitouchManager.m; sourceTree = "<group>"; };
+		D0140F8917EFD6EE004C19F3 /* MultitouchTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultitouchTouch.h; sourceTree = "<group>"; };
+		D0140F8A17EFD6EE004C19F3 /* MultitouchTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultitouchTouch.m; sourceTree = "<group>"; };
+		D0140F8F17EFD75E004C19F3 /* MultitouchSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultitouchSupport.h; sourceTree = "<group>"; };
+		D016016316FFB03A007A197E /* AppTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppTextFieldCell.h; sourceTree = "<group>"; };
+		D016016416FFB03A007A197E /* AppTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppTextFieldCell.m; sourceTree = "<group>"; };
+		D02D55E51809D97C001F0AC3 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
+		D02D55E61809D97C001F0AC3 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Application.m; sourceTree = "<group>"; };
+		D04BF23A180C8A59007467CC /* WebPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebPage.h; sourceTree = "<group>"; };
+		D04BF23B180C8A59007467CC /* WebPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebPage.m; sourceTree = "<group>"; };
+		D04BF23D180C92B8007467CC /* SafariPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafariPage.h; sourceTree = "<group>"; };
+		D04BF23E180C92B8007467CC /* SafariPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SafariPage.m; sourceTree = "<group>"; };
+		D04BF240180C9E9B007467CC /* Safari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Safari.h; sourceTree = "<group>"; };
+		D0516E1517EFCFDE00C48BD8 /* Gesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gesture.h; sourceTree = "<group>"; };
+		D0516E1617EFCFDE00C48BD8 /* Gesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gesture.m; sourceTree = "<group>"; };
+		D0516E1717EFCFDE00C48BD8 /* GesturePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GesturePoint.h; sourceTree = "<group>"; };
+		D0516E1817EFCFDE00C48BD8 /* GesturePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GesturePoint.m; sourceTree = "<group>"; };
+		D0516E1917EFCFDE00C48BD8 /* GestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureRecognizer.h; sourceTree = "<group>"; };
+		D0516E1A17EFCFDE00C48BD8 /* GestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureRecognizer.m; sourceTree = "<group>"; };
+		D0516E1B17EFCFDE00C48BD8 /* GestureResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureResult.h; sourceTree = "<group>"; };
+		D0516E1C17EFCFDE00C48BD8 /* GestureResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureResult.m; sourceTree = "<group>"; };
+		D0516E1D17EFCFDE00C48BD8 /* GestureStroke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureStroke.h; sourceTree = "<group>"; };
+		D0516E1E17EFCFDE00C48BD8 /* GestureStroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureStroke.m; sourceTree = "<group>"; };
+		D0516E1F17EFCFDE00C48BD8 /* GestureTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureTemplate.h; sourceTree = "<group>"; };
+		D0516E2017EFCFDE00C48BD8 /* GestureTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureTemplate.m; sourceTree = "<group>"; };
+		D0516E2117EFCFDE00C48BD8 /* GestureUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureUtils.h; sourceTree = "<group>"; };
+		D0516E2217EFCFDE00C48BD8 /* GestureUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureUtils.m; sourceTree = "<group>"; };
+		D05E69CC18086F7800BD4646 /* GestureSetupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureSetupModel.h; sourceTree = "<group>"; };
+		D05E69CD18086F7800BD4646 /* GestureSetupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureSetupModel.m; sourceTree = "<group>"; };
+		D06646FF17EFD66A00A59967 /* MultitouchSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultitouchSupport.framework; path = ../../../../../System/Library/PrivateFrameworks/MultitouchSupport.framework; sourceTree = "<group>"; };
+		D071F8BB1810E2B2002B3DD0 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Tapr/Sparkle.framework; sourceTree = "<group>"; };
+		D071FF97180888E300CDC8FF /* GestureRecognitionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureRecognitionModel.h; sourceTree = "<group>"; };
+		D071FF98180888E300CDC8FF /* GestureRecognitionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureRecognitionModel.m; sourceTree = "<group>"; };
+		D07340EC152578F400FC7910 /* Tapr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tapr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D07340F0152578F400FC7910 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D07340F3152578F400FC7910 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D07340F4152578F400FC7910 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D07340F5152578F400FC7910 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D073F55C15C358FF00843B5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D09D13AA181CD2B500DE2F02 /* NSStatusItemPrioritizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStatusItemPrioritizer.h; sourceTree = "<group>"; };
+		D09D13AB181CD2B500DE2F02 /* NSStatusItemPrioritizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStatusItemPrioritizer.m; sourceTree = "<group>"; };
+		D09EF01216FE4EC2009DEE99 /* trackpadBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackpadBackground.png; sourceTree = "<group>"; };
+		D09FCFC81809D9FD00EBCFF7 /* Chrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chrome.h; sourceTree = "<group>"; };
+		D09FCFCA1809DA1B00EBCFF7 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		D09FCFCC1809DA5E00EBCFF7 /* ChromePage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChromePage.h; sourceTree = "<group>"; };
+		D09FCFCD1809DA5E00EBCFF7 /* ChromePage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChromePage.m; sourceTree = "<group>"; };
+		D0B502E916FBC87C0018781C /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
+		D0B502EB16FBC9850018781C /* RepeatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepeatedImageView.h; sourceTree = "<group>"; };
+		D0B502EC16FBC9850018781C /* RepeatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepeatedImageView.m; sourceTree = "<group>"; };
+		D0B502F016FBCDD00018781C /* AppButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppButtonCell.h; sourceTree = "<group>"; };
+		D0B502F116FBCDD00018781C /* AppButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppButtonCell.m; sourceTree = "<group>"; };
+		D0B502F216FBCDD00018781C /* NSColor+ColorExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+ColorExtensions.h"; sourceTree = "<group>"; };
+		D0B502F316FBCDD00018781C /* NSColor+ColorExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+ColorExtensions.m"; sourceTree = "<group>"; };
+		D0B5030216FBECB70018781C /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
+		D0CB917316DD419100BE0E9A /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		D0CFB9A217089746005EDAB3 /* ShadowTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowTextFieldCell.h; sourceTree = "<group>"; };
+		D0CFB9A317089746005EDAB3 /* ShadowTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowTextFieldCell.m; sourceTree = "<group>"; };
+		D0F13B9216FFE7B800EA2B87 /* AppSegmentedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSegmentedCell.h; sourceTree = "<group>"; };
+		D0F13B9316FFE7B800EA2B87 /* AppSegmentedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSegmentedCell.m; sourceTree = "<group>"; };
+		D0F13B9516FFE7F300EA2B87 /* NSBezierPath+MCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBezierPath+MCAdditions.h"; sourceTree = "<group>"; };
+		D0F13B9616FFE7F300EA2B87 /* NSBezierPath+MCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+MCAdditions.m"; sourceTree = "<group>"; };
+		D0F13B9816FFEE1A00EA2B87 /* niceLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = niceLine.png; sourceTree = "<group>"; };
+		D0F13B9A16FFEF3500EA2B87 /* niceLineFlipped.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = niceLineFlipped.png; sourceTree = "<group>"; };
+		D0F2DEA217000E8D009A19B9 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D07340E9152578F400FC7910 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D071F8BE1810E321002B3DD0 /* Sparkle.framework in Frameworks */,
+				D09FCFCB1809DA1B00EBCFF7 /* ScriptingBridge.framework in Frameworks */,
+				D066470017EFD66A00A59967 /* MultitouchSupport.framework in Frameworks */,
+				D0F2DEA317000E8D009A19B9 /* CoreServices.framework in Frameworks */,
+				D0CB917416DD419100BE0E9A /* Carbon.framework in Frameworks */,
+				D073F55D15C358FF00843B5D /* QuartzCore.framework in Frameworks */,
+				D054A8DF15C3596000EA4E4D /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D001B43016D7441F00F8E413 /* Tapr */ = {
+			isa = PBXGroup;
+			children = (
+				D001B45616D7441F00F8E413 /* MainMenu.xib */,
+				D001B43416D7441F00F8E413 /* AppController.h */,
+				D001B43516D7441F00F8E413 /* AppController.m */,
+				D001B48016D7448100F8E413 /* Gesture Setup */,
+				D001B48216D744D800F8E413 /* Gesture Recognition */,
+				D0516E1417EFCFC500C48BD8 /* Multitouch Support */,
+				D001B48116D7449300F8E413 /* Gesture Detection */,
+				D001B47F16D7446000F8E413 /* Supporting Files */,
+			);
+			name = Tapr;
+			path = Tapr;
+			sourceTree = "<group>";
+		};
+		D001B47F16D7446000F8E413 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D09FCFC81809D9FD00EBCFF7 /* Chrome.h */,
+				D04BF240180C9E9B007467CC /* Safari.h */,
+				D0B502FA16FBE05F0018781C /* Categories */,
+				D0516E1317EFCF9500C48BD8 /* Images */,
+				D001B45516D7441F00F8E413 /* main.m */,
+				D001B45C16D7441F00F8E413 /* Tapr-Info.plist */,
+				D001B45D16D7441F00F8E413 /* Tapr-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D001B48016D7448100F8E413 /* Gesture Setup */ = {
+			isa = PBXGroup;
+			children = (
+				D0B37C3F18084017007364E8 /* Model */,
+				D0B37C3E1808400B007364E8 /* Controller */,
+				D0B37C3A18083986007364E8 /* View */,
+			);
+			name = "Gesture Setup";
+			sourceTree = "<group>";
+		};
+		D001B48116D7449300F8E413 /* Gesture Detection */ = {
+			isa = PBXGroup;
+			children = (
+				D0516E1517EFCFDE00C48BD8 /* Gesture.h */,
+				D0516E1617EFCFDE00C48BD8 /* Gesture.m */,
+				D0516E1717EFCFDE00C48BD8 /* GesturePoint.h */,
+				D0516E1817EFCFDE00C48BD8 /* GesturePoint.m */,
+				D0516E1917EFCFDE00C48BD8 /* GestureRecognizer.h */,
+				D0516E1A17EFCFDE00C48BD8 /* GestureRecognizer.m */,
+				D0516E1B17EFCFDE00C48BD8 /* GestureResult.h */,
+				D0516E1C17EFCFDE00C48BD8 /* GestureResult.m */,
+				D0516E1D17EFCFDE00C48BD8 /* GestureStroke.h */,
+				D0516E1E17EFCFDE00C48BD8 /* GestureStroke.m */,
+				D0516E1F17EFCFDE00C48BD8 /* GestureTemplate.h */,
+				D0516E2017EFCFDE00C48BD8 /* GestureTemplate.m */,
+				D0516E2117EFCFDE00C48BD8 /* GestureUtils.h */,
+				D0516E2217EFCFDE00C48BD8 /* GestureUtils.m */,
+			);
+			name = "Gesture Detection";
+			sourceTree = "<group>";
+		};
+		D001B48216D744D800F8E413 /* Gesture Recognition */ = {
+			isa = PBXGroup;
+			children = (
+				D0B37C4118084045007364E8 /* Model */,
+				D0B37C401808403B007364E8 /* Controller */,
+				D0B37C3918083970007364E8 /* View */,
+			);
+			name = "Gesture Recognition";
+			sourceTree = "<group>";
+		};
+		D0516E1317EFCF9500C48BD8 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D001B43A16D7441F00F8E413 /* background.png */,
+				D0B502E916FBC87C0018781C /* background2.png */,
+				D0F13B9816FFEE1A00EA2B87 /* niceLine.png */,
+				D0F13B9A16FFEF3500EA2B87 /* niceLineFlipped.png */,
+				D001B45B16D7441F00F8E413 /* tableCellBack.png */,
+				D09EF01216FE4EC2009DEE99 /* trackpadBackground.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		D0516E1417EFCFC500C48BD8 /* Multitouch Support */ = {
+			isa = PBXGroup;
+			children = (
+				D0140F8F17EFD75E004C19F3 /* MultitouchSupport.h */,
+				D0140F8317EFD6EE004C19F3 /* MultitouchEvent.h */,
+				D0140F8417EFD6EE004C19F3 /* MultitouchEvent.m */,
+				D0140F8517EFD6EE004C19F3 /* MultitouchListener.h */,
+				D0140F8617EFD6EE004C19F3 /* MultitouchListener.m */,
+				D0140F8717EFD6EE004C19F3 /* MultitouchManager.h */,
+				D0140F8817EFD6EE004C19F3 /* MultitouchManager.m */,
+				D0140F8917EFD6EE004C19F3 /* MultitouchTouch.h */,
+				D0140F8A17EFD6EE004C19F3 /* MultitouchTouch.m */,
+			);
+			name = "Multitouch Support";
+			sourceTree = "<group>";
+		};
+		D07340E1152578F400FC7910 = {
+			isa = PBXGroup;
+			children = (
+				D0B5030216FBECB70018781C /* Icon.icns */,
+				D001B43016D7441F00F8E413 /* Tapr */,
+				D07340EF152578F400FC7910 /* Frameworks */,
+				D07340ED152578F400FC7910 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D07340ED152578F400FC7910 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D07340EC152578F400FC7910 /* Tapr.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D07340EF152578F400FC7910 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D071F8BB1810E2B2002B3DD0 /* Sparkle.framework */,
+				D09FCFCA1809DA1B00EBCFF7 /* ScriptingBridge.framework */,
+				D06646FF17EFD66A00A59967 /* MultitouchSupport.framework */,
+				D0F2DEA217000E8D009A19B9 /* CoreServices.framework */,
+				D0CB917316DD419100BE0E9A /* Carbon.framework */,
+				D073F55C15C358FF00843B5D /* QuartzCore.framework */,
+				D07340F0152578F400FC7910 /* Cocoa.framework */,
+				D07340F2152578F400FC7910 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D07340F2152578F400FC7910 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D07340F3152578F400FC7910 /* AppKit.framework */,
+				D07340F4152578F400FC7910 /* CoreData.framework */,
+				D07340F5152578F400FC7910 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D0B37C3918083970007364E8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D001B44816D7441F00F8E413 /* GestureRecognitionWindow.h */,
+				D001B44916D7441F00F8E413 /* GestureRecognitionWindow.m */,
+				D001B44616D7441F00F8E413 /* GestureRecognitionView.h */,
+				D001B44716D7441F00F8E413 /* GestureRecognitionView.m */,
+				D0B502EB16FBC9850018781C /* RepeatedImageView.h */,
+				D0B502EC16FBC9850018781C /* RepeatedImageView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D0B37C3A18083986007364E8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D09D13AA181CD2B500DE2F02 /* NSStatusItemPrioritizer.h */,
+				D09D13AB181CD2B500DE2F02 /* NSStatusItemPrioritizer.m */,
+				D001B44E16D7441F00F8E413 /* GestureSetupWindow.h */,
+				D001B44F16D7441F00F8E413 /* GestureSetupWindow.m */,
+				D001B44C16D7441F00F8E413 /* GestureSetupView.h */,
+				D001B44D16D7441F00F8E413 /* GestureSetupView.m */,
+				D0F13B9216FFE7B800EA2B87 /* AppSegmentedCell.h */,
+				D0F13B9316FFE7B800EA2B87 /* AppSegmentedCell.m */,
+				D0B502F016FBCDD00018781C /* AppButtonCell.h */,
+				D0B502F116FBCDD00018781C /* AppButtonCell.m */,
+				D0124A2A16FC02C900D85CEF /* AppTableView.h */,
+				D0124A2B16FC02C900D85CEF /* AppTableView.m */,
+				D0124A2816FC01E800D85CEF /* AppTableCellView.h */,
+				D0124A2716FC01E800D85CEF /* AppTableCellView.m */,
+				D016016316FFB03A007A197E /* AppTextFieldCell.h */,
+				D016016416FFB03A007A197E /* AppTextFieldCell.m */,
+				D0CFB9A217089746005EDAB3 /* ShadowTextFieldCell.h */,
+				D0CFB9A317089746005EDAB3 /* ShadowTextFieldCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D0B37C3E1808400B007364E8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D001B44A16D7441F00F8E413 /* GestureSetupController.h */,
+				D001B44B16D7441F00F8E413 /* GestureSetupController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D0B37C3F18084017007364E8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D05E69CC18086F7800BD4646 /* GestureSetupModel.h */,
+				D05E69CD18086F7800BD4646 /* GestureSetupModel.m */,
+				D001B43216D7441F00F8E413 /* Launchable.h */,
+				D001B43316D7441F00F8E413 /* Launchable.m */,
+				D02D55E51809D97C001F0AC3 /* Application.h */,
+				D02D55E61809D97C001F0AC3 /* Application.m */,
+				D04BF23A180C8A59007467CC /* WebPage.h */,
+				D04BF23B180C8A59007467CC /* WebPage.m */,
+				D09FCFCC1809DA5E00EBCFF7 /* ChromePage.h */,
+				D09FCFCD1809DA5E00EBCFF7 /* ChromePage.m */,
+				D04BF23D180C92B8007467CC /* SafariPage.h */,
+				D04BF23E180C92B8007467CC /* SafariPage.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D0B37C401808403B007364E8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D001B44416D7441F00F8E413 /* GestureRecognitionController.h */,
+				D001B44516D7441F00F8E413 /* GestureRecognitionController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D0B37C4118084045007364E8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D071FF97180888E300CDC8FF /* GestureRecognitionModel.h */,
+				D071FF98180888E300CDC8FF /* GestureRecognitionModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D0B502FA16FBE05F0018781C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D0F13B9516FFE7F300EA2B87 /* NSBezierPath+MCAdditions.h */,
+				D0F13B9616FFE7F300EA2B87 /* NSBezierPath+MCAdditions.m */,
+				D0B502F216FBCDD00018781C /* NSColor+ColorExtensions.h */,
+				D0B502F316FBCDD00018781C /* NSColor+ColorExtensions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D07340EB152578F400FC7910 /* Tapr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D073410A152578F400FC7910 /* Build configuration list for PBXNativeTarget "Tapr" */;
+			buildPhases = (
+				D07340E8152578F400FC7910 /* Sources */,
+				D07340E9152578F400FC7910 /* Frameworks */,
+				D07340EA152578F400FC7910 /* Resources */,
+				D0A1ED1A1810B7110034FC34 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tapr;
+			productName = GestureControls;
+			productReference = D07340EC152578F400FC7910 /* Tapr.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D07340E3152578F400FC7910 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = mhuusko5;
+				TargetAttributes = {
+					D07340EB152578F400FC7910 = {
+						DevelopmentTeam = KG7LGVJ8EA;
+					};
+				};
+			};
+			buildConfigurationList = D07340E6152578F400FC7910 /* Build configuration list for PBXProject "Tapr" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D07340E1152578F400FC7910;
+			productRefGroup = D07340ED152578F400FC7910 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D07340EB152578F400FC7910 /* Tapr */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D07340EA152578F400FC7910 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D001B46616D7441F00F8E413 /* background.png in Resources */,
+				D001B47616D7441F00F8E413 /* MainMenu.xib in Resources */,
+				D001B47B16D7441F00F8E413 /* tableCellBack.png in Resources */,
+				D0B502EA16FBC87C0018781C /* background2.png in Resources */,
+				D0B5030316FBECB70018781C /* Icon.icns in Resources */,
+				D09EF01316FE4EC2009DEE99 /* trackpadBackground.png in Resources */,
+				D0F13B9916FFEE1A00EA2B87 /* niceLine.png in Resources */,
+				D0F13B9B16FFEF3500EA2B87 /* niceLineFlipped.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D07340E8152578F400FC7910 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D09D13AC181CD2B500DE2F02 /* NSStatusItemPrioritizer.m in Sources */,
+				D001B46216D7441F00F8E413 /* Launchable.m in Sources */,
+				D001B46316D7441F00F8E413 /* AppController.m in Sources */,
+				D0516E2917EFCFDE00C48BD8 /* GestureUtils.m in Sources */,
+				D0140F8D17EFD6EE004C19F3 /* MultitouchManager.m in Sources */,
+				D0516E2417EFCFDE00C48BD8 /* GesturePoint.m in Sources */,
+				D001B46C16D7441F00F8E413 /* GestureRecognitionController.m in Sources */,
+				D001B46D16D7441F00F8E413 /* GestureRecognitionView.m in Sources */,
+				D001B46E16D7441F00F8E413 /* GestureRecognitionWindow.m in Sources */,
+				D0516E2617EFCFDE00C48BD8 /* GestureResult.m in Sources */,
+				D001B46F16D7441F00F8E413 /* GestureSetupController.m in Sources */,
+				D0516E2317EFCFDE00C48BD8 /* Gesture.m in Sources */,
+				D001B47016D7441F00F8E413 /* GestureSetupView.m in Sources */,
+				D001B47116D7441F00F8E413 /* GestureSetupWindow.m in Sources */,
+				D0140F8B17EFD6EE004C19F3 /* MultitouchEvent.m in Sources */,
+				D001B47516D7441F00F8E413 /* main.m in Sources */,
+				D0B502ED16FBC9850018781C /* RepeatedImageView.m in Sources */,
+				D0B502F516FBCDD10018781C /* AppButtonCell.m in Sources */,
+				D0B502F616FBCDD10018781C /* NSColor+ColorExtensions.m in Sources */,
+				D0516E2817EFCFDE00C48BD8 /* GestureTemplate.m in Sources */,
+				D0124A2916FC01E800D85CEF /* AppTableCellView.m in Sources */,
+				D0140F8C17EFD6EE004C19F3 /* MultitouchListener.m in Sources */,
+				D0124A2C16FC02C900D85CEF /* AppTableView.m in Sources */,
+				D016016516FFB03B007A197E /* AppTextFieldCell.m in Sources */,
+				D0F13B9416FFE7B800EA2B87 /* AppSegmentedCell.m in Sources */,
+				D0F13B9716FFE7F300EA2B87 /* NSBezierPath+MCAdditions.m in Sources */,
+				D0516E2717EFCFDE00C48BD8 /* GestureStroke.m in Sources */,
+				D0CFB9A417089746005EDAB3 /* ShadowTextFieldCell.m in Sources */,
+				D0140F8E17EFD6EE004C19F3 /* MultitouchTouch.m in Sources */,
+				D0516E2517EFCFDE00C48BD8 /* GestureRecognizer.m in Sources */,
+				D05E69CE18086F7800BD4646 /* GestureSetupModel.m in Sources */,
+				D071FF99180888E300CDC8FF /* GestureRecognitionModel.m in Sources */,
+				D02D55E71809D97C001F0AC3 /* Application.m in Sources */,
+				D09FCFCE1809DA5E00EBCFF7 /* ChromePage.m in Sources */,
+				D04BF23C180C8A59007467CC /* WebPage.m in Sources */,
+				D04BF23F180C92B8007467CC /* SafariPage.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D0734108152578F400FC7910 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CODE_SIGN_FLAGS = "--deep";
+				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--deep";
+				PROVISIONING_PROFILE = "279123E9-2930-46A9-8FAA-59B3BA82EF4C";
+				SDKROOT = macosx10.8;
+			};
+			name = Debug;
+		};
+		D0734109152578F400FC7910 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CODE_SIGN_FLAGS = "--deep";
+				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--deep";
+				PROVISIONING_PROFILE = "279123E9-2930-46A9-8FAA-59B3BA82EF4C";
+				SDKROOT = macosx10.8;
+			};
+			name = Release;
+		};
+		D073410B152578F400FC7910 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
+				COMBINE_HIDPI_IMAGES = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Tapr\"",
+				);
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tapr/Tapr-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				INFOPLIST_FILE = "Tapr/Tapr-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--deep";
+				PRODUCT_NAME = Tapr;
+				PROVISIONING_PROFILE = "279123E9-2930-46A9-8FAA-59B3BA82EF4C";
+				SDKROOT = macosx10.8;
+				SKIP_INSTALL = NO;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D073410C152578F400FC7910 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Tapr\"",
+				);
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tapr/Tapr-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = "";
+				INFOPLIST_FILE = "Tapr/Tapr-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CODE_SIGN_FLAGS = "--deep";
+				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--deep";
+				PRODUCT_NAME = Tapr;
+				PROVISIONING_PROFILE = "279123E9-2930-46A9-8FAA-59B3BA82EF4C";
+				SDKROOT = macosx10.8;
+				SKIP_INSTALL = NO;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D07340E6152578F400FC7910 /* Build configuration list for PBXProject "Tapr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0734108152578F400FC7910 /* Debug */,
+				D0734109152578F400FC7910 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D073410A152578F400FC7910 /* Build configuration list for PBXNativeTarget "Tapr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D073410B152578F400FC7910 /* Debug */,
+				D073410C152578F400FC7910 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D07340E3152578F400FC7910 /* Project object */;
+}
