@@ -45,195 +45,33 @@
             </connections>
         </customObject>
         <customObject id="4210" userLabel="App Updater" customClass="SUUpdater"/>
-        <customObject id="3781" customClass="GestureSetupController">
+        <customObject id="3781" customClass="TaprSetupController">
             <connections>
-                <outlet property="assignGestureButton" destination="4071" id="4079"/>
-                <outlet property="clearGestureButton" destination="4073" id="4198"/>
-                <outlet property="drawNotificationText" destination="4081" id="4199"/>
-                <outlet property="fullscreenOptionField" destination="4144" id="4201"/>
-                <outlet property="launchableArrayController" destination="3942" id="4193"/>
-                <outlet property="launchableTableView" destination="3523" id="4192"/>
-                <outlet property="launchableTypePicker" destination="4109" id="4189"/>
                 <outlet property="loginStartOptionField" destination="4160" id="4203"/>
-                <outlet property="minimumRecognitionScoreField" destination="4055" id="4196"/>
-                <outlet property="multitouchOptionField" destination="4132" id="4200"/>
-                <outlet property="multitouchRecognitionLabel" destination="4130" id="4170"/>
-                <outlet property="readingDelayTimeField" destination="4086" id="4197"/>
-                <outlet property="setupView" destination="3747" id="3847"/>
                 <outlet property="setupWindow" destination="2804" id="3846"/>
-                <outlet property="showGestureButton" destination="4069" id="4078"/>
+                <outlet property="setupWindowBackground" destination="4097" id="3JJ-UG-13I"/>
                 <outlet property="statusBarView" destination="3859" id="3862"/>
             </connections>
         </customObject>
-        <customObject id="3836" customClass="GestureRecognitionController">
+        <customObject id="3836" customClass="TaprRecognitionController">
             <connections>
-                <outlet property="appDescriptionAlert" destination="3865" id="4108"/>
-                <outlet property="appIconAlert" destination="4037" id="4107"/>
-                <outlet property="partialDescriptionAlert" destination="4061" id="4063"/>
-                <outlet property="partialIconAlert" destination="4064" id="4066"/>
-                <outlet property="recognitionBackground" destination="4099" id="4101"/>
-                <outlet property="recognitionView" destination="3820" id="3845"/>
                 <outlet property="recognitionWindow" destination="3817" id="3844"/>
             </connections>
         </customObject>
-        <arrayController objectClassName="" editable="NO" preservesSelection="NO" selectsInsertedObjects="NO" avoidsEmptySelection="NO" clearsFilterPredicateOnInsertion="NO" id="3942" userLabel="Launchable Array Controller"/>
-        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="2804" customClass="GestureSetupWindow">
-            <rect key="contentRect" x="674" y="464" width="365" height="557"/>
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="2804" customClass="TaprSetupWindow">
+            <rect key="contentRect" x="674" y="464" width="205" height="76"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="2805">
-                <rect key="frame" x="0.0" y="0.0" width="365" height="557"/>
+                <rect key="frame" x="0.0" y="0.0" width="205" height="76"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView id="4097" customClass="RepeatedImageView">
-                        <rect key="frame" x="0.0" y="0.0" width="365" height="557"/>
+                    <imageView id="4097" customClass="TaprSetupBackgroundView">
+                        <rect key="frame" x="0.0" y="0.0" width="205" height="76"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" controlSize="mini" alignment="left" imageScaling="axesIndependently" image="background2" id="4098"/>
                     </imageView>
-                    <segmentedControl verticalHuggingPriority="750" id="4109">
-                        <rect key="frame" x="54" y="272" width="257" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <segmentedCell key="cell" alignment="left" style="rounded" trackingMode="selectOne" id="4110" customClass="AppSegmentedCell">
-                            <font key="font" metaFont="system"/>
-                            <segments>
-                                <segment label="Apps" width="62"/>
-                                <segment label="Web" width="62" tag="1"/>
-                                <segment label="Utilities" width="62"/>
-                                <segment label="System" width="62"/>
-                            </segments>
-                        </segmentedCell>
-                        <connections>
-                            <action selector="launchableTypeChanged:" target="3781" id="4188"/>
-                        </connections>
-                    </segmentedControl>
-                    <imageView id="3729">
-                        <rect key="frame" x="8" y="339" width="348" height="211"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="trackpadBackground" id="3730"/>
-                    </imageView>
-                    <textField verticalHuggingPriority="750" id="4053">
-                        <rect key="frame" x="38" y="78" width="197" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Only recognize gesture if at least" id="4054" customClass="ShadowTextFieldCell">
-                            <font key="font" metaFont="cellTitle"/>
-                            <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField verticalHuggingPriority="750" id="4057">
-                        <rect key="frame" x="277" y="78" width="52" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="% match" id="4058" customClass="ShadowTextFieldCell">
-                            <font key="font" metaFont="cellTitle"/>
-                            <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField toolTip="Must be greater than 70, and less than 100" focusRingType="none" verticalHuggingPriority="750" id="4055">
-                        <rect key="frame" x="237" y="75" width="34" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" alignment="center" drawsBackground="YES" id="4056" customClass="AppTextFieldCell">
-                            <font key="font" metaFont="cellTitle"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <action selector="minimumRecognitionScoreChanged:" target="3781" id="4194"/>
-                        </connections>
-                    </textField>
-                    <textField verticalHuggingPriority="750" id="4084">
-                        <rect key="frame" x="41" y="111" width="81" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Read gesture" id="4089" customClass="ShadowTextFieldCell">
-                            <font key="font" metaFont="cellTitle"/>
-                            <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField verticalHuggingPriority="750" id="4085">
-                        <rect key="frame" x="170" y="111" width="159" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="ms after finished drawing" id="4088" customClass="ShadowTextFieldCell">
-                            <font key="font" metaFont="cellTitle"/>
-                            <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField toolTip="Must be greater than 1, and less than 1000" focusRingType="none" verticalHuggingPriority="750" id="4086">
-                        <rect key="frame" x="124" y="109" width="40" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" alignment="center" drawsBackground="YES" id="4087" customClass="AppTextFieldCell">
-                            <font key="font" metaFont="cellTitle"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <action selector="readingDelayTimeChanged:" target="3781" id="4195"/>
-                        </connections>
-                    </textField>
-                    <button id="4073">
-                        <rect key="frame" x="245" y="307" width="72" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Clear" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4074" customClass="AppButtonCell">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="clearSelectedGesture:" target="3781" id="4186"/>
-                        </connections>
-                    </button>
-                    <button id="4071">
-                        <rect key="frame" x="47" y="307" width="72" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Assign" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4072" customClass="AppButtonCell">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="assignSelectedGesture:" target="3781" id="4185"/>
-                        </connections>
-                    </button>
-                    <button id="4069">
-                        <rect key="frame" x="146" y="307" width="72" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="Show" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4070" customClass="AppButtonCell">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="showSelectedGesture:" target="3781" id="4075"/>
-                        </connections>
-                    </button>
-                    <textField toolTip="Activate with a four-finger tap, then swipe away, instead of double-right-click, then click 'n drag..." verticalHuggingPriority="750" id="4130">
-                        <rect key="frame" x="20" y="45" width="133" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Multitouch trackpad?" id="4131" customClass="ShadowTextFieldCell">
-                            <font key="font" metaFont="cellTitle"/>
-                            <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField toolTip="Draw your gestures fullscreen instead of in a window..." verticalHuggingPriority="750" id="4142">
-                        <rect key="frame" x="186" y="45" width="145" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Fullscreen recognition?" id="4143" customClass="ShadowTextFieldCell">
-                            <font key="font" metaFont="cellTitle"/>
-                            <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <button id="4132">
-                        <rect key="frame" x="150" y="42" width="22" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="4133" customClass="AppButtonCell">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="multitouchOptionChanged:" target="3781" id="4204"/>
-                        </connections>
-                    </button>
                     <textField toolTip="Launch Tapr on login..." verticalHuggingPriority="750" id="4159">
-                        <rect key="frame" x="172" y="12" width="90" height="18"/>
+                        <rect key="frame" x="12" y="12" width="90" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Start at login?" id="4162" customClass="ShadowTextFieldCell">
                             <font key="font" metaFont="cellTitle"/>
@@ -242,7 +80,7 @@
                         </textFieldCell>
                     </textField>
                     <button id="4160">
-                        <rect key="frame" x="260" y="9" width="22" height="22"/>
+                        <rect key="frame" x="100" y="9" width="22" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="4161" customClass="AppButtonCell">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -252,112 +90,8 @@
                             <action selector="loginStartOptionChanged:" target="3781" id="4207"/>
                         </connections>
                     </button>
-                    <button id="4144">
-                        <rect key="frame" x="328" y="42" width="22" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="4145" customClass="AppButtonCell">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="fullscreenOptionChanged:" target="3781" id="4205"/>
-                        </connections>
-                    </button>
-                    <customView id="4216">
-                        <rect key="frame" x="0.0" y="141" width="365" height="136"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <subviews>
-                            <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="3522">
-                                <rect key="frame" x="0.0" y="2" width="365" height="131"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" copiesOnScroll="NO" id="naK-Z8-zy8">
-                                    <rect key="frame" x="0.0" y="0.0" width="365" height="131"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" viewBased="YES" id="3523" customClass="AppTableView">
-                                            <rect key="frame" x="0.0" y="0.0" width="365" height="131"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" red="0.21448237889999999" green="0.21448237889999999" blue="0.21448237889999999" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
-                                            <color key="gridColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <tableColumns>
-                                                <tableColumn editable="NO" width="365" minWidth="365" maxWidth="365" id="3527">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" allowsUndo="NO" alignment="left" id="3530">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <prototypeCellViews>
-                                                        <tableCellView id="4041" customClass="AppTableCellView">
-                                                            <rect key="frame" x="0.0" y="0.0" width="365" height="36"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                            <subviews>
-                                                                <imageView id="4049">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="365" height="36"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                    <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="tableCellBack" id="4050"/>
-                                                                </imageView>
-                                                                <imageView id="4045">
-                                                                    <rect key="frame" x="8" y="6" width="25" height="25"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                    <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="4046"/>
-                                                                </imageView>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="4042">
-                                                                    <rect key="frame" x="41" y="5" width="324" height="23"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Test" id="4043">
-                                                                        <font key="font" metaFont="system" size="15"/>
-                                                                        <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                                    </textFieldCell>
-                                                                </textField>
-                                                            </subviews>
-                                                            <connections>
-                                                                <outlet property="imageView" destination="4045" id="4048"/>
-                                                                <outlet property="textField" destination="4042" id="4044"/>
-                                                            </connections>
-                                                        </tableCellView>
-                                                    </prototypeCellViews>
-                                                    <connections>
-                                                        <binding destination="3942" name="value" keyPath="arrangedObjects" id="4177"/>
-                                                    </connections>
-                                                </tableColumn>
-                                            </tableColumns>
-                                            <connections>
-                                                <outlet property="dataSource" destination="3781" id="4047"/>
-                                                <outlet property="delegate" destination="3781" id="3788"/>
-                                            </connections>
-                                        </tableView>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.03535218825" green="0.03575853524" blue="0.03575853524" alpha="0.89000000000000001" colorSpace="calibratedRGB"/>
-                                </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="3524">
-                                    <rect key="frame" x="-100" y="-100" width="223" height="15"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="3526">
-                                    <rect key="frame" x="-100" y="-100" width="15" height="102"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
-                            <imageView id="4111">
-                                <rect key="frame" x="0.0" y="0.0" width="365" height="4"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="niceLine" id="4112"/>
-                            </imageView>
-                            <imageView id="4217">
-                                <rect key="frame" x="0.0" y="131" width="365" height="4"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="niceLineFlipped" id="4218"/>
-                            </imageView>
-                        </subviews>
-                    </customView>
                     <button id="4222">
-                        <rect key="frame" x="14" y="10" width="143" height="22"/>
+                        <rect key="frame" x="12" y="42" width="180" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="bevel" title="Check for Updates" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4223" customClass="AppButtonCell">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -370,7 +104,7 @@
                         </connections>
                     </button>
                     <button id="2Yi-ey-q9B">
-                        <rect key="frame" x="291" y="10" width="60" height="22"/>
+                        <rect key="frame" x="132" y="10" width="60" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="bevel" title="Quit" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cnb-ro-RiB" customClass="AppButtonCell">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -380,72 +114,18 @@
                             <action selector="closeAndQuit:" target="844" id="5lA-M3-t8V"/>
                         </connections>
                     </button>
-                    <textField verticalHuggingPriority="750" alphaValue="0.0" id="4081">
-                        <rect key="frame" x="127" y="432" width="110" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="4082">
-                            <font key="font" metaFont="system" size="20"/>
-                            <color key="textColor" red="0.12663424740000001" green="0.12663424740000001" blue="0.12663424740000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <customView id="3747" customClass="GestureSetupView">
-                        <rect key="frame" x="16" y="347" width="332" height="195"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    </customView>
                 </subviews>
             </view>
             <connections>
                 <outlet property="delegate" destination="3781" id="4105"/>
             </connections>
         </window>
-        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="3817" customClass="GestureRecognitionWindow">
-            <rect key="contentRect" x="674" y="464" width="365" height="277"/>
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" appearanceType="lightContent" animationBehavior="default" id="3817" customClass="TaprRecognitionWindow">
+            <rect key="contentRect" x="674" y="464" width="300" height="200"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
-            <view key="contentView" id="3818">
-                <rect key="frame" x="0.0" y="0.0" width="365" height="277"/>
+            <view key="contentView" id="3818" customClass="TaprRecognitionView">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <imageView id="4099" customClass="RepeatedImageView">
-                        <rect key="frame" x="0.0" y="0.0" width="365" height="277"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="background" id="4100"/>
-                    </imageView>
-                    <imageView id="4037">
-                        <rect key="frame" x="132" y="88" width="100" height="100"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="4038"/>
-                    </imageView>
-                    <textField verticalHuggingPriority="750" id="3865">
-                        <rect key="frame" x="132" y="118" width="100" height="41"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" id="3866" customClass="ShadowTextFieldCell">
-                            <font key="font" metaFont="system" size="34"/>
-                            <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <customView id="3820" customClass="GestureRecognitionView">
-                        <rect key="frame" x="0.0" y="0.0" width="365" height="277"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <subviews>
-                            <imageView id="4064">
-                                <rect key="frame" x="132" y="88" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="4065"/>
-                            </imageView>
-                            <textField verticalHuggingPriority="750" id="4061">
-                                <rect key="frame" x="132" y="126" width="100" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="left" placeholderString="" id="4062" customClass="ShadowTextFieldCell">
-                                    <font key="font" metaFont="system" size="20"/>
-                                    <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                        </subviews>
-                    </customView>
-                </subviews>
             </view>
             <connections>
                 <outlet property="delegate" destination="3836" id="4106"/>
@@ -471,11 +151,6 @@
     </objects>
     <resources>
         <image name="Icon" width="512" height="512"/>
-        <image name="background" width="256" height="256"/>
         <image name="background2" width="50" height="50"/>
-        <image name="niceLine" width="365" height="4"/>
-        <image name="niceLineFlipped" width="365" height="4"/>
-        <image name="tableCellBack" width="365" height="37"/>
-        <image name="trackpadBackground" width="352" height="215"/>
     </resources>
 </document>

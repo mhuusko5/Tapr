@@ -1,6 +1,6 @@
-#import "GestureSetupWindow.h"
+#import "TaprSetupWindow.h"
 
-@implementation GestureSetupWindow
+@implementation TaprSetupWindow
 
 - (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag {
 	self = [super initWithContentRect:contentRect styleMask:(NSBorderlessWindowMask | NSNonactivatingPanelMask) backing:NSBackingStoreBuffered defer:NO];
