@@ -39,12 +39,13 @@
 	if (!detectingTap) {
 		[self showRecognitionWindow];
         
-        noTapTimer = [NSTimer scheduledTimerWithTimeInterval:1.4 target:self selector:@selector(noTapInput) userInfo:nil repeats:NO];
-        
-        [[MultitouchManager sharedMultitouchManager] removeMultitouchListenersWithTarget:self andCallback:@selector(tapMultitouchEvent:)];
-        [self performSelector:@selector(startListeningForTapEvent) withObject:nil afterDelay:0.2];
+        noTapTimer = [NSTimer scheduledTimerWithTimeInterval:1.4 target:self selector:@selector(noTapDetected) userInfo:nil repeats:NO];
+       
         [NSApp activateIgnoringOtherApps:YES];
         CGAssociateMouseAndMouseCursorPosition(NO);
+        
+        [NSThread sleepForTimeInterval:0.2];
+        [[MultitouchManager sharedMultitouchManager] addMultitouchListenerWithTarget:self callback:@selector(tapMultitouchEvent:) andThread:nil];
         
         detectingTap = YES;
 	}
@@ -78,7 +79,7 @@
     }
 }
 
-- (void)noTapInput {
+- (void)noTapDetected {
     [self stopDetectingTap:YES];
 }
 
@@ -86,13 +87,35 @@
 
 #pragma mark -
 #pragma mark Tap Event Handling
-- (void)startListeningForTapEvent {
-    [[MultitouchManager sharedMultitouchManager] addMultitouchListenerWithTarget:self callback:@selector(tapMultitouchEvent:) andThread:nil];
-}
-
 - (void)tapMultitouchEvent:(MultitouchEvent *)event {
-    if (detectingTap && event && event.touches.count == 1 && ((MultitouchTouch *)[event.touches objectAtIndex:0]).state == MultitouchTouchStateActive) {
+    MultitouchTouch *tap;
+    if (detectingTap && event && event.touches.count == 1 && (tap = [event.touches objectAtIndex:0]) && tap.state == MultitouchTouchStateActive) {
+        int appNumber;
+        if (tap.y > 0.5) {
+            if (tap.x < (1.0 / 3.0)) {
+                appNumber = 1;
+            } else if (tap.x < (2.0 / 3.0)) {
+                appNumber = 2;
+            } else {
+                appNumber = 3;
+            }
+        } else {
+            if (tap.x < (1.0 / 3.0)) {
+                appNumber = 4;
+            } else if (tap.x < (2.0 / 3.0)) {
+                appNumber = 5;
+            } else {
+                appNumber = 6;
+            }
+        }
+        
+        Application *appToActivate = [appArrayToUse objectAtIndex:appNumber - 1];
+        
+        [appToActivate launch];
+        
         [self stopDetectingTap:NO];
+        
+        [recognitionModel generateMostActivatedAppArray];
     }
 }
 
@@ -117,7 +140,7 @@
             
 			[recentThreeFingerTouches removeAllObjects];
             
-			if (totalCount / 3 <= 30 && (totalVelocity / totalCount) <= 0.5) {
+			if (totalCount / 3 <= 20 && (totalVelocity / totalCount) <= 0.5) {
 				[self shouldStartDetectingTap];
 			}
 		}
@@ -189,6 +212,37 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
     windowRect.origin.y += (screenRect.size.height - windowRect.size.height) / 2;
     
 	[recognitionWindow setFrame:windowRect display:NO];
+    
+    NSSize appIconSize = NSMakeSize(windowRect.size.height / 2.94, windowRect.size.height / 2.94);
+    
+    [appIcon1 setFrame:NSMakeRect(windowRect.size.height / 6.74, windowRect.size.height / 1.856, appIconSize.width, appIconSize.height)];
+    [appIcon2 setFrame:NSMakeRect(windowRect.size.height / 1.722, windowRect.size.height / 1.856, appIconSize.width, appIconSize.height)];
+    [appIcon3 setFrame:NSMakeRect(windowRect.size.height / 0.991, windowRect.size.height / 1.856, appIconSize.width, appIconSize.height)];
+    [appIcon4 setFrame:NSMakeRect(windowRect.size.height / 6.74, windowRect.size.height / 8.6, appIconSize.width, appIconSize.height)];
+    [appIcon5 setFrame:NSMakeRect(windowRect.size.height / 1.722, windowRect.size.height / 8.6, appIconSize.width, appIconSize.height)];
+    [appIcon6 setFrame:NSMakeRect(windowRect.size.height / 0.991, windowRect.size.height / 8.6, appIconSize.width, appIconSize.height)];
+    
+    if (recognitionModel.mostActivatedAppArray.count > 6) {
+        appArrayToUse = recognitionModel.mostActivatedAppArray;
+    } else {
+        appArrayToUse = recognitionModel.mostOpenedAppArray;
+    }
+    
+    appIcon1.image = ((Application *)[appArrayToUse objectAtIndex:0]).icon;
+    appIcon2.image = ((Application *)[appArrayToUse objectAtIndex:1]).icon;
+    appIcon3.image = ((Application *)[appArrayToUse objectAtIndex:2]).icon;
+    appIcon4.image = ((Application *)[appArrayToUse objectAtIndex:3]).icon;
+    appIcon5.image = ((Application *)[appArrayToUse objectAtIndex:4]).icon;
+    appIcon6.image = ((Application *)[appArrayToUse objectAtIndex:5]).icon;
+    
+    [appIcon1 setNeedsDisplay:YES];
+    [appIcon2 setNeedsDisplay:YES];
+    [appIcon3 setNeedsDisplay:YES];
+    [appIcon4 setNeedsDisplay:YES];
+    [appIcon5 setNeedsDisplay:YES];
+    [appIcon6 setNeedsDisplay:YES];
+    
+    [recognitionWindow.contentView setNeedsDisplay:YES];
 }
 
 #pragma mark -

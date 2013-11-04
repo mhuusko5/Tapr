@@ -29,8 +29,6 @@
 	[self updateSetupControls];
     
 	[self hideSetupWindow];
-    
-    [setupWindowBackground setNeedsDisplay:YES];
 }
 
 #pragma mark -
@@ -39,6 +37,8 @@
 #pragma mark Interface Control
 - (void)updateSetupControls {
 	loginStartOptionField.state = setupModel.loginStartOption;
+    
+    [setupWindow.contentView setNeedsDisplay:YES];
 }
 
 #pragma mark -

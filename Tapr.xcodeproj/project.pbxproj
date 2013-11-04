@@ -31,6 +31,7 @@
 		D071F8BE1810E321002B3DD0 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D071F8BB1810E2B2002B3DD0 /* Sparkle.framework */; };
 		D071FF99180888E300CDC8FF /* TaprRecognitionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D071FF98180888E300CDC8FF /* TaprRecognitionModel.m */; };
 		D073F55D15C358FF00843B5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D073F55C15C358FF00843B5D /* QuartzCore.framework */; };
+		D09CE608182722D700AC70B7 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = D09CE607182722D700AC70B7 /* white.png */; };
 		D09D13AC181CD2B500DE2F02 /* NSStatusItemPrioritizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D09D13AB181CD2B500DE2F02 /* NSStatusItemPrioritizer.m */; };
 		D09EF01316FE4EC2009DEE99 /* trackpadBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = D09EF01216FE4EC2009DEE99 /* trackpadBackground.png */; };
 		D0B502EA16FBC87C0018781C /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B502E916FBC87C0018781C /* background2.png */; };
@@ -106,6 +107,7 @@
 		D07340F4152578F400FC7910 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D07340F5152578F400FC7910 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D073F55C15C358FF00843B5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D09CE607182722D700AC70B7 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white.png; sourceTree = "<group>"; };
 		D09D13AA181CD2B500DE2F02 /* NSStatusItemPrioritizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStatusItemPrioritizer.h; sourceTree = "<group>"; };
 		D09D13AB181CD2B500DE2F02 /* NSStatusItemPrioritizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStatusItemPrioritizer.m; sourceTree = "<group>"; };
 		D09EF01216FE4EC2009DEE99 /* trackpadBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackpadBackground.png; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		D0516E1317EFCF9500C48BD8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D09CE607182722D700AC70B7 /* white.png */,
 				D001B43A16D7441F00F8E413 /* background.png */,
 				D0B502E916FBC87C0018781C /* background2.png */,
 				D0F13B9816FFEE1A00EA2B87 /* niceLine.png */,
@@ -405,6 +408,7 @@
 			files = (
 				D001B46616D7441F00F8E413 /* background.png in Resources */,
 				D001B47616D7441F00F8E413 /* MainMenu.xib in Resources */,
+				D09CE608182722D700AC70B7 /* white.png in Resources */,
 				D001B47B16D7441F00F8E413 /* tableCellBack.png in Resources */,
 				D0B502EA16FBC87C0018781C /* background2.png in Resources */,
 				D0B5030316FBECB70018781C /* Icon.icns in Resources */,

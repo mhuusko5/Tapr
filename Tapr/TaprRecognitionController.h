@@ -16,6 +16,10 @@
     
 	IBOutlet TaprRecognitionWindow *recognitionWindow;
     
+    IBOutlet NSImageView *appIcon1, *appIcon2, *appIcon3, *appIcon4, *appIcon5, *appIcon6;
+    
+    NSMutableArray *appArrayToUse;
+    
 	NSMutableArray *recentThreeFingerTouches;
     
     BOOL detectingTap;
@@ -37,12 +41,11 @@
 #pragma mark Recognition Utilities
 - (void)shouldStartDetectingTap;
 - (void)stopDetectingTap:(BOOL)force;
-- (void)noTapInput;
+- (void)noTapDetected;
 #pragma mark -
 
 #pragma mark -
 #pragma mark Tap Event Handling
-- (void)startListeningForTapEvent;
 - (void)tapMultitouchEvent:(MultitouchEvent *)event;
 #pragma mark -
 
