@@ -3,28 +3,29 @@
 @interface TaprRecognitionModel : NSObject {
 	NSUserDefaults *userDefaults;
     
-    NSMutableArray *mostOpenedAppArray;
-    NSMutableArray *mostActivatedAppArray;
+	NSMutableDictionary *openedAppDictionary;
+	NSMutableDictionary *activatedAppDictionary;
     
-    NSMutableDictionary *activeAppSwitchDictionary;
-    
-    NSRunningApplication *lastActiveApp;
+	NSMutableDictionary *activeAppSwitchDictionary;
+	NSRunningApplication *lastActiveApp;
 }
-@property (retain) NSMutableArray *mostOpenedAppArray;
-@property (retain) NSMutableArray *mostActivatedAppArray;
+@property (retain) NSMutableDictionary *openedAppDictionary;
+@property (retain) NSMutableDictionary *activatedAppDictionary;
 
 #pragma mark -
 #pragma mark Opened App Fetching
-- (NSMutableArray *)fetchMostOpenedAppArray;
-- (NSMutableArray *)fetchNormalAppArray;
-- (NSMutableArray *)fetchUtilitiesAppArray;
-- (NSMutableArray *)fetchSystemAppArray;
-- (NSMutableArray *)addApplicationsAtPath:(NSString *)path toArray:(NSMutableArray *)arr depth:(int)depth;
+- (NSMutableArray *)getMostOpenedAppArray;
+- (NSMutableDictionary *)generateOpenedAppDictionary;
+- (NSMutableDictionary *)fetchNormalAppDictionary;
+- (NSMutableDictionary *)fetchUtilitiesAppDictionary;
+- (NSMutableDictionary *)fetchSystemAppDictionary;
+- (NSMutableDictionary *)addApplicationsAtPath:(NSString *)path toDictonary:(NSMutableDictionary *)dict depth:(int)depth;
 #pragma mark -
 
 #pragma mark -
 #pragma mark App Activation Logging
-- (NSMutableArray *)generateMostActivatedAppArray;
+- (NSMutableArray *)getMostActivatedAppArray;
+- (NSMutableDictionary *)generateActivatedAppDictionary;
 - (void)startAppActivationLogging;
 - (void)nextAppActivated:(NSNotification *)notification;
 - (void)logSwitchToApplication:(NSRunningApplication *)nextActiveApp;

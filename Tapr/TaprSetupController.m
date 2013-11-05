@@ -38,7 +38,7 @@
 - (void)updateSetupControls {
 	loginStartOptionField.state = setupModel.loginStartOption;
     
-    [setupWindow.contentView setNeedsDisplay:YES];
+	[setupWindow.contentView setNeedsDisplay:YES];
 }
 
 #pragma mark -
@@ -62,13 +62,13 @@
 	if ([setupWindow alphaValue] <= 0) {
 		[setupWindow orderFrontRegardless];
         
-        [NSAnimationContext beginGrouping];
-        [[NSAnimationContext currentContext] setDuration:0.16];
-        [[NSAnimationContext currentContext] setCompletionHandler: ^{
-            [setupWindow makeKeyWindow];
-        }];
-        [setupWindow.animator setAlphaValue:1.0];
-        [NSAnimationContext endGrouping];
+		[NSAnimationContext beginGrouping];
+		[[NSAnimationContext currentContext] setDuration:0.16];
+		[[NSAnimationContext currentContext] setCompletionHandler: ^{
+		    [setupWindow makeKeyWindow];
+		}];
+		[setupWindow.animator setAlphaValue:1.0];
+		[NSAnimationContext endGrouping];
 	}
 	else {
 		[NSAnimationContext beginGrouping];

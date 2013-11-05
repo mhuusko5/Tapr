@@ -2,7 +2,7 @@
 
 @interface Application : Launchable {
 	NSString *bundleId;
-    int activationCount;
+	int activationCount;
 }
 @property NSString *bundleId;
 @property int activationCount;

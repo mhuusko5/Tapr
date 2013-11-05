@@ -19,7 +19,7 @@
 	IBOutlet NSView *statusBarView;
     
 	IBOutlet TaprSetupWindow *setupWindow;
-    IBOutlet TaprSetupBackgroundView *setupWindowBackground;
+	IBOutlet TaprSetupBackgroundView *setupWindowBackground;
     
 	IBOutlet NSButton *loginStartOptionField;
 }

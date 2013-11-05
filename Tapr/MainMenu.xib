@@ -129,7 +129,7 @@
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" appearanceType="lightContent" animationBehavior="default" id="3817" customClass="TaprRecognitionWindow">
             <rect key="contentRect" x="674" y="464" width="300" height="200"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
-            <view key="contentView" id="3818" customClass="TaprRecognitionView">
+            <view key="contentView" wantsLayer="YES" id="3818" customClass="TaprRecognitionView">
                 <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -170,11 +170,11 @@
             </connections>
         </window>
         <customView id="3859">
-            <rect key="frame" x="0.0" y="0.0" width="28" height="19"/>
+            <rect key="frame" x="0.0" y="0.0" width="26" height="19"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button id="3860">
-                    <rect key="frame" x="5" y="-2" width="20" height="20"/>
+                    <rect key="frame" x="4" y="-1" width="19" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="disclosureTriangle" bezelStyle="disclosure" image="Icon" imagePosition="overlaps" alignment="center" state="on" imageScaling="axesIndependently" inset="2" id="3861">
                         <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>

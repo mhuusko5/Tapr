@@ -16,15 +16,17 @@
     
 	IBOutlet TaprRecognitionWindow *recognitionWindow;
     
-    IBOutlet NSImageView *appIcon1, *appIcon2, *appIcon3, *appIcon4, *appIcon5, *appIcon6;
+	IBOutlet NSImageView *appIcon1, *appIcon2, *appIcon3, *appIcon4, *appIcon5, *appIcon6;
     
-    NSMutableArray *appArrayToUse;
+	NSArray *appArrayToUse;
     
 	NSMutableArray *recentThreeFingerTouches;
     
-    BOOL detectingTap;
+	BOOL detectingTap;
     
-    NSTimer *noTapTimer;
+    int lastAppSelection;
+    
+	NSTimer *noTapTimer;
 }
 @property (retain) TaprRecognitionModel *recognitionModel;
 @property (retain) AppController *appController;
@@ -40,13 +42,14 @@
 #pragma mark -
 #pragma mark Recognition Utilities
 - (void)shouldStartDetectingTap;
-- (void)stopDetectingTap:(BOOL)force;
+- (void)stopDetectingTapWithForce:(BOOL)force;
 - (void)noTapDetected;
 #pragma mark -
 
 #pragma mark -
 #pragma mark Tap Event Handling
 - (void)tapMultitouchEvent:(MultitouchEvent *)event;
+- (void)activateTappedApp:(Application *)tappedApp;
 #pragma mark -
 
 #pragma mark -
@@ -58,9 +61,15 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 #pragma mark -
 
 #pragma mark -
+#pragma Activation Controls
+- (void)configureAppIcons;
+- (void)setAppIconShadowsWithSelection:(int)selection;
+#pragma mark -
+
+#pragma mark -
 #pragma mark Window Methods
 - (void)showRecognitionWindow;
-- (void)hideRecognitionWindow;
+- (void)hideRecognitionWindowWithFade:(BOOL)fade;
 - (void)windowDidResignKey:(NSNotification *)notification;
 - (void)layoutRecognitionWindow;
 #pragma mark -

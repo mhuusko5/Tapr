@@ -10,7 +10,7 @@
 	self = [super initWithDisplayName:_displayName launchId:_launchId icon:_icon];
     
 	bundleId = _bundleId;
-    activationCount = _activationCount;
+	activationCount = _activationCount;
     
 	return self;
 }
@@ -20,7 +20,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%@ - %i", displayName, activationCount];
+	return [NSString stringWithFormat:@"%@ - %i", displayName, activationCount];
 }
 
 @end

@@ -11,13 +11,13 @@ static const int NSStatusItemPriority = 8001;
 @implementation NSStatusItemPrioritizer
 
 + (void)restartSystemUIServer {
-    NSTask *killSystemUITask = [[[NSTask alloc] init] autorelease];
-    NSMutableArray *args = [NSMutableArray array];
-    [args addObject:@"SystemUIServer"];
-    [args addObject:@"-HUP"];
-    [killSystemUITask setLaunchPath:@"/usr/bin/killall"];
-    [killSystemUITask setArguments:args];
-    [killSystemUITask launch];
+	NSTask *killSystemUITask = [[[NSTask alloc] init] autorelease];
+	NSMutableArray *args = [NSMutableArray array];
+	[args addObject:@"SystemUIServer"];
+	[args addObject:@"-HUP"];
+	[killSystemUITask setLaunchPath:@"/usr/bin/killall"];
+	[killSystemUITask setArguments:args];
+	[killSystemUITask launch];
 }
 
 + (NSStatusItem *)prioritizedStatusItem {
@@ -32,9 +32,10 @@ static const int NSStatusItemPriority = 8001;
     
 	if (!prioritizedStatusItem) {
 		prioritizedStatusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-	}else {
-        [[NSNotificationCenter defaultCenter] addObserver:[self class] selector:@selector(restartSystemUIServer) name:NSApplicationWillTerminateNotification object:nil];
-    }
+	}
+	else {
+		[[NSNotificationCenter defaultCenter] addObserver:[self class] selector:@selector(restartSystemUIServer) name:NSApplicationWillTerminateNotification object:nil];
+	}
     
 	return prioritizedStatusItem;
 }
