@@ -43,7 +43,7 @@
             
             
 			//// innerBackground Drawing
-			NSBezierPath *innerBackgroundPath = [NSBezierPath bezierPathWithRoundedRect:NSMakeRect(NSMinX(contentRect) + floor(NSWidth(contentRect) * 0.01506), NSMinY(contentRect) + floor(NSHeight(contentRect) * 0.02370), floor(NSWidth(contentRect) * 0.98419) - floor(NSWidth(contentRect) * 0.01506), floor(NSHeight(contentRect) * 0.97630) - floor(NSHeight(contentRect) * 0.02370)) xRadius:contentRect.size.height * 0.01534 yRadius:contentRect.size.height * 0.01534];
+			NSBezierPath *innerBackgroundPath = [NSBezierPath bezierPathWithRoundedRect:NSMakeRect(NSMinX(contentRect) + floor(NSWidth(contentRect) * 0.0153), NSMinY(contentRect) + floor(NSHeight(contentRect) * 0.02370), floor(NSWidth(contentRect) * 0.98419) - floor(NSWidth(contentRect) * 0.01506), floor(NSHeight(contentRect) * 0.97630) - floor(NSHeight(contentRect) * 0.02370)) xRadius:contentRect.size.height * 0.01534 yRadius:contentRect.size.height * 0.01534];
 			[macDarkGray setFill];
 			[innerBackgroundPath fill];
             

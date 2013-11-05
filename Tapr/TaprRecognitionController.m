@@ -230,7 +230,7 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
             NSImageView *highlightedAppIcon = [normalShadowAppIcons objectAtIndex:selection];
             
             NSShadow *highlightShadow = [[NSShadow alloc] init];
-            [highlightShadow setShadowBlurRadius:recognitionWindow.frame.size.height / 36];
+            [highlightShadow setShadowBlurRadius:recognitionWindow.frame.size.height / 58];
             [highlightShadow setShadowOffset:NSMakeSize(0, 0)];
             [highlightShadow setShadowColor:myGreenColor];
             
@@ -242,9 +242,9 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
         
         for (NSImageView *normalShadowAppIcon in normalShadowAppIcons) {
             NSShadow *normalShadow = [[NSShadow alloc] init];
-            [normalShadow setShadowBlurRadius:recognitionWindow.frame.size.height / 40];
+            [normalShadow setShadowBlurRadius:recognitionWindow.frame.size.height / 38];
             [normalShadow setShadowOffset:NSMakeSize(0, 0)];
-            [normalShadow setShadowColor:[NSColor colorWithCalibratedWhite:0.0 alpha:0.9]];
+            [normalShadow setShadowColor:[NSColor colorWithCalibratedWhite:0.0 alpha:0.94]];
             
             [normalShadowAppIcon setShadow:normalShadow];
             [normalShadowAppIcon setNeedsDisplay:YES];
