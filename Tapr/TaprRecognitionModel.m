@@ -9,6 +9,8 @@
     
 	userDefaults = [NSUserDefaults standardUserDefaults];
     
+    [self generateOpenedAppDictionary];
+    
 	[self generateActivatedAppDictionary];
     
 	[self startAppActivationLogging];
@@ -114,31 +116,27 @@
 - (NSMutableDictionary *)generateActivatedAppDictionary {
 	[self fetchActiveAppSwitchDictionary];
     
-    [self generateOpenedAppDictionary];
-    
 	NSMutableDictionary *newActivatedAppDictionary = [NSMutableDictionary dictionary];
     
 	for (id switchId in activeAppSwitchDictionary) {
 		NSString *nextActiveAppBundleId = [[switchId componentsSeparatedByString:@":"] objectAtIndex:1];
         
-		if ([openedAppDictionary objectForKey:nextActiveAppBundleId]) {
-			int nextActiveAppActivatedCount = [[activeAppSwitchDictionary objectForKey:switchId] intValue];
+		int nextActiveAppActivatedCount = [[activeAppSwitchDictionary objectForKey:switchId] intValue];
+        
+        Application *appWithNextActiveAppBundleId;
+        if ((appWithNextActiveAppBundleId = [newActivatedAppDictionary objectForKey:nextActiveAppBundleId])) {
+            appWithNextActiveAppBundleId.activationCount += nextActiveAppActivatedCount;
+        }
+        else {
+            NSString *nextActiveAppPath = [[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:nextActiveAppBundleId];
             
-			Application *appWithNextActiveAppBundleId;
-			if ((appWithNextActiveAppBundleId = [newActivatedAppDictionary objectForKey:nextActiveAppBundleId])) {
-				appWithNextActiveAppBundleId.activationCount += nextActiveAppActivatedCount;
-			}
-			else {
-				NSString *nextActiveAppPath = [[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:nextActiveAppBundleId];
-                
-				NSString *nextActiveAppName = [[[NSFileManager defaultManager] displayNameAtPath:nextActiveAppPath] stringByDeletingPathExtension];
-				NSImage *nextActiveAppIcon = [[NSWorkspace sharedWorkspace] iconForFile:nextActiveAppPath];
-                
-				appWithNextActiveAppBundleId = [[Application alloc] initWithDisplayName:nextActiveAppName icon:nextActiveAppIcon bundleId:nextActiveAppBundleId activationCount:nextActiveAppActivatedCount];
-                
-				[newActivatedAppDictionary setObject:appWithNextActiveAppBundleId forKey:nextActiveAppBundleId];
-			}
-		}
+            NSString *nextActiveAppName = [[[NSFileManager defaultManager] displayNameAtPath:nextActiveAppPath] stringByDeletingPathExtension];
+            NSImage *nextActiveAppIcon = [[NSWorkspace sharedWorkspace] iconForFile:nextActiveAppPath];
+            
+            appWithNextActiveAppBundleId = [[Application alloc] initWithDisplayName:nextActiveAppName icon:nextActiveAppIcon bundleId:nextActiveAppBundleId activationCount:nextActiveAppActivatedCount];
+            
+            [newActivatedAppDictionary setObject:appWithNextActiveAppBundleId forKey:nextActiveAppBundleId];
+        }
 	}
     
 	return (activatedAppDictionary = newActivatedAppDictionary);
