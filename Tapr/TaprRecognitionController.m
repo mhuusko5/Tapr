@@ -69,6 +69,8 @@
         
         [self hideRecognitionWindowWithFade:!force];
 	}
+    
+    [recognitionModel generateActivatedAppDictionary];
 }
 
 - (void)noTapDetected {
@@ -128,8 +130,6 @@
     [tappedApp launchWithNewThread:YES];
     
     [self stopDetectingTapWithForce:NO];
-    
-    [recognitionModel generateActivatedAppDictionary];
 }
 
 #pragma mark -
