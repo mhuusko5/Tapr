@@ -189,7 +189,7 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 #pragma mark -
 #pragma Activation Controls
 - (void)configureAppIcons {
-	if (recognitionModel.activatedAppDictionary.count > 6) {
+	if (recognitionModel.activatedAppDictionary.count > 5) {
 		appArrayToUse = [recognitionModel getMostActivatedAppArray];
 	}
 	else {
