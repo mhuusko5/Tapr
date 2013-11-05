@@ -2,7 +2,7 @@
 
 @implementation TaprRecognitionController
 
-@synthesize recognitionModel, appController, recognitionWindow, detectingTap;
+@synthesize recognitionModel, appController, recognitionWindow, listeningToTap;
 
 #pragma mark -
 #pragma mark Initialization
@@ -36,27 +36,29 @@
 #pragma mark -
 #pragma mark Recognition Utilities
 - (void)shouldStartDetectingTap {
-	if (!detectingTap) {
+	if (!listeningToTap) {
+        listeningToTap = YES;
+        
 		[self configureAppIcons];
         
 		[self showRecognitionWindow];
         
         lastAppSelection = -1;
         
-		noTapTimer = [NSTimer scheduledTimerWithTimeInterval:1.4 target:self selector:@selector(noTapDetected) userInfo:nil repeats:NO];
+		noTapTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(noTapDetected) userInfo:nil repeats:NO];
         
 		[NSApp activateIgnoringOtherApps:YES];
 		CGAssociateMouseAndMouseCursorPosition(NO);
         
 		[NSThread sleepForTimeInterval:0.2];
 		[[MultitouchManager sharedMultitouchManager] addMultitouchListenerWithTarget:self callback:@selector(tapMultitouchEvent:) andThread:nil];
-        
-		detectingTap = YES;
 	}
 }
 
 - (void)stopDetectingTapWithForce:(BOOL)force {
-	if (detectingTap) {
+	if (listeningToTap) {
+        listeningToTap = NO;
+        
         if (noTapTimer) {
 			[noTapTimer invalidate];
 			noTapTimer = nil;
@@ -64,8 +66,6 @@
         
 		[[MultitouchManager sharedMultitouchManager] removeMultitouchListenersWithTarget:self andCallback:@selector(tapMultitouchEvent:)];
 		CGAssociateMouseAndMouseCursorPosition(YES);
-        
-        detectingTap = NO;
         
         [self hideRecognitionWindowWithFade:!force];
 	}
@@ -107,7 +107,7 @@
 }
 
 - (void)tapMultitouchEvent:(MultitouchEvent *)event {
-	if (detectingTap && event) {
+	if (listeningToTap && event) {
         MultitouchTouch *tap;
         if (event.touches.count == 1 && (tap = [event.touches objectAtIndex:0]) && tap.state == MultitouchTouchStateActive) {
             if (noTapTimer) {
@@ -122,6 +122,10 @@
             lastAppSelection = newAppSelection;
         } else if (event.touches.count == 0 && lastAppSelection > -1) {
             [self activateTappedApp:[appArrayToUse objectAtIndex:lastAppSelection]];
+        } else if (event.touches.count > 1) {
+            [self stopDetectingTapWithForce:YES];
+            
+            [self ignoreActivation:[NSArray arrayWithObjects:@YES, @0.25, nil]];
         }
 	}
 }
@@ -130,6 +134,8 @@
     [tappedApp launchWithNewThread:YES];
     
     [self stopDetectingTapWithForce:NO];
+    
+    [self ignoreActivation:[NSArray arrayWithObjects:@YES, @0.1, nil]];
 }
 
 #pragma mark -
@@ -137,7 +143,7 @@
 #pragma mark -
 #pragma mark Activation Event Handling
 - (void)activationMultitouchEvent:(MultitouchEvent *)event {
-	if (!detectingTap) {
+	if (!listeningToTap && !ignoringActivation) {
 		if (event && event.touches.count == 3 && ((MultitouchTouch *)[event.touches objectAtIndex:0]).state == MultitouchTouchStateActive && ((MultitouchTouch *)[event.touches objectAtIndex:1]).state == MultitouchTouchStateActive && ((MultitouchTouch *)[event.touches objectAtIndex:2]).state == MultitouchTouchStateActive) {
 			[recentThreeFingerTouches addObject:event];
 		}
@@ -160,8 +166,18 @@
 	}
 }
 
+- (void)ignoreActivation:(NSArray *)ignoreAndSeconds {
+    if ([[ignoreAndSeconds objectAtIndex:0] boolValue]) {
+        ignoringActivation = YES;
+        
+        [self performSelector:@selector(ignoreActivation:) withObject:[NSArray arrayWithObjects:@NO, nil] afterDelay:[[ignoreAndSeconds objectAtIndex:1] floatValue]];
+    } else {
+        ignoringActivation = NO;
+    }
+}
+
 - (CGEventRef)handleEvent:(CGEventRef)event withType:(int)type {
-	if (detectingTap) {
+	if (listeningToTap) {
 		if (type == kCGEventKeyUp || type == kCGEventKeyDown) {
 			[self stopDetectingTapWithForce:YES];
 			return event;
@@ -266,7 +282,7 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 }
 
 - (void)windowDidResignKey:(NSNotification *)notification {
-	if (detectingTap) {
+	if (listeningToTap) {
 		[self stopDetectingTapWithForce:YES];
 	}
 }

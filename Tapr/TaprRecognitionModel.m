@@ -118,6 +118,8 @@
     
 	NSMutableDictionary *newActivatedAppDictionary = [NSMutableDictionary dictionary];
     
+    NSMutableArray *keysToCleanAppSwitchDictionary = [NSMutableArray array];
+    
 	for (id switchId in activeAppSwitchDictionary) {
 		NSString *nextActiveAppBundleId = [[switchId componentsSeparatedByString:@":"] objectAtIndex:1];
         
@@ -130,14 +132,21 @@
         else {
             NSString *nextActiveAppPath = [[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:nextActiveAppBundleId];
             
-            NSString *nextActiveAppName = [[[NSFileManager defaultManager] displayNameAtPath:nextActiveAppPath] stringByDeletingPathExtension];
-            NSImage *nextActiveAppIcon = [[NSWorkspace sharedWorkspace] iconForFile:nextActiveAppPath];
+            if (nextActiveAppPath) {
+                NSString *nextActiveAppName = [[[NSFileManager defaultManager] displayNameAtPath:nextActiveAppPath] stringByDeletingPathExtension];
+                NSImage *nextActiveAppIcon = [[NSWorkspace sharedWorkspace] iconForFile:nextActiveAppPath];
             
-            appWithNextActiveAppBundleId = [[Application alloc] initWithDisplayName:nextActiveAppName icon:nextActiveAppIcon bundleId:nextActiveAppBundleId activationCount:nextActiveAppActivatedCount];
+                appWithNextActiveAppBundleId = [[Application alloc] initWithDisplayName:nextActiveAppName icon:nextActiveAppIcon bundleId:nextActiveAppBundleId activationCount:nextActiveAppActivatedCount];
             
-            [newActivatedAppDictionary setObject:appWithNextActiveAppBundleId forKey:nextActiveAppBundleId];
+                [newActivatedAppDictionary setObject:appWithNextActiveAppBundleId forKey:nextActiveAppBundleId];
+            } else {
+                [keysToCleanAppSwitchDictionary addObject:switchId];
+            }
         }
 	}
+    
+    [activeAppSwitchDictionary removeObjectsForKeys:keysToCleanAppSwitchDictionary];
+    [self saveActiveAppSwitchDictionary];
     
 	return (activatedAppDictionary = newActivatedAppDictionary);
 }

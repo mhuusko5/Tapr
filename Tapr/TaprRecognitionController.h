@@ -22,7 +22,9 @@
     
 	NSMutableArray *recentThreeFingerTouches;
     
-	BOOL detectingTap;
+	BOOL listeningToTap;
+    
+    BOOL ignoringActivation;
     
     int lastAppSelection;
     
@@ -31,7 +33,7 @@
 @property (retain) TaprRecognitionModel *recognitionModel;
 @property (retain) AppController *appController;
 @property (retain) TaprRecognitionWindow *recognitionWindow;
-@property BOOL detectingTap;
+@property BOOL listeningToTap;
 
 #pragma mark -
 #pragma mark Initialization
@@ -55,6 +57,7 @@
 #pragma mark -
 #pragma mark Activation Event Handling
 - (void)activationMultitouchEvent:(MultitouchEvent *)event;
+- (void)ignoreActivation:(NSArray *)ignoreAndSeconds;
 - (CGEventRef)handleEvent:(CGEventRef)event withType:(int)type;
 CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef eventRef, void *refcon);
 
