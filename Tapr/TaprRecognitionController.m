@@ -304,14 +304,14 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
     
 	[recognitionWindow setFrame:windowRect display:NO];
     
-	NSSize appIconSize = NSMakeSize(windowRect.size.height / 2.94, windowRect.size.height / 2.94);
-    
-	[appIcon1 setFrame:NSMakeRect(windowRect.size.height / 6.74, windowRect.size.height / 1.856, appIconSize.width, appIconSize.height)];
-	[appIcon2 setFrame:NSMakeRect(windowRect.size.height / 1.722, windowRect.size.height / 1.856, appIconSize.width, appIconSize.height)];
-	[appIcon3 setFrame:NSMakeRect(windowRect.size.height / 0.991, windowRect.size.height / 1.856, appIconSize.width, appIconSize.height)];
-	[appIcon4 setFrame:NSMakeRect(windowRect.size.height / 6.74, windowRect.size.height / 8.6, appIconSize.width, appIconSize.height)];
-	[appIcon5 setFrame:NSMakeRect(windowRect.size.height / 1.722, windowRect.size.height / 8.6, appIconSize.width, appIconSize.height)];
-	[appIcon6 setFrame:NSMakeRect(windowRect.size.height / 0.991, windowRect.size.height / 8.6, appIconSize.width, appIconSize.height)];
+	NSSize appIconSize = NSMakeSize(windowRect.size.height / 2.96, windowRect.size.height / 2.96);
+
+	[appIcon1 setFrame:NSMakeRect(windowRect.size.height / 6.564, windowRect.size.height / 1.842, appIconSize.width, appIconSize.height)];
+	[appIcon2 setFrame:NSMakeRect(windowRect.size.height / 1.716, windowRect.size.height / 1.842, appIconSize.width, appIconSize.height)];
+	[appIcon3 setFrame:NSMakeRect(windowRect.size.height / 0.988, windowRect.size.height / 1.842, appIconSize.width, appIconSize.height)];
+	[appIcon4 setFrame:NSMakeRect(windowRect.size.height / 6.564, windowRect.size.height / 8.572, appIconSize.width, appIconSize.height)];
+	[appIcon5 setFrame:NSMakeRect(windowRect.size.height / 1.716, windowRect.size.height / 8.572, appIconSize.width, appIconSize.height)];
+	[appIcon6 setFrame:NSMakeRect(windowRect.size.height / 0.988, windowRect.size.height / 8.572, appIconSize.width, appIconSize.height)];
     
 	[recognitionWindow.contentView setNeedsDisplay:YES];
 }
