@@ -136,32 +136,32 @@
                     <imageView appearanceType="lightContent" id="RVX-m1-FM4">
                         <rect key="frame" x="0.0" y="104" width="93" height="96"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="white" id="eby-8J-suD"/>
+                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="eby-8J-suD"/>
                     </imageView>
                     <imageView appearanceType="lightContent" id="e0K-dK-4Go">
                         <rect key="frame" x="104" y="104" width="93" height="96"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="white" id="e1X-0F-JUz"/>
+                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="e1X-0F-JUz"/>
                     </imageView>
                     <imageView appearanceType="lightContent" id="hAe-CM-rUv">
                         <rect key="frame" x="207" y="104" width="93" height="96"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="white" id="oSp-ql-MK5"/>
+                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="oSp-ql-MK5"/>
                     </imageView>
                     <imageView appearanceType="lightContent" id="F3Z-lU-mIt">
                         <rect key="frame" x="0.0" y="0.0" width="93" height="96"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="white" id="8TQ-5t-P4K"/>
+                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="8TQ-5t-P4K"/>
                     </imageView>
                     <imageView appearanceType="lightContent" id="1pN-Xm-YCH">
                         <rect key="frame" x="104" y="0.0" width="93" height="96"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="white" id="U3F-wg-FLW"/>
+                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="U3F-wg-FLW"/>
                     </imageView>
                     <imageView appearanceType="lightContent" id="9Qp-nN-bRH">
                         <rect key="frame" x="207" y="0.0" width="93" height="96"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="white" id="6st-6z-5fb"/>
+                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="6st-6z-5fb"/>
                     </imageView>
                 </subviews>
             </view>
@@ -190,6 +190,5 @@
     <resources>
         <image name="Icon" width="512" height="512"/>
         <image name="background2" width="50" height="50"/>
-        <image name="white" width="10" height="10"/>
     </resources>
 </document>

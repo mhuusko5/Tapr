@@ -9,14 +9,12 @@
 /* Begin PBXBuildFile section */
 		D001B46216D7441F00F8E413 /* Launchable.m in Sources */ = {isa = PBXBuildFile; fileRef = D001B43316D7441F00F8E413 /* Launchable.m */; };
 		D001B46316D7441F00F8E413 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = D001B43516D7441F00F8E413 /* AppController.m */; };
-		D001B46616D7441F00F8E413 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D001B43A16D7441F00F8E413 /* background.png */; };
 		D001B46C16D7441F00F8E413 /* TaprRecognitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D001B44516D7441F00F8E413 /* TaprRecognitionController.m */; };
 		D001B46E16D7441F00F8E413 /* TaprRecognitionWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D001B44916D7441F00F8E413 /* TaprRecognitionWindow.m */; };
 		D001B46F16D7441F00F8E413 /* TaprSetupController.m in Sources */ = {isa = PBXBuildFile; fileRef = D001B44B16D7441F00F8E413 /* TaprSetupController.m */; };
 		D001B47116D7441F00F8E413 /* TaprSetupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D001B44F16D7441F00F8E413 /* TaprSetupWindow.m */; };
 		D001B47516D7441F00F8E413 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D001B45516D7441F00F8E413 /* main.m */; };
 		D001B47616D7441F00F8E413 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D001B45616D7441F00F8E413 /* MainMenu.xib */; };
-		D001B47B16D7441F00F8E413 /* tableCellBack.png in Resources */ = {isa = PBXBuildFile; fileRef = D001B45B16D7441F00F8E413 /* tableCellBack.png */; };
 		D0140F8B17EFD6EE004C19F3 /* MultitouchEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = D0140F8417EFD6EE004C19F3 /* MultitouchEvent.m */; };
 		D0140F8C17EFD6EE004C19F3 /* MultitouchListener.m in Sources */ = {isa = PBXBuildFile; fileRef = D0140F8617EFD6EE004C19F3 /* MultitouchListener.m */; };
 		D0140F8D17EFD6EE004C19F3 /* MultitouchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0140F8817EFD6EE004C19F3 /* MultitouchManager.m */; };
@@ -31,9 +29,7 @@
 		D071F8BE1810E321002B3DD0 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D071F8BB1810E2B2002B3DD0 /* Sparkle.framework */; };
 		D071FF99180888E300CDC8FF /* TaprRecognitionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D071FF98180888E300CDC8FF /* TaprRecognitionModel.m */; };
 		D073F55D15C358FF00843B5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D073F55C15C358FF00843B5D /* QuartzCore.framework */; };
-		D09CE608182722D700AC70B7 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = D09CE607182722D700AC70B7 /* white.png */; };
 		D09D13AC181CD2B500DE2F02 /* NSStatusItemPrioritizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D09D13AB181CD2B500DE2F02 /* NSStatusItemPrioritizer.m */; };
-		D09EF01316FE4EC2009DEE99 /* trackpadBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = D09EF01216FE4EC2009DEE99 /* trackpadBackground.png */; };
 		D0B502EA16FBC87C0018781C /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B502E916FBC87C0018781C /* background2.png */; };
 		D0B502ED16FBC9850018781C /* TaprSetupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B502EC16FBC9850018781C /* TaprSetupBackgroundView.m */; };
 		D0B502F516FBCDD10018781C /* AppButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B502F116FBCDD00018781C /* AppButtonCell.m */; };
@@ -43,8 +39,6 @@
 		D0CFB9A417089746005EDAB3 /* ShadowTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CFB9A317089746005EDAB3 /* ShadowTextFieldCell.m */; };
 		D0F13B9416FFE7B800EA2B87 /* AppSegmentedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F13B9316FFE7B800EA2B87 /* AppSegmentedCell.m */; };
 		D0F13B9716FFE7F300EA2B87 /* NSBezierPath+MCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F13B9616FFE7F300EA2B87 /* NSBezierPath+MCAdditions.m */; };
-		D0F13B9916FFEE1A00EA2B87 /* niceLine.png in Resources */ = {isa = PBXBuildFile; fileRef = D0F13B9816FFEE1A00EA2B87 /* niceLine.png */; };
-		D0F13B9B16FFEF3500EA2B87 /* niceLineFlipped.png in Resources */ = {isa = PBXBuildFile; fileRef = D0F13B9A16FFEF3500EA2B87 /* niceLineFlipped.png */; };
 		D0F2DEA317000E8D009A19B9 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F2DEA217000E8D009A19B9 /* CoreServices.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +60,6 @@
 		D001B43316D7441F00F8E413 /* Launchable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Launchable.m; sourceTree = "<group>"; };
 		D001B43416D7441F00F8E413 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		D001B43516D7441F00F8E413 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
-		D001B43A16D7441F00F8E413 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		D001B44416D7441F00F8E413 /* TaprRecognitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaprRecognitionController.h; sourceTree = "<group>"; };
 		D001B44516D7441F00F8E413 /* TaprRecognitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaprRecognitionController.m; sourceTree = "<group>"; };
 		D001B44816D7441F00F8E413 /* TaprRecognitionWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaprRecognitionWindow.h; sourceTree = "<group>"; };
@@ -77,7 +70,6 @@
 		D001B44F16D7441F00F8E413 /* TaprSetupWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaprSetupWindow.m; sourceTree = "<group>"; };
 		D001B45516D7441F00F8E413 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D001B45616D7441F00F8E413 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
-		D001B45B16D7441F00F8E413 /* tableCellBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableCellBack.png; sourceTree = "<group>"; };
 		D001B45C16D7441F00F8E413 /* Tapr-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tapr-Info.plist"; sourceTree = "<group>"; };
 		D001B45D16D7441F00F8E413 /* Tapr-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tapr-Prefix.pch"; sourceTree = "<group>"; };
 		D0140F8317EFD6EE004C19F3 /* MultitouchEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultitouchEvent.h; sourceTree = "<group>"; };
@@ -107,10 +99,8 @@
 		D07340F4152578F400FC7910 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D07340F5152578F400FC7910 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D073F55C15C358FF00843B5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		D09CE607182722D700AC70B7 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white.png; sourceTree = "<group>"; };
 		D09D13AA181CD2B500DE2F02 /* NSStatusItemPrioritizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStatusItemPrioritizer.h; sourceTree = "<group>"; };
 		D09D13AB181CD2B500DE2F02 /* NSStatusItemPrioritizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStatusItemPrioritizer.m; sourceTree = "<group>"; };
-		D09EF01216FE4EC2009DEE99 /* trackpadBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackpadBackground.png; sourceTree = "<group>"; };
 		D0B502E916FBC87C0018781C /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
 		D0B502EB16FBC9850018781C /* TaprSetupBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaprSetupBackgroundView.h; sourceTree = "<group>"; };
 		D0B502EC16FBC9850018781C /* TaprSetupBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaprSetupBackgroundView.m; sourceTree = "<group>"; };
@@ -126,8 +116,6 @@
 		D0F13B9316FFE7B800EA2B87 /* AppSegmentedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSegmentedCell.m; sourceTree = "<group>"; };
 		D0F13B9516FFE7F300EA2B87 /* NSBezierPath+MCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBezierPath+MCAdditions.h"; sourceTree = "<group>"; };
 		D0F13B9616FFE7F300EA2B87 /* NSBezierPath+MCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+MCAdditions.m"; sourceTree = "<group>"; };
-		D0F13B9816FFEE1A00EA2B87 /* niceLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = niceLine.png; sourceTree = "<group>"; };
-		D0F13B9A16FFEF3500EA2B87 /* niceLineFlipped.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = niceLineFlipped.png; sourceTree = "<group>"; };
 		D0F2DEA217000E8D009A19B9 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -197,13 +185,7 @@
 		D0516E1317EFCF9500C48BD8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				D09CE607182722D700AC70B7 /* white.png */,
-				D001B43A16D7441F00F8E413 /* background.png */,
 				D0B502E916FBC87C0018781C /* background2.png */,
-				D0F13B9816FFEE1A00EA2B87 /* niceLine.png */,
-				D0F13B9A16FFEF3500EA2B87 /* niceLineFlipped.png */,
-				D001B45B16D7441F00F8E413 /* tableCellBack.png */,
-				D09EF01216FE4EC2009DEE99 /* trackpadBackground.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -406,15 +388,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D001B46616D7441F00F8E413 /* background.png in Resources */,
 				D001B47616D7441F00F8E413 /* MainMenu.xib in Resources */,
-				D09CE608182722D700AC70B7 /* white.png in Resources */,
-				D001B47B16D7441F00F8E413 /* tableCellBack.png in Resources */,
 				D0B502EA16FBC87C0018781C /* background2.png in Resources */,
 				D0B5030316FBECB70018781C /* Icon.icns in Resources */,
-				D09EF01316FE4EC2009DEE99 /* trackpadBackground.png in Resources */,
-				D0F13B9916FFEE1A00EA2B87 /* niceLine.png in Resources */,
-				D0F13B9B16FFEF3500EA2B87 /* niceLineFlipped.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
