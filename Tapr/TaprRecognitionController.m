@@ -50,7 +50,7 @@
 		[NSApp activateIgnoringOtherApps:YES];
 		CGAssociateMouseAndMouseCursorPosition(NO);
         
-		[NSThread sleepForTimeInterval:0.2];
+		[NSThread sleepForTimeInterval:0.1];
 		[[MultitouchManager sharedMultitouchManager] addMultitouchListenerWithTarget:self callback:@selector(tapMultitouchEvent:) andThread:nil];
 	}
 }
