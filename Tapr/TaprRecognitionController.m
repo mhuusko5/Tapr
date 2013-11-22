@@ -14,6 +14,7 @@
         
 		recognitionModel = [[TaprRecognitionModel alloc] init];
         
+        beforeThreeFingerTouches = [NSArray arrayWithObjects:@0, @0, @0, nil];
 		recentThreeFingerTouches = [NSMutableArray array];
 	}
 }
@@ -144,24 +145,36 @@
 #pragma mark Activation Event Handling
 - (void)activationMultitouchEvent:(MultitouchEvent *)event {
 	if (!listeningToTap && !ignoringActivation) {
-		if (event && event.touches.count == 3 && ((MultitouchTouch *)[event.touches objectAtIndex:0]).state == MultitouchTouchStateActive && ((MultitouchTouch *)[event.touches objectAtIndex:1]).state == MultitouchTouchStateActive && ((MultitouchTouch *)[event.touches objectAtIndex:2]).state == MultitouchTouchStateActive) {
+        int activeTouches = 0;
+        for (MultitouchTouch *touch in event.touches) {
+            if (touch.state == MultitouchTouchStateActive) {
+                activeTouches++;
+            }
+        }
+        
+        if (activeTouches == 3) {
 			[recentThreeFingerTouches addObject:event];
 		}
-		else if (recentThreeFingerTouches.count > 0) {
-			int totalCount = 0;
-			float totalVelocity = 0.0f;
-			for (MultitouchEvent *fourFingerEvent in recentThreeFingerTouches) {
-				for (MultitouchTouch *touch in fourFingerEvent.touches) {
-					totalCount++;
-					totalVelocity += (fabs(touch.velX) + fabs(touch.velY));
-				}
-			}
+		else {
+            if (recentThreeFingerTouches.count >= 3 && recentThreeFingerTouches.count <= 24) {
+                int totalCount = 0;
+                float totalVelocity = 0.0f;
+                for (MultitouchEvent *fourFingerEvent in recentThreeFingerTouches) {
+                    for (MultitouchTouch *touch in fourFingerEvent.touches) {
+                        totalCount++;
+                        totalVelocity += (fabs(touch.velX) + fabs(touch.velY));
+                    }
+                }
+                
+                NSCountedSet *countedBeforeThreeFingerTouches = [[NSCountedSet alloc] initWithArray:beforeThreeFingerTouches];
+                if ((totalVelocity / totalCount) <= 0.4 && [countedBeforeThreeFingerTouches countForObject:@2] < 3 && [countedBeforeThreeFingerTouches countForObject:@4] < 3) {
+                    [self shouldStartDetectingTap];
+                }
+            }
             
+            beforeThreeFingerTouches = [NSArray arrayWithObjects:[beforeThreeFingerTouches objectAtIndex:1], [beforeThreeFingerTouches objectAtIndex:2], [NSNumber numberWithInt:activeTouches], nil];
+			
 			[recentThreeFingerTouches removeAllObjects];
-            
-			if (totalCount / 3 <= 20 && (totalVelocity / totalCount) <= 0.5) {
-				[self shouldStartDetectingTap];
-			}
 		}
 	}
 }

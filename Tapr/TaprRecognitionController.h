@@ -20,6 +20,7 @@
     
 	NSArray *appArrayToUse;
     
+    NSArray *beforeThreeFingerTouches;
 	NSMutableArray *recentThreeFingerTouches;
     
 	BOOL listeningToTap;
