@@ -193,13 +193,11 @@
 		}
 		else {
 			savedActiveAppSwitchDictionary = [NSMutableDictionary dictionary];
-			[self saveActiveAppSwitchDictionary];
 		}
 	}
 	@catch (NSException *exception)
 	{
 		savedActiveAppSwitchDictionary = [NSMutableDictionary dictionary];
-		[self saveActiveAppSwitchDictionary];
 	}
     
 	activeAppSwitchDictionary = savedActiveAppSwitchDictionary;
