@@ -3,7 +3,7 @@
 @implementation TaprSetupModel
 
 #pragma mark -
-#pragma mark Tapr Options
+#pragma mark Setup
 - (void)setup {
 	[self saveLoginStartOption:[self fetchLoginStartOption]];
 }
