@@ -5,27 +5,13 @@
 #import "Launchable.h"
 #import "MultitouchManager.h"
 #import "NSStatusItemPrioritizer.h"
-
 @class AppController, TaprSetupBackgroundView;
 
-@interface TaprSetupController : NSObject {
-	BOOL awakedFromNib;
-    
-	TaprSetupModel *setupModel;
-    
-	AppController *appController;
-    
-	NSStatusItem *statusBarItem;
-	IBOutlet NSView *statusBarView;
-    
-	IBOutlet TaprSetupWindow *setupWindow;
-	IBOutlet TaprSetupBackgroundView *setupWindowBackground;
-    
-	IBOutlet NSButton *loginStartOptionField;
-}
-@property (retain) TaprSetupModel *setupModel;
-@property (retain) AppController *appController;
-@property (retain) TaprSetupWindow *setupWindow;
+@interface TaprSetupController : NSObject
+
+@property TaprSetupModel *setupModel;
+@property AppController *appController;
+@property TaprSetupWindow *setupWindow;
 
 #pragma mark -
 #pragma mark Initialization

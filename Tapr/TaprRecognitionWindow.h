@@ -1,5 +1,4 @@
-@interface TaprRecognitionWindow : NSPanel {
-}
+@interface TaprRecognitionWindow : NSPanel
 
 - (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag;
 - (BOOL)canBecomeKeyWindow;

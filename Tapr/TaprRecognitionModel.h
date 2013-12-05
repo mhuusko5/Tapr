@@ -1,16 +1,14 @@
 #import "Application.h"
 
-@interface TaprRecognitionModel : NSObject {
-	NSUserDefaults *userDefaults;
-    
-	NSMutableDictionary *openedAppDictionary;
-	NSMutableDictionary *activatedAppDictionary;
-    
-	NSMutableDictionary *activeAppSwitchDictionary;
-	NSRunningApplication *lastActiveApp;
-}
-@property (retain) NSMutableDictionary *openedAppDictionary;
-@property (retain) NSMutableDictionary *activatedAppDictionary;
+@interface TaprRecognitionModel : NSObject
+
+@property NSMutableDictionary *openedAppDictionary;
+@property NSMutableDictionary *activatedAppDictionary;
+
+#pragma mark -
+#pragma mark Setup
+- (void)setup;
+#pragma mark -
 
 #pragma mark -
 #pragma mark Opened App Fetching

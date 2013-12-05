@@ -1,13 +1,19 @@
 #import "TaprSetupBackgroundView.h"
 
+@interface TaprSetupBackgroundView ()
+
+@property NSColor *backgroundColor;
+
+@end
+
 @implementation TaprSetupBackgroundView
 
 - (void)drawRect:(NSRect)dirtyRect {
-	if (!backgroundColor) {
-		backgroundColor = [NSColor colorWithPatternImage:self.image];
+	if (!self.backgroundColor) {
+		self.backgroundColor = [NSColor colorWithPatternImage:self.image];
 	}
-    
-	[backgroundColor set];
+
+	[self.backgroundColor set];
 	NSRectFill(dirtyRect);
 }
 

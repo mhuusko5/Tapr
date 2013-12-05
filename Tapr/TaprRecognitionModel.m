@@ -1,39 +1,52 @@
 #import "TaprRecognitionModel.h"
 
-@implementation TaprRecognitionModel
+@interface TaprRecognitionModel ()
 
-@synthesize openedAppDictionary, activatedAppDictionary;
+@property NSUserDefaults *storage;
+
+@property NSMutableDictionary *activeAppSwitchDictionary;
+@property NSRunningApplication *lastActiveApp;
+
+@end
+
+@implementation TaprRecognitionModel
 
 - (id)init {
 	self = [super init];
-    
-	userDefaults = [NSUserDefaults standardUserDefaults];
-    
-    [self generateOpenedAppDictionary];
-    
-	[self generateActivatedAppDictionary];
-    
-	[self startAppActivationLogging];
-    
+
+	_storage = [NSUserDefaults standardUserDefaults];
+
 	return self;
 }
 
 #pragma mark -
+#pragma mark Setup
+- (void)setup {
+	[self generateOpenedAppDictionary];
+
+	[self generateActivatedAppDictionary];
+
+	[self startAppActivationLogging];
+}
+
+#pragma mark -
+
+#pragma mark -
 #pragma mark Opened App Fetching
 - (NSMutableArray *)getMostOpenedAppArray {
-	return [NSMutableArray arrayWithArray:[[[[openedAppDictionary allValues] sortedArrayUsingComparator: ^NSComparisonResult (Application *a, Application *b) {
-	    return [[NSNumber numberWithInt:b.activationCount] compare:[NSNumber numberWithInt:a.activationCount]];
+	return [NSMutableArray arrayWithArray:[[[[self.openedAppDictionary allValues] sortedArrayUsingComparator: ^NSComparisonResult (Application *a, Application *b) {
+	    return [@(b.activationCount)compare : @(a.activationCount)];
 	}] subarrayWithRange:NSMakeRange(0, 6)] sortedArrayUsingComparator: ^NSComparisonResult (Application *a, Application *b) {
 	    return [a.displayName compare:b.displayName];
 	}]];
 }
 
 - (NSMutableDictionary *)generateOpenedAppDictionary {
-	openedAppDictionary = [self fetchNormalAppDictionary];
-	[openedAppDictionary addEntriesFromDictionary:[self fetchUtilitiesAppDictionary]];
-	[openedAppDictionary addEntriesFromDictionary:[self fetchSystemAppDictionary]];
-    
-	return openedAppDictionary;
+	self.openedAppDictionary = [self fetchNormalAppDictionary];
+	[self.openedAppDictionary addEntriesFromDictionary:[self fetchUtilitiesAppDictionary]];
+	[self.openedAppDictionary addEntriesFromDictionary:[self fetchSystemAppDictionary]];
+
+	return self.openedAppDictionary;
 }
 
 - (NSMutableDictionary *)fetchNormalAppDictionary {
@@ -61,35 +74,28 @@
 		if ([[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDir]) {
 			if ([[fileUrl pathExtension] isEqualToString:@"app"]) {
 				NSDictionary *bundle = [[NSBundle bundleWithPath:[fileUrl path]] infoDictionary];
-                
-				NSString *bundleId = [bundle objectForKey:@"CFBundleIdentifier"];
+
+				NSString *bundleId = bundle[@"CFBundleIdentifier"];
 				NSString *displayName = [[[NSFileManager defaultManager] displayNameAtPath:filePath] stringByDeletingPathExtension];
 				NSImage *icon = [[NSWorkspace sharedWorkspace] iconForFile:filePath];
-                
+
 				int useCount = 0;
 				@try {
-					MDItemRef item = MDItemCreate(kCFAllocatorDefault, (CFStringRef)filePath);
-					CFTypeRef ref = MDItemCopyAttribute(item, (CFStringRef)@"kMDItemUseCount");
-					NSObject *tempObject = (NSObject *)ref;
-                    
+					MDItemRef item = MDItemCreate(kCFAllocatorDefault, (__bridge CFStringRef)filePath);
+
+					NSObject *tempObject = (__bridge_transfer NSObject *)MDItemCopyAttribute(item, (CFStringRef)@"kMDItemUseCount");
 					if (tempObject) {
 						useCount = [[tempObject description] intValue];
 					}
-                    
-					if (ref != NULL) {
-						CFRelease(ref);
-					}
-                    
-					if (item != NULL) {
-						CFRelease(item);
-					}
+
+					CFRelease(item);
 				}
 				@catch (NSException *exception)
 				{
 				}
-                
+
 				if (bundleId && useCount > 0 && ![bundleId isEqualToString:[[NSBundle mainBundle] bundleIdentifier]] && ![bundleId isEqualToString:@"com.mhuusko5.Gestr"]) {
-					[dict setObject:[[Application alloc] initWithDisplayName:displayName icon:icon bundleId:bundleId activationCount:useCount] forKey:bundleId];
+					dict[bundleId] = [[Application alloc] initWithDisplayName:displayName icon:icon bundleId:bundleId activationCount:useCount];
 				}
 			}
 			else if (isDir && depth > 0 && ![filePath isEqualToString:@"/Applications/Utilities"]) {
@@ -97,7 +103,7 @@
 			}
 		}
 	}
-    
+
 	return dict;
 }
 
@@ -106,8 +112,8 @@
 #pragma mark -
 #pragma mark App Activation Logging
 - (NSMutableArray *)getMostActivatedAppArray {
-	return [NSMutableArray arrayWithArray:[[[[activatedAppDictionary allValues] sortedArrayUsingComparator: ^NSComparisonResult (Application *a, Application *b) {
-	    return [[NSNumber numberWithInt:b.activationCount] compare:[NSNumber numberWithInt:a.activationCount]];
+	return [NSMutableArray arrayWithArray:[[[[self.activatedAppDictionary allValues] sortedArrayUsingComparator: ^NSComparisonResult (Application *a, Application *b) {
+	    return [@(b.activationCount)compare : @(a.activationCount)];
 	}] subarrayWithRange:NSMakeRange(0, 6)] sortedArrayUsingComparator: ^NSComparisonResult (Application *a, Application *b) {
 	    return [a.displayName compare:b.displayName];
 	}]];
@@ -115,40 +121,41 @@
 
 - (NSMutableDictionary *)generateActivatedAppDictionary {
 	[self fetchActiveAppSwitchDictionary];
-    
+
 	NSMutableDictionary *newActivatedAppDictionary = [NSMutableDictionary dictionary];
-    
-    NSMutableArray *keysToCleanAppSwitchDictionary = [NSMutableArray array];
-    
-	for (id switchId in activeAppSwitchDictionary) {
-		NSString *nextActiveAppBundleId = [[switchId componentsSeparatedByString:@":"] objectAtIndex:1];
-        
-		int nextActiveAppActivatedCount = [[activeAppSwitchDictionary objectForKey:switchId] intValue];
-        
-        Application *appWithNextActiveAppBundleId;
-        if ((appWithNextActiveAppBundleId = [newActivatedAppDictionary objectForKey:nextActiveAppBundleId])) {
-            appWithNextActiveAppBundleId.activationCount += nextActiveAppActivatedCount;
-        }
-        else {
-            NSString *nextActiveAppPath = [[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:nextActiveAppBundleId];
-            
-            if (nextActiveAppPath) {
-                NSString *nextActiveAppName = [[[NSFileManager defaultManager] displayNameAtPath:nextActiveAppPath] stringByDeletingPathExtension];
-                NSImage *nextActiveAppIcon = [[NSWorkspace sharedWorkspace] iconForFile:nextActiveAppPath];
-            
-                appWithNextActiveAppBundleId = [[Application alloc] initWithDisplayName:nextActiveAppName icon:nextActiveAppIcon bundleId:nextActiveAppBundleId activationCount:nextActiveAppActivatedCount];
-            
-                [newActivatedAppDictionary setObject:appWithNextActiveAppBundleId forKey:nextActiveAppBundleId];
-            } else {
-                [keysToCleanAppSwitchDictionary addObject:switchId];
-            }
-        }
+
+	NSMutableArray *keysToCleanAppSwitchDictionary = [NSMutableArray array];
+
+	for (id switchId in self.activeAppSwitchDictionary) {
+		NSString *nextActiveAppBundleId = [switchId componentsSeparatedByString:@":"][1];
+
+		int nextActiveAppActivatedCount = [self.activeAppSwitchDictionary[switchId] intValue];
+
+		Application *appWithNextActiveAppBundleId;
+		if ((appWithNextActiveAppBundleId = newActivatedAppDictionary[nextActiveAppBundleId])) {
+			appWithNextActiveAppBundleId.activationCount += nextActiveAppActivatedCount;
+		}
+		else {
+			NSString *nextActiveAppPath = [[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:nextActiveAppBundleId];
+
+			if (nextActiveAppPath) {
+				NSString *nextActiveAppName = [[[NSFileManager defaultManager] displayNameAtPath:nextActiveAppPath] stringByDeletingPathExtension];
+				NSImage *nextActiveAppIcon = [[NSWorkspace sharedWorkspace] iconForFile:nextActiveAppPath];
+
+				appWithNextActiveAppBundleId = [[Application alloc] initWithDisplayName:nextActiveAppName icon:nextActiveAppIcon bundleId:nextActiveAppBundleId activationCount:nextActiveAppActivatedCount];
+
+				newActivatedAppDictionary[nextActiveAppBundleId] = appWithNextActiveAppBundleId;
+			}
+			else {
+				[keysToCleanAppSwitchDictionary addObject:switchId];
+			}
+		}
 	}
-    
-    [activeAppSwitchDictionary removeObjectsForKeys:keysToCleanAppSwitchDictionary];
-    [self saveActiveAppSwitchDictionary];
-    
-	return (activatedAppDictionary = newActivatedAppDictionary);
+
+	[self.activeAppSwitchDictionary removeObjectsForKeys:keysToCleanAppSwitchDictionary];
+	[self saveActiveAppSwitchDictionary];
+
+	return (self.activatedAppDictionary = newActivatedAppDictionary);
 }
 
 - (void)startAppActivationLogging {
@@ -156,31 +163,31 @@
 }
 
 - (void)nextAppActivated:(NSNotification *)notification {
-	NSRunningApplication *nextActiveApp = [[notification userInfo] objectForKey:@"NSWorkspaceApplicationKey"];
+	NSRunningApplication *nextActiveApp = [notification userInfo][@"NSWorkspaceApplicationKey"];
 	if ([nextActiveApp.bundleIdentifier isEqualToString:[[NSBundle mainBundle] bundleIdentifier]] || [nextActiveApp.bundleIdentifier isEqualToString:@"com.mhuusko5.Gestr"]) {
 		return;
 	}
-    
-	if (lastActiveApp && ![lastActiveApp.bundleIdentifier isEqualToString:nextActiveApp.bundleIdentifier]) {
+
+	if (self.lastActiveApp && ![self.lastActiveApp.bundleIdentifier isEqualToString:nextActiveApp.bundleIdentifier]) {
 		[self logSwitchToApplication:nextActiveApp];
 	}
-    
-	lastActiveApp = nextActiveApp;
+
+	self.lastActiveApp = nextActiveApp;
 }
 
 - (void)logSwitchToApplication:(NSRunningApplication *)nextActiveApp {
 	[self fetchActiveAppSwitchDictionary];
-    
-	NSString *switchId = [NSString stringWithFormat:@"%@:%@", lastActiveApp.bundleIdentifier, nextActiveApp.bundleIdentifier];
-    
+
+	NSString *switchId = [NSString stringWithFormat:@"%@:%@", self.lastActiveApp.bundleIdentifier, nextActiveApp.bundleIdentifier];
+
 	int switchIdOccurrence;
-	if ((switchIdOccurrence = [[activeAppSwitchDictionary objectForKey:switchId] intValue])) {
-		[activeAppSwitchDictionary setObject:[NSNumber numberWithInt:(switchIdOccurrence + 1)] forKey:switchId];
+	if ((switchIdOccurrence = [self.activeAppSwitchDictionary[switchId] intValue])) {
+		self.activeAppSwitchDictionary[switchId] = @(switchIdOccurrence + 1);
 	}
 	else {
-		[activeAppSwitchDictionary setObject:[NSNumber numberWithInt:1] forKey:switchId];
+		self.activeAppSwitchDictionary[switchId] = @1;
 	}
-    
+
 	[self saveActiveAppSwitchDictionary];
 }
 
@@ -188,7 +195,7 @@
 	NSMutableDictionary *savedActiveAppSwitchDictionary;
 	@try {
 		NSData *appSwitchData;
-		if ((appSwitchData = [userDefaults objectForKey:@"ActiveAppSwitchDictionary"])) {
+		if ((appSwitchData = [self.storage objectForKey:@"ActiveAppSwitchDictionary"])) {
 			savedActiveAppSwitchDictionary = [NSMutableDictionary dictionaryWithDictionary:[NSKeyedUnarchiver unarchiveObjectWithData:appSwitchData]];
 		}
 		else {
@@ -199,13 +206,13 @@
 	{
 		savedActiveAppSwitchDictionary = [NSMutableDictionary dictionary];
 	}
-    
-	activeAppSwitchDictionary = savedActiveAppSwitchDictionary;
+
+	self.activeAppSwitchDictionary = savedActiveAppSwitchDictionary;
 }
 
 - (void)saveActiveAppSwitchDictionary {
-	[userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:activeAppSwitchDictionary] forKey:@"ActiveAppSwitchDictionary"];
-	[userDefaults synchronize];
+	[self.storage setObject:[NSKeyedArchiver archivedDataWithRootObject:self.activeAppSwitchDictionary] forKey:@"ActiveAppSwitchDictionary"];
+	[self.storage synchronize];
 }
 
 #pragma mark -

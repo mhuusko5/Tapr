@@ -4,36 +4,13 @@
 #import "Launchable.h"
 #import "MultitouchManager.h"
 #import "TaprSetupBackgroundView.h"
-
 @class AppController, TaprSetupBackgroundView;
 
-@interface TaprRecognitionController : NSObject {
-	BOOL awakedFromNib;
-    
-	TaprRecognitionModel *recognitionModel;
-    
-	AppController *appController;
-    
-	IBOutlet TaprRecognitionWindow *recognitionWindow;
-    
-	IBOutlet NSImageView *appIcon1, *appIcon2, *appIcon3, *appIcon4, *appIcon5, *appIcon6;
-    
-	NSArray *appArrayToUse;
-    
-    NSArray *beforeThreeFingerTouches;
-	NSMutableArray *recentThreeFingerTouches;
-    
-	BOOL listeningToTap;
-    
-    BOOL ignoringActivation;
-    
-    int lastAppSelection;
-    
-	NSTimer *noTapTimer;
-}
-@property (retain) TaprRecognitionModel *recognitionModel;
-@property (retain) AppController *appController;
-@property (retain) TaprRecognitionWindow *recognitionWindow;
+@interface TaprRecognitionController : NSObject
+
+@property TaprRecognitionModel *recognitionModel;
+@property AppController *appController;
+@property TaprRecognitionWindow *recognitionWindow;
 @property BOOL listeningToTap;
 
 #pragma mark -

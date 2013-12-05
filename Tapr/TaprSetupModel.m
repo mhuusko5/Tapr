@@ -2,17 +2,13 @@
 
 @implementation TaprSetupModel
 
-@synthesize loginStartOption;
-
-- (id)init {
-	self = [super init];
-    
-	userDefaults = [NSUserDefaults standardUserDefaults];
-    
+#pragma mark -
+#pragma mark Tapr Options
+- (void)setup {
 	[self saveLoginStartOption:[self fetchLoginStartOption]];
-    
-	return self;
 }
+
+#pragma mark -
 
 #pragma mark -
 #pragma mark Tapr Options
@@ -22,14 +18,14 @@
 	LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
 	if (loginItems) {
 		UInt32 seed = 0U;
-		NSArray *currentLoginItems = [NSMakeCollectable(LSSharedFileListCopySnapshot(loginItems, &seed)) autorelease];
+		NSArray *currentLoginItems = (__bridge_transfer NSArray *)LSSharedFileListCopySnapshot(loginItems, &seed);
 		for (id itemObject in currentLoginItems) {
-			LSSharedFileListItemRef item = (LSSharedFileListItemRef)itemObject;
+			LSSharedFileListItemRef item = (__bridge LSSharedFileListItemRef)itemObject;
 			UInt32 resolutionFlags = kLSSharedFileListNoUserInteraction | kLSSharedFileListDoNotMountVolumes;
 			CFURLRef URL = NULL;
 			OSStatus err = LSSharedFileListItemResolve(item, resolutionFlags, &URL, /*outRef*/ NULL);
 			if (err == noErr) {
-				foundIt = CFEqual(URL, itemURL);
+				foundIt = CFEqual(URL, (__bridge CFTypeRef)(itemURL));
 				CFRelease(URL);
 				if (foundIt) {
 					break;
@@ -38,26 +34,26 @@
 		}
 		CFRelease(loginItems);
 	}
-    
-	return (loginStartOption = foundIt);
+
+	return (self.loginStartOption = foundIt);
 }
 
 - (void)saveLoginStartOption:(BOOL)newChoice {
-	loginStartOption = newChoice;
-    
+	self.loginStartOption = newChoice;
+
 	NSURL *itemURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
 	LSSharedFileListItemRef existingItem = NULL;
 	LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
 	if (loginItems) {
 		UInt32 seed = 0U;
-		NSArray *currentLoginItems = [NSMakeCollectable(LSSharedFileListCopySnapshot(loginItems, &seed)) autorelease];
+		NSArray *currentLoginItems = (__bridge_transfer NSArray *)LSSharedFileListCopySnapshot(loginItems, &seed);
 		for (id itemObject in currentLoginItems) {
-			LSSharedFileListItemRef item = (LSSharedFileListItemRef)itemObject;
+			LSSharedFileListItemRef item = (__bridge LSSharedFileListItemRef)itemObject;
 			UInt32 resolutionFlags = kLSSharedFileListNoUserInteraction | kLSSharedFileListDoNotMountVolumes;
 			CFURLRef URL = NULL;
 			OSStatus err = LSSharedFileListItemResolve(item, resolutionFlags, &URL, /*outRef*/ NULL);
 			if (err == noErr) {
-				Boolean foundIt = CFEqual(URL, itemURL);
+				Boolean foundIt = CFEqual(URL, (__bridge CFTypeRef)(itemURL));
 				CFRelease(URL);
 				if (foundIt) {
 					existingItem = item;
@@ -65,10 +61,10 @@
 				}
 			}
 		}
-		if (loginStartOption && (existingItem == NULL)) {
-			LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, (CFURLRef)itemURL, NULL, NULL);
+		if (self.loginStartOption && (existingItem == NULL)) {
+			LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, (__bridge CFURLRef)itemURL, NULL, NULL);
 		}
-		else if (!loginStartOption && (existingItem != NULL)) {
+		else if (!self.loginStartOption && (existingItem != NULL)) {
 			LSSharedFileListItemRemove(loginItems, existingItem);
 		}
 		CFRelease(loginItems);

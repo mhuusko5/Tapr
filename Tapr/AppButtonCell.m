@@ -3,26 +3,31 @@
 static NSString *const AppButtonReturnKeyEquivalent = @"\r";
 
 @interface AppButtonCell ()
+
+@property NSBezierPath *appButtonBezelPath;
+@property NSButtonType appButtonType;
+
 - (BOOL)App_shouldDrawBlueButton;
 - (void)App_drawButtonBezelWithFrame:(NSRect)frame inView:(NSView *)controlView;
 - (void)App_drawCheckboxBezelWithFrame:(NSRect)frame inView:(NSView *)controlView;
 - (NSRect)App_drawButtonTitle:(NSAttributedString *)title withFrame:(NSRect)frame inView:(NSView *)controlView;
 - (NSRect)App_drawCheckboxTitle:(NSAttributedString *)title withFrame:(NSRect)frame inView:(NSView *)controlView;
 - (NSBezierPath *)App_checkmarkPathForRect:(NSRect)rect mixed:(BOOL)mixed;
+
 @end
 
 @implementation AppButtonCell
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
 	if ((self = [super initWithCoder:aDecoder])) {
-		__buttonType = (NSButtonType)[[self valueForKey:@"buttonType"] unsignedIntegerValue];
+		self.appButtonType = (NSButtonType)[[self valueForKey:@"buttonType"] unsignedIntegerValue];
 	}
-    
+
 	return self;
 }
 
 - (void)setButtonType:(NSButtonType)aType {
-	__buttonType = aType;
+	self.appButtonType = aType;
 	[super setButtonType:aType];
 }
 
@@ -30,11 +35,11 @@ static NSString *const AppButtonReturnKeyEquivalent = @"\r";
 	if (![self isEnabled]) {
 		CGContextSetAlpha([[NSGraphicsContext currentContext] graphicsPort], AppButtonDisabledAlpha);
 	}
-    
+
 	[super drawWithFrame:cellFrame inView:controlView];
-	if (__bezelPath && [self isHighlighted]) {
+	if (self.appButtonBezelPath && [self isHighlighted]) {
 		[AppButtonHighlightOverlayColor set];
-		[__bezelPath fill];
+		[self.appButtonBezelPath fill];
 	}
 }
 
@@ -43,11 +48,11 @@ static NSString *const AppButtonReturnKeyEquivalent = @"\r";
 }
 
 - (NSRect)drawTitle:(NSAttributedString *)title withFrame:(NSRect)frame inView:(NSView *)controlView {
-	switch (__buttonType) {
+	switch (self.appButtonType) {
 		case NSSwitchButton:
 			return [self App_drawCheckboxTitle:title withFrame:frame inView:controlView];
 			break;
-            
+
 		default:
 			return [self App_drawButtonTitle:title withFrame:frame inView:controlView];
 			break;
@@ -55,7 +60,7 @@ static NSString *const AppButtonReturnKeyEquivalent = @"\r";
 }
 
 - (void)drawImage:(NSImage *)image withFrame:(NSRect)frame inView:(NSView *)controlView {
-	if (__buttonType == NSSwitchButton) {
+	if (self.appButtonType == NSSwitchButton) {
 		[self App_drawCheckboxBezelWithFrame:frame inView:controlView];
 	}
 }
@@ -64,11 +69,11 @@ static NSString *const AppButtonReturnKeyEquivalent = @"\r";
 	frame = NSInsetRect(frame, 0.5f, 0.5f);
 	frame.size.height -= AppButtonDropShadowBlurRadius;
 	BOOL blue = [self App_shouldDrawBlueButton];
-	__bezelPath = [NSBezierPath bezierPathWithRoundedRect:frame xRadius:AppButtonCornerRadius yRadius:AppButtonCornerRadius];
+	self.appButtonBezelPath = [NSBezierPath bezierPathWithRoundedRect:frame xRadius:AppButtonCornerRadius yRadius:AppButtonCornerRadius];
 	NSGradient *gradientFill = [[NSGradient alloc] initWithStartingColor:blue ? AppButtonBlueGradientBottomColor:AppButtonBlackGradientBottomColor endingColor:blue ? AppButtonBlueGradientTopColor:AppButtonBlackGradientTopColor];
-    
-	[gradientFill drawInBezierPath:__bezelPath angle:270.f];
-    
+
+	[gradientFill drawInBezierPath:self.appButtonBezelPath angle:270.f];
+
 	[NSGraphicsContext saveGraphicsState];
 	[AppButtonBorderColor set];
 	NSShadow *dropShadow = [NSShadow new];
@@ -76,15 +81,15 @@ static NSString *const AppButtonReturnKeyEquivalent = @"\r";
 	[dropShadow setShadowBlurRadius:AppButtonDropShadowBlurRadius];
 	[dropShadow setShadowOffset:AppButtonDropShadowOffset];
 	[dropShadow set];
-	[__bezelPath stroke];
+	[self.appButtonBezelPath stroke];
 	[NSGraphicsContext restoreGraphicsState];
-    
+
 	NSRect highlightRect = NSInsetRect(frame, -0.5f, 1.f);
-    
+
 	highlightRect.size.height *= 2.f;
 	[NSGraphicsContext saveGraphicsState];
 	NSBezierPath *highlightPath = [NSBezierPath bezierPathWithRoundedRect:highlightRect xRadius:AppButtonCornerRadius yRadius:AppButtonCornerRadius];
-	[__bezelPath addClip];
+	[self.appButtonBezelPath addClip];
 	[blue ? AppButtonBlueHighlightColor:AppButtonBlackHighlightColor set];
 	[highlightPath stroke];
 	[NSGraphicsContext restoreGraphicsState];
@@ -94,11 +99,11 @@ static NSString *const AppButtonReturnKeyEquivalent = @"\r";
 	frame.size.width -= 2.f;
 	frame.size.height -= 1.f;
 	[self App_drawButtonBezelWithFrame:frame inView:controlView];
-    
+
 	if ([self state] == NSOffState) {
 		return;
 	}
-    
+
 	NSBezierPath *path = [self App_checkmarkPathForRect:frame mixed:[self state] == NSMixedState];
 	[path setLineWidth:AppButtonCheckboxCheckmarkLineWidth];
 	[myGreenColor set];
@@ -128,7 +133,7 @@ static NSString *const AppButtonReturnKeyEquivalent = @"\r";
 		[path lineToPoint:bottom];
 		[path lineToPoint:left];
 	}
-    
+
 	return path;
 }
 
@@ -146,8 +151,8 @@ static NSString *const AppButtonReturnKeyEquivalent = @"\r";
 	else {
 		textColor = [myWhiteColor lightenColorByValue:0.6];
 	}
-    
-	NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:AppButtonTextFont, NSFontAttributeName, textColor, NSForegroundColorAttributeName, textShadow, NSShadowAttributeName, nil];
+
+	NSDictionary *attributes = @{ NSFontAttributeName : AppButtonTextFont, NSForegroundColorAttributeName : textColor, NSShadowAttributeName : textShadow };
 	NSAttributedString *attrLabel = [[NSAttributedString alloc] initWithString:label attributes:attributes];
 	NSSize labelSize = attrLabel.size;
 	NSRect labelRect = NSMakeRect(NSMidX(frame) - (labelSize.width / 2.f), 1 + NSMidY(frame) - (labelSize.height / 2.f), labelSize.width, labelSize.height);
@@ -168,8 +173,8 @@ static NSString *const AppButtonReturnKeyEquivalent = @"\r";
 	else {
 		textColor = [myWhiteColor lightenColorByValue:0.6];
 	}
-    
-	NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:AppButtonTextFont, NSFontAttributeName, textColor, NSForegroundColorAttributeName, textShadow, NSShadowAttributeName, nil];
+
+	NSDictionary *attributes = @{ NSFontAttributeName : AppButtonTextFont, NSForegroundColorAttributeName : textColor, NSShadowAttributeName : textShadow };
 	NSAttributedString *attrLabel = [[NSAttributedString alloc] initWithString:label attributes:attributes];
 	NSSize labelSize = attrLabel.size;
 	NSRect labelRect = NSMakeRect(frame.origin.x + AppButtonCheckboxTextOffset, NSMidY(frame) - (labelSize.height / 2.f), labelSize.width, labelSize.height);
@@ -180,7 +185,7 @@ static NSString *const AppButtonReturnKeyEquivalent = @"\r";
 #pragma mark - Private
 
 - (BOOL)App_shouldDrawBlueButton {
-	return [[self keyEquivalent] isEqualToString:AppButtonReturnKeyEquivalent] && (__buttonType != NSSwitchButton);
+	return [[self keyEquivalent] isEqualToString:AppButtonReturnKeyEquivalent] && (self.appButtonType != NSSwitchButton);
 }
 
 @end

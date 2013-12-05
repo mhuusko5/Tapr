@@ -1,9 +1,8 @@
 #import "AppController.h"
 #import "TaprSetupWindow.h"
 
-@interface TaprSetupBackgroundView : NSImageView {
-	NSColor *backgroundColor;
-}
+@interface TaprSetupBackgroundView : NSImageView
+
 - (void)drawRect:(NSRect)dirtyRect;
 - (void)mouseDown:(NSEvent *)theEvent;
 
