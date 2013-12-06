@@ -79,20 +79,12 @@
 				NSString *displayName = [[[NSFileManager defaultManager] displayNameAtPath:filePath] stringByDeletingPathExtension];
 				NSImage *icon = [[NSWorkspace sharedWorkspace] iconForFile:filePath];
 
-				int useCount = 0;
-				@try {
-					MDItemRef item = MDItemCreate(kCFAllocatorDefault, (__bridge CFStringRef)filePath);
-
-					NSObject *tempObject = (__bridge_transfer NSObject *)MDItemCopyAttribute(item, (CFStringRef)@"kMDItemUseCount");
-					if (tempObject) {
-						useCount = [[tempObject description] intValue];
-					}
-
-					CFRelease(item);
-				}
-				@catch (NSException *exception)
-				{
-				}
+                int useCount = 0;
+                @try {
+                    NSMetadataItem *metadata = [[NSMetadataItem alloc] _init:MDItemCreate(NULL, (__bridge CFStringRef)(filePath))];
+                    useCount = [[metadata valueForAttribute:@"kMDItemUseCount"] intValue];
+                }
+                @catch (NSException *exception) {}
 
 				if (bundleId && useCount > 0 && ![bundleId isEqualToString:[[NSBundle mainBundle] bundleIdentifier]] && ![bundleId isEqualToString:@"com.mhuusko5.Gestr"]) {
 					dict[bundleId] = [[Application alloc] initWithDisplayName:displayName icon:icon bundleId:bundleId activationCount:useCount];

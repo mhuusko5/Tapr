@@ -1,5 +1,9 @@
 #import "Application.h"
 
+@interface NSMetadataItem (Private)
+- (id)_init:(struct __MDItem *)fp8;
+@end
+
 @interface TaprRecognitionModel : NSObject
 
 @property NSMutableDictionary *openedAppDictionary;
