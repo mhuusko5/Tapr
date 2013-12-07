@@ -9,11 +9,11 @@
 @implementation TaprSetupBackgroundView
 
 - (void)drawRect:(NSRect)dirtyRect {
-	if (!self.backgroundColor) {
-		self.backgroundColor = [NSColor colorWithPatternImage:self.image];
+	if (!_backgroundColor) {
+		_backgroundColor = [NSColor colorWithPatternImage:self.image];
 	}
 
-	[self.backgroundColor set];
+	[_backgroundColor set];
 	NSRectFill(dirtyRect);
 }
 

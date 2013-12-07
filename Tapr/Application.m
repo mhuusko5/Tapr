@@ -14,11 +14,11 @@
 }
 
 - (void)launch {
-	[[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:self.bundleId options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:nil launchIdentifier:nil];
+	[[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:_bundleId options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:nil launchIdentifier:nil];
 }
 
 - (NSString *)description {
-	return [NSString stringWithFormat:@"%@ - %i", self.displayName, self.activationCount];
+	return [NSString stringWithFormat:@"%@ - %i", self.displayName, _activationCount];
 }
 
 @end

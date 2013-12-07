@@ -24,16 +24,16 @@
 #pragma mark -
 #pragma mark Initialization
 - (void)awakeFromNib {
-	if (!self.awakedFromNib) {
-		self.awakedFromNib = YES;
+	if (!_awakedFromNib) {
+		_awakedFromNib = YES;
 
 		[self hideRecognitionWindowWithFade:NO];
 
-		self.recognitionModel = [[TaprRecognitionModel alloc] init];
-		[self.recognitionModel setup];
+		_recognitionModel = [[TaprRecognitionModel alloc] init];
+		[_recognitionModel setup];
 
-		self.beforeThreeFingerTouches = @[@0, @0, @0];
-		self.recentThreeFingerTouches = [NSMutableArray array];
+		_beforeThreeFingerTouches = @[@0, @0, @0];
+		_recentThreeFingerTouches = [NSMutableArray array];
 	}
 }
 
@@ -55,16 +55,16 @@
 #pragma mark -
 #pragma mark Recognition Utilities
 - (void)shouldStartDetectingTap {
-	if (!self.listeningToTap) {
-		self.listeningToTap = YES;
+	if (!_listeningToTap) {
+		_listeningToTap = YES;
 
 		[self configureAppIcons];
 
 		[self showRecognitionWindow];
 
-		self.lastAppSelection = -1;
+		_lastAppSelection = -1;
 
-		self.noTapTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(noTapDetected) userInfo:nil repeats:NO];
+		_noTapTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(noTapDetected) userInfo:nil repeats:NO];
 
 		[NSApp activateIgnoringOtherApps:YES];
 		CGAssociateMouseAndMouseCursorPosition(NO);
@@ -75,12 +75,12 @@
 }
 
 - (void)stopDetectingTapWithForce:(BOOL)force {
-	if (self.listeningToTap) {
-		self.listeningToTap = NO;
+	if (_listeningToTap) {
+		_listeningToTap = NO;
 
-		if (self.noTapTimer) {
-			[self.noTapTimer invalidate];
-			self.noTapTimer = nil;
+		if (_noTapTimer) {
+			[_noTapTimer invalidate];
+			_noTapTimer = nil;
 		}
 
 		[[MultitouchManager sharedMultitouchManager] removeMultitouchListenersWithTarget:self andCallback:@selector(tapMultitouchEvent:)];
@@ -89,7 +89,7 @@
 		[self hideRecognitionWindowWithFade:!force];
 	}
 
-	[self.recognitionModel generateActivatedAppDictionary];
+	[_recognitionModel generateActivatedAppDictionary];
 }
 
 - (void)noTapDetected {
@@ -126,22 +126,22 @@
 }
 
 - (void)tapMultitouchEvent:(MultitouchEvent *)event {
-	if (self.listeningToTap && event) {
+	if (_listeningToTap && event) {
 		MultitouchTouch *tap;
 		if (event.touches.count == 1 && (tap = (event.touches)[0]) && tap.state == MultitouchTouchStateActive) {
-			if (self.noTapTimer) {
-				[self.noTapTimer invalidate];
-				self.noTapTimer = nil;
+			if (_noTapTimer) {
+				[_noTapTimer invalidate];
+				_noTapTimer = nil;
 			}
 
 			int newAppSelection = [self selectionFromCoordinateX:tap.x andY:tap.y];
 
 			[self setAppIconShadowsWithSelection:newAppSelection];
 
-			self.lastAppSelection = newAppSelection;
+			_lastAppSelection = newAppSelection;
 		}
-		else if (event.touches.count == 0 && self.lastAppSelection > -1) {
-			[self activateTappedApp:self.appArrayToUse[self.lastAppSelection]];
+		else if (event.touches.count == 0 && _lastAppSelection > -1) {
+			[self activateTappedApp:_appArrayToUse[_lastAppSelection]];
 		}
 		else if (event.touches.count > 1) {
 			[self stopDetectingTapWithForce:YES];
@@ -164,7 +164,7 @@
 #pragma mark -
 #pragma mark Activation Event Handling
 - (void)activationMultitouchEvent:(MultitouchEvent *)event {
-	if (!self.listeningToTap && !self.ignoringActivation) {
+	if (!_listeningToTap && !_ignoringActivation) {
 		int activeTouches = 0;
 		for (MultitouchTouch *touch in event.touches) {
 			if (touch.state == MultitouchTouchStateActive) {
@@ -173,45 +173,45 @@
 		}
 
 		if (activeTouches == 3) {
-			[self.recentThreeFingerTouches addObject:event];
+			[_recentThreeFingerTouches addObject:event];
 		}
 		else {
-			if (self.recentThreeFingerTouches.count >= 3 && self.recentThreeFingerTouches.count <= 24) {
+			if (_recentThreeFingerTouches.count >= 3 && _recentThreeFingerTouches.count <= 24) {
 				int totalCount = 0;
 				float totalVelocity = 0.0f;
-				for (MultitouchEvent *fourFingerEvent in self.recentThreeFingerTouches) {
+				for (MultitouchEvent *fourFingerEvent in _recentThreeFingerTouches) {
 					for (MultitouchTouch *touch in fourFingerEvent.touches) {
 						totalCount++;
 						totalVelocity += (fabs(touch.velX) + fabs(touch.velY));
 					}
 				}
 
-				NSCountedSet *countedBeforeThreeFingerTouches = [[NSCountedSet alloc] initWithArray:self.beforeThreeFingerTouches];
+				NSCountedSet *countedBeforeThreeFingerTouches = [[NSCountedSet alloc] initWithArray:_beforeThreeFingerTouches];
 				if ((totalVelocity / totalCount) <= 0.4 && [countedBeforeThreeFingerTouches countForObject:@2] < 3 && [countedBeforeThreeFingerTouches countForObject:@4] < 3) {
 					[self shouldStartDetectingTap];
 				}
 			}
 
-			self.beforeThreeFingerTouches = @[self.beforeThreeFingerTouches[1], self.beforeThreeFingerTouches[2], @(activeTouches)];
+			_beforeThreeFingerTouches = @[_beforeThreeFingerTouches[1], _beforeThreeFingerTouches[2], @(activeTouches)];
 
-			[self.recentThreeFingerTouches removeAllObjects];
+			[_recentThreeFingerTouches removeAllObjects];
 		}
 	}
 }
 
 - (void)ignoreActivation:(NSArray *)ignoreAndSeconds {
 	if ([ignoreAndSeconds[0] boolValue]) {
-		self.ignoringActivation = YES;
+		_ignoringActivation = YES;
 
 		[self performSelector:@selector(ignoreActivation:) withObject:@[@NO] afterDelay:[ignoreAndSeconds[1] floatValue]];
 	}
 	else {
-		self.ignoringActivation = NO;
+		_ignoringActivation = NO;
 	}
 }
 
 - (CGEventRef)handleEvent:(CGEventRef)event withType:(int)type {
-	if (self.listeningToTap) {
+	if (_listeningToTap) {
 		if (type == kCGEventKeyUp || type == kCGEventKeyDown) {
 			[self stopDetectingTapWithForce:YES];
 			return event;
@@ -239,32 +239,32 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 #pragma mark -
 #pragma Activation Controls
 - (void)configureAppIcons {
-	if (self.recognitionModel.activatedAppDictionary.count > 5) {
-		self.appArrayToUse = [self.recognitionModel getMostActivatedAppArray];
+	if (_recognitionModel.activatedAppDictionary.count > 5) {
+		_appArrayToUse = [_recognitionModel getMostActivatedAppArray];
 	}
 	else {
-		self.appArrayToUse = [self.recognitionModel getMostOpenedAppArray];
+		_appArrayToUse = [_recognitionModel getMostOpenedAppArray];
 	}
 
-	self.appIcon1.image = ((Application *)self.appArrayToUse[0]).icon;
-	self.appIcon2.image = ((Application *)self.appArrayToUse[1]).icon;
-	self.appIcon3.image = ((Application *)self.appArrayToUse[2]).icon;
-	self.appIcon4.image = ((Application *)self.appArrayToUse[3]).icon;
-	self.appIcon5.image = ((Application *)self.appArrayToUse[4]).icon;
-	self.appIcon6.image = ((Application *)self.appArrayToUse[5]).icon;
+	_appIcon1.image = ((Application *)_appArrayToUse[0]).icon;
+	_appIcon2.image = ((Application *)_appArrayToUse[1]).icon;
+	_appIcon3.image = ((Application *)_appArrayToUse[2]).icon;
+	_appIcon4.image = ((Application *)_appArrayToUse[3]).icon;
+	_appIcon5.image = ((Application *)_appArrayToUse[4]).icon;
+	_appIcon6.image = ((Application *)_appArrayToUse[5]).icon;
 
 	[self setAppIconShadowsWithSelection:-2];
 }
 
 - (void)setAppIconShadowsWithSelection:(int)selection {
-	if (selection != self.lastAppSelection) {
-		NSMutableArray *normalShadowAppIcons = [NSMutableArray arrayWithObjects:self.appIcon1, self.appIcon2, self.appIcon3, self.appIcon4, self.appIcon5, self.appIcon6, nil];
+	if (selection != _lastAppSelection) {
+		NSMutableArray *normalShadowAppIcons = [NSMutableArray arrayWithObjects:_appIcon1, _appIcon2, _appIcon3, _appIcon4, _appIcon5, _appIcon6, nil];
 
 		if (selection > -1) {
 			NSImageView *highlightedAppIcon = normalShadowAppIcons[selection];
 
 			NSShadow *highlightShadow = [[NSShadow alloc] init];
-			[highlightShadow setShadowBlurRadius:self.recognitionWindow.frame.size.height / 58];
+			[highlightShadow setShadowBlurRadius:_recognitionWindow.frame.size.height / 58];
 			[highlightShadow setShadowOffset:NSMakeSize(0, 0)];
 			[highlightShadow setShadowColor:myGreenColor];
 
@@ -276,7 +276,7 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 
 		for (NSImageView *normalShadowAppIcon in normalShadowAppIcons) {
 			NSShadow *normalShadow = [[NSShadow alloc] init];
-			[normalShadow setShadowBlurRadius:self.recognitionWindow.frame.size.height / 38];
+			[normalShadow setShadowBlurRadius:_recognitionWindow.frame.size.height / 38];
 			[normalShadow setShadowOffset:NSMakeSize(0, 0)];
 			[normalShadow setShadowColor:[NSColor colorWithCalibratedWhite:0.0 alpha:0.94]];
 
@@ -293,9 +293,9 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 - (void)showRecognitionWindow {
 	[self layoutRecognitionWindow];
 
-	self.recognitionWindow.alphaValue = 1.0;
-	[self.recognitionWindow orderFrontRegardless];
-	[self.recognitionWindow makeKeyWindow];
+	_recognitionWindow.alphaValue = 1.0;
+	[_recognitionWindow orderFrontRegardless];
+	[_recognitionWindow makeKeyWindow];
 }
 
 - (void)hideRecognitionWindowWithFade:(BOOL)fade {
@@ -305,19 +305,19 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 		[[NSAnimationContext currentContext] setCompletionHandler: ^{
 		    [self hideRecognitionWindowWithFade:NO];
 		}];
-		[self.recognitionWindow.animator setAlphaValue:0.0];
+		[_recognitionWindow.animator setAlphaValue:0.0];
 		[NSAnimationContext endGrouping];
 	}
 	else {
-		self.recognitionWindow.alphaValue = 0.0;
-		[self.recognitionWindow orderOut:self];
-		[self.recognitionWindow setFrameOrigin:NSMakePoint(-10000, -10000)];
+		_recognitionWindow.alphaValue = 0.0;
+		[_recognitionWindow orderOut:self];
+		[_recognitionWindow setFrameOrigin:NSMakePoint(-10000, -10000)];
 		[NSApp hide:self];
 	}
 }
 
 - (void)windowDidResignKey:(NSNotification *)notification {
-	if (self.listeningToTap) {
+	if (_listeningToTap) {
 		[self stopDetectingTapWithForce:YES];
 	}
 }
@@ -337,18 +337,18 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 	windowRect.origin.x += (screenRect.size.width - windowRect.size.width) / 2;
 	windowRect.origin.y += (screenRect.size.height - windowRect.size.height) / 2;
 
-	[self.recognitionWindow setFrame:windowRect display:NO];
+	[_recognitionWindow setFrame:windowRect display:NO];
 
 	NSSize appIconSize = NSMakeSize(windowRect.size.height / 2.96, windowRect.size.height / 2.96);
 
-	[self.appIcon1 setFrame:NSMakeRect(windowRect.size.height / 6.564, windowRect.size.height / 1.842, appIconSize.width, appIconSize.height)];
-	[self.appIcon2 setFrame:NSMakeRect(windowRect.size.height / 1.716, windowRect.size.height / 1.842, appIconSize.width, appIconSize.height)];
-	[self.appIcon3 setFrame:NSMakeRect(windowRect.size.height / 0.988, windowRect.size.height / 1.842, appIconSize.width, appIconSize.height)];
-	[self.appIcon4 setFrame:NSMakeRect(windowRect.size.height / 6.564, windowRect.size.height / 8.572, appIconSize.width, appIconSize.height)];
-	[self.appIcon5 setFrame:NSMakeRect(windowRect.size.height / 1.716, windowRect.size.height / 8.572, appIconSize.width, appIconSize.height)];
-	[self.appIcon6 setFrame:NSMakeRect(windowRect.size.height / 0.988, windowRect.size.height / 8.572, appIconSize.width, appIconSize.height)];
+	[_appIcon1 setFrame:NSMakeRect(windowRect.size.height / 6.564, windowRect.size.height / 1.842, appIconSize.width, appIconSize.height)];
+	[_appIcon2 setFrame:NSMakeRect(windowRect.size.height / 1.716, windowRect.size.height / 1.842, appIconSize.width, appIconSize.height)];
+	[_appIcon3 setFrame:NSMakeRect(windowRect.size.height / 0.988, windowRect.size.height / 1.842, appIconSize.width, appIconSize.height)];
+	[_appIcon4 setFrame:NSMakeRect(windowRect.size.height / 6.564, windowRect.size.height / 8.572, appIconSize.width, appIconSize.height)];
+	[_appIcon5 setFrame:NSMakeRect(windowRect.size.height / 1.716, windowRect.size.height / 8.572, appIconSize.width, appIconSize.height)];
+	[_appIcon6 setFrame:NSMakeRect(windowRect.size.height / 0.988, windowRect.size.height / 8.572, appIconSize.width, appIconSize.height)];
 
-	[self.recognitionWindow.contentView setNeedsDisplay:YES];
+	[_recognitionWindow.contentView setNeedsDisplay:YES];
 }
 
 #pragma mark -

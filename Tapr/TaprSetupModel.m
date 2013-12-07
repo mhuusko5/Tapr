@@ -35,11 +35,11 @@
 		CFRelease(loginItems);
 	}
 
-	return (self.loginStartOption = foundIt);
+	return (_loginStartOption = foundIt);
 }
 
 - (void)saveLoginStartOption:(BOOL)newChoice {
-	self.loginStartOption = newChoice;
+	_loginStartOption = newChoice;
 
 	NSURL *itemURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
 	LSSharedFileListItemRef existingItem = NULL;
@@ -61,10 +61,10 @@
 				}
 			}
 		}
-		if (self.loginStartOption && (existingItem == NULL)) {
+		if (_loginStartOption && (existingItem == NULL)) {
 			LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, (__bridge CFURLRef)itemURL, NULL, NULL);
 		}
-		else if (!self.loginStartOption && (existingItem != NULL)) {
+		else if (!_loginStartOption && (existingItem != NULL)) {
 			LSSharedFileListItemRemove(loginItems, existingItem);
 		}
 		CFRelease(loginItems);
