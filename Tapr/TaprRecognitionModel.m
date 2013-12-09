@@ -4,7 +4,7 @@
 
 @property NSUserDefaults *storage;
 
-@property (strong) NSMutableDictionary *activeAppSwitchDictionary;
+@property NSMutableDictionary *activeAppSwitchDictionary;
 @property NSRunningApplication *lastActiveApp;
 
 @end
@@ -15,8 +15,6 @@
 	self = [super init];
 
 	_storage = [NSUserDefaults standardUserDefaults];
-
-	_activeAppSwitchDictionary = [NSMutableDictionary dictionary];
 
 	return self;
 }
@@ -167,7 +165,7 @@
 	if (_lastActiveApp && ![_lastActiveApp.bundleIdentifier isEqualToString:nextActiveApp.bundleIdentifier]) {
 		[self logSwitchToApplication:nextActiveApp];
 	}
-
+    
 	_lastActiveApp = nextActiveApp;
 }
 
@@ -188,22 +186,19 @@
 }
 
 - (NSMutableDictionary *)fetchActiveAppSwitchDictionary {
-	NSMutableDictionary *savedActiveAppSwitchDictionary;
 	@try {
 		NSData *appSwitchData;
 		if ((appSwitchData = [_storage objectForKey:@"ActiveAppSwitchDictionary"])) {
-			savedActiveAppSwitchDictionary = [[NSKeyedUnarchiver unarchiveObjectWithData:appSwitchData] mutableCopy];
+			_activeAppSwitchDictionary = [[NSKeyedUnarchiver unarchiveObjectWithData:appSwitchData] mutableCopy];
 		}
 		else {
-			savedActiveAppSwitchDictionary = [NSMutableDictionary dictionary];
+			_activeAppSwitchDictionary = [NSMutableDictionary dictionary];
 		}
 	}
 	@catch (NSException *exception)
 	{
-		savedActiveAppSwitchDictionary = [NSMutableDictionary dictionary];
+		_activeAppSwitchDictionary = [NSMutableDictionary dictionary];
 	}
-
-	_activeAppSwitchDictionary = savedActiveAppSwitchDictionary;
 }
 
 - (void)saveActiveAppSwitchDictionary {

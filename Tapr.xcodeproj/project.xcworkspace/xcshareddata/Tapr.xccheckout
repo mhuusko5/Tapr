@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>80D8CC11-8797-4C08-B019-4279C1932FDA</string>
+	<string>F18623B0-A44C-4D24-9DA5-A8C686A5CCFA</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Tapr</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>49DC7D1E-0137-4B06-B52A-FFCB93CB9BD6</key>
+		<key>76AA98CC-B1F4-4168-B0FF-209EBEF0C9A8</key>
 		<string>https://github.com/mhuusko5/Tapr.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Tapr.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>49DC7D1E-0137-4B06-B52A-FFCB93CB9BD6</key>
+		<key>76AA98CC-B1F4-4168-B0FF-209EBEF0C9A8</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>49DC7D1E-0137-4B06-B52A-FFCB93CB9BD6</string>
+	<string>76AA98CC-B1F4-4168-B0FF-209EBEF0C9A8</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>49DC7D1E-0137-4B06-B52A-FFCB93CB9BD6</string>
+			<string>76AA98CC-B1F4-4168-B0FF-209EBEF0C9A8</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Tapr</string>
 		</dict>

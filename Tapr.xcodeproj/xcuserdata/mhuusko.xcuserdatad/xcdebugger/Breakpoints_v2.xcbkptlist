@@ -9,14 +9,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Tapr/ActiveAppSwitch.h"
-            timestampString = "405207680.858471"
+            filePath = "Tapr/TaprRecognitionModel.m"
+            timestampString = "408253617.677797"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5"
-            endingLineNumber = "5"
-            landmarkName = "lastActiveAppBundleId"
-            landmarkType = "19">
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "-generateActivatedAppDictionary"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
