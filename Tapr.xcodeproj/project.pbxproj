@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0021B2641855835900C42444 /* MultitouchSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0021B2631855835900C42444 /* MultitouchSupport.framework */; };
+		0021B2661855836100C42444 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0021B2651855836100C42444 /* Sparkle.framework */; };
+		0021B2671855836400C42444 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0021B2651855836100C42444 /* Sparkle.framework */; };
 		00D15EB81855520C00336935 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D15EB71855520C00336935 /* Cocoa.framework */; };
 		00D15F1E1855535500336935 /* AppButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D15EEC1855535500336935 /* AppButtonCell.m */; };
 		00D15F1F1855535500336935 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D15EEE1855535500336935 /* AppController.m */; };
@@ -34,12 +37,9 @@
 		00D15F371855535500336935 /* TaprSetupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D15F1B1855535500336935 /* TaprSetupModel.m */; };
 		00D15F381855535500336935 /* TaprSetupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D15F1D1855535500336935 /* TaprSetupWindow.m */; };
 		00D15F3B185553AF00336935 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D15F3A185553AF00336935 /* CoreServices.framework */; };
-		00D15F3D185553C200336935 /* MultitouchSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D15F3C185553C200336935 /* MultitouchSupport.framework */; };
 		00D15F3F185553D100336935 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D15F3E185553D100336935 /* Carbon.framework */; };
 		00D15F41185553D900336935 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D15F40185553D900336935 /* QuartzCore.framework */; };
 		00D15F4E1855564000336935 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 00D15F4D1855564000336935 /* Icon.icns */; };
-		00D15F541855570400336935 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D15F52185556F900336935 /* Sparkle.framework */; };
-		00D15F551855573200336935 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00D15F52185556F900336935 /* Sparkle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,13 +49,15 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				00D15F551855573200336935 /* Sparkle.framework in CopyFiles */,
+				0021B2671855836400C42444 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0021B2631855835900C42444 /* MultitouchSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultitouchSupport.framework; path = ../../../../../System/Library/PrivateFrameworks/MultitouchSupport.framework; sourceTree = "<group>"; };
+		0021B2651855836100C42444 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Tapr/Sparkle.framework; sourceTree = "<group>"; };
 		00D15EB41855520C00336935 /* Tapr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tapr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D15EB71855520C00336935 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		00D15EBA1855520C00336935 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -111,11 +113,9 @@
 		00D15F1C1855535500336935 /* TaprSetupWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaprSetupWindow.h; path = Tapr/TaprSetupWindow.h; sourceTree = "<group>"; };
 		00D15F1D1855535500336935 /* TaprSetupWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaprSetupWindow.m; path = Tapr/TaprSetupWindow.m; sourceTree = "<group>"; };
 		00D15F3A185553AF00336935 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		00D15F3C185553C200336935 /* MultitouchSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultitouchSupport.framework; path = ../../../../System/Library/PrivateFrameworks/MultitouchSupport.framework; sourceTree = "<group>"; };
 		00D15F3E185553D100336935 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		00D15F40185553D900336935 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		00D15F4D1855564000336935 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
-		00D15F52185556F900336935 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Tapr/Sparkle.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,10 +123,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0021B2661855836100C42444 /* Sparkle.framework in Frameworks */,
+				0021B2641855835900C42444 /* MultitouchSupport.framework in Frameworks */,
 				00D15F41185553D900336935 /* QuartzCore.framework in Frameworks */,
 				00D15F3F185553D100336935 /* Carbon.framework in Frameworks */,
-				00D15F541855570400336935 /* Sparkle.framework in Frameworks */,
-				00D15F3D185553C200336935 /* MultitouchSupport.framework in Frameworks */,
 				00D15F3B185553AF00336935 /* CoreServices.framework in Frameworks */,
 				00D15EB81855520C00336935 /* Cocoa.framework in Frameworks */,
 			);
@@ -156,10 +156,10 @@
 		00D15EB61855520C00336935 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				00D15F52185556F900336935 /* Sparkle.framework */,
+				0021B2651855836100C42444 /* Sparkle.framework */,
+				0021B2631855835900C42444 /* MultitouchSupport.framework */,
 				00D15F40185553D900336935 /* QuartzCore.framework */,
 				00D15F3E185553D100336935 /* Carbon.framework */,
-				00D15F3C185553C200336935 /* MultitouchSupport.framework */,
 				00D15F3A185553AF00336935 /* CoreServices.framework */,
 				00D15EB71855520C00336935 /* Cocoa.framework */,
 				00D15EB91855520C00336935 /* Other Frameworks */,
@@ -500,8 +500,8 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/mhuusko/Downloads/Tapr/Tapr,
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+					"/Users/mhuusko/Dropbox/Mac\\ Dev/Tapr/Tapr",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tapr/Tapr-Prefix.pch";
@@ -520,8 +520,8 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/mhuusko/Downloads/Tapr/Tapr,
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+					"/Users/mhuusko/Dropbox/Mac\\ Dev/Tapr/Tapr",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tapr/Tapr-Prefix.pch";
