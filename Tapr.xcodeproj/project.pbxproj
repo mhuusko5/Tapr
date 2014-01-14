@@ -39,7 +39,7 @@
 		00D15F3B185553AF00336935 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D15F3A185553AF00336935 /* CoreServices.framework */; };
 		00D15F3F185553D100336935 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D15F3E185553D100336935 /* Carbon.framework */; };
 		00D15F41185553D900336935 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D15F40185553D900336935 /* QuartzCore.framework */; };
-		00D15F4E1855564000336935 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 00D15F4D1855564000336935 /* Icon.icns */; };
+		00F894101885C39800EA5681 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F8940F1885C39800EA5681 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -115,7 +115,7 @@
 		00D15F3A185553AF00336935 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		00D15F3E185553D100336935 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		00D15F40185553D900336935 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		00D15F4D1855564000336935 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
+		00F8940F1885C39800EA5681 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Tapr/Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +138,6 @@
 		00D15EAB1855520C00336935 = {
 			isa = PBXGroup;
 			children = (
-				00D15F4D1855564000336935 /* Icon.icns */,
 				00D15EBD1855520C00336935 /* Tapr */,
 				00D15EB61855520C00336935 /* Frameworks */,
 				00D15EB51855520C00336935 /* Products */,
@@ -317,6 +316,7 @@
 		00D15F4B1855555A00336935 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				00F8940F1885C39800EA5681 /* Images.xcassets */,
 				00D15EF51855535500336935 /* setupWindowBackground.png */,
 				00D15EF81855535500336935 /* main.m */,
 				00D15F0C1855535500336935 /* Tapr-Info.plist */,
@@ -384,7 +384,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00D15F4E1855564000336935 /* Icon.icns in Resources */,
+				00F894101885C39800EA5681 /* Images.xcassets in Resources */,
 				00D15F231855535500336935 /* setupWindowBackground.png in Resources */,
 				00D15F261855535500336935 /* MainMenu.xib in Resources */,
 			);
@@ -496,6 +496,7 @@
 		00D15EE61855520D00336935 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -516,6 +517,7 @@
 		00D15EE71855520D00336935 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				FRAMEWORK_SEARCH_PATHS = (
