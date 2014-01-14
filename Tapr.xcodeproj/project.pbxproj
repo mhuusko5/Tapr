@@ -501,7 +501,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
-					"/Users/mhuusko/Dropbox/Mac\\ Dev/Tapr/Tapr",
+					/Users/mhuusko/Dropbox/Xcode/Tapr/Tapr,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tapr/Tapr-Prefix.pch";
@@ -521,7 +521,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
-					"/Users/mhuusko/Dropbox/Mac\\ Dev/Tapr/Tapr",
+					/Users/mhuusko/Dropbox/Xcode/Tapr/Tapr,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tapr/Tapr-Prefix.pch";
