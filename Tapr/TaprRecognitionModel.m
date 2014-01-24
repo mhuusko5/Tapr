@@ -165,7 +165,7 @@
 	if (_lastActiveApp && ![_lastActiveApp.bundleIdentifier isEqualToString:nextActiveApp.bundleIdentifier]) {
 		[self logSwitchToApplication:nextActiveApp];
 	}
-    
+
 	_lastActiveApp = nextActiveApp;
 }
 

@@ -128,7 +128,7 @@
 - (void)tapMultitouchEvent:(MultitouchEvent *)event {
 	if (_listeningToTap && event) {
 		MultitouchTouch *tap;
-		if (event.touches.count == 1 && (tap = (event.touches)[0]) && tap.state == MultitouchTouchStateActive) {
+		if (event.touches.count == 1 && (tap = (event.touches)[0]) && tap.state == MTTouchStateTouching) {
 			if (_noTapTimer) {
 				[_noTapTimer invalidate];
 				_noTapTimer = nil;
@@ -167,7 +167,7 @@
 	if (!_listeningToTap && !_ignoringActivation) {
 		int activeTouches = 0;
 		for (MultitouchTouch *touch in event.touches) {
-			if (touch.state == MultitouchTouchStateActive) {
+			if (touch.state == MTTouchStateTouching) {
 				activeTouches++;
 			}
 		}
