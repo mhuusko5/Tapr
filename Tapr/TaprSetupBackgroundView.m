@@ -19,7 +19,7 @@
 
 - (void)mouseDown:(NSEvent *)theEvent {
 	if ([self.window isKindOfClass:[TaprSetupWindow class]]) {
-		[((AppController *)[NSApp delegate]).gestureSetupController updateSetupControls];
+		[((AppController *)[NSApp delegate]).taprSetupController updateSetupControls];
 	}
 }
 

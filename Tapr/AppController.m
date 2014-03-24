@@ -21,8 +21,8 @@
 			}
 		}
 
-		_gestureSetupController.appController = self;
-		_gestureRecognitionController.appController = self;
+		_taprSetupController.appController = self;
+		_taprRecognitionController.appController = self;
 
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeAndQuit:) name:NSApplicationWillTerminateNotification object:NSApp];
 	}
@@ -35,12 +35,12 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
-	[_gestureRecognitionController applicationDidFinishLaunching];
-	[_gestureSetupController applicationDidFinishLaunching];
+	[_taprRecognitionController applicationDidFinishLaunching];
+	[_taprSetupController applicationDidFinishLaunching];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag {
-	[_gestureSetupController toggleSetupWindow:nil];
+	[_taprSetupController toggleSetupWindow:nil];
 	return NO;
 }
 

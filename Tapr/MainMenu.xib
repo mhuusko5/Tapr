@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1070" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5053"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
@@ -41,8 +41,8 @@
         </menu>
         <customObject id="844" customClass="AppController">
             <connections>
-                <outlet property="gestureRecognitionController" destination="3836" id="3839"/>
-                <outlet property="gestureSetupController" destination="3781" id="3782"/>
+                <outlet property="taprRecognitionController" destination="3836" id="ULX-va-yw6"/>
+                <outlet property="taprSetupController" destination="3781" id="RGS-Wf-cTL"/>
             </connections>
         </customObject>
         <customObject id="4210" userLabel="App Updater" customClass="SUUpdater"/>

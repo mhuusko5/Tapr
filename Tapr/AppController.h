@@ -1,4 +1,3 @@
-#import <Cocoa/Cocoa.h>
 #import "TaprSetupController.h"
 #import "TaprRecognitionController.h"
 #import "MultitouchManager.h"
@@ -6,8 +5,8 @@
 
 @interface AppController : NSObject <NSApplicationDelegate>
 
-@property IBOutlet TaprSetupController *gestureSetupController;
-@property IBOutlet TaprRecognitionController *gestureRecognitionController;
+@property IBOutlet TaprSetupController *taprSetupController;
+@property IBOutlet TaprRecognitionController *taprRecognitionController;
 
 - (void)awakeFromNib;
 - (IBAction)closeAndQuit:(id)sender;
