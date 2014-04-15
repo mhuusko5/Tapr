@@ -34,10 +34,8 @@
 #pragma mark -
 #pragma mark Opened App Fetching
 - (NSMutableArray *)getMostOpenedAppArray {
-	return [[[[[_openedAppDictionary allValues] sortedArrayUsingComparator: ^NSComparisonResult (Application *a, Application *b) {
+	return [[[_openedAppDictionary allValues] sortedArrayUsingComparator: ^NSComparisonResult (Application *a, Application *b) {
 	    return [@(b.activationCount)compare : @(a.activationCount)];
-	}] subarrayWithRange:NSMakeRange(0, 6)] sortedArrayUsingComparator: ^NSComparisonResult (Application *a, Application *b) {
-	    return [a.displayName compare:b.displayName];
 	}] mutableCopy];
 }
 
@@ -106,10 +104,8 @@
 #pragma mark -
 #pragma mark App Activation Logging
 - (NSMutableArray *)getMostActivatedAppArray {
-	return [[[[[_activatedAppDictionary allValues] sortedArrayUsingComparator: ^NSComparisonResult (Application *a, Application *b) {
+	return [[[_activatedAppDictionary allValues] sortedArrayUsingComparator: ^NSComparisonResult (Application *a, Application *b) {
 	    return [@(b.activationCount)compare : @(a.activationCount)];
-	}] subarrayWithRange:NSMakeRange(0, 6)] sortedArrayUsingComparator: ^NSComparisonResult (Application *a, Application *b) {
-	    return [a.displayName compare:b.displayName];
 	}] mutableCopy];
 }
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1070" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5053"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
@@ -62,6 +62,9 @@
                 <outlet property="appIcon4" destination="F3Z-lU-mIt" id="gFU-QU-d3c"/>
                 <outlet property="appIcon5" destination="1pN-Xm-YCH" id="KDm-S2-gc0"/>
                 <outlet property="appIcon6" destination="9Qp-nN-bRH" id="dkC-tU-c7a"/>
+                <outlet property="appIcon7" destination="6k6-DB-1RH" id="7YZ-35-H5B"/>
+                <outlet property="appIcon8" destination="jYk-Cj-96M" id="K3y-UC-6gr"/>
+                <outlet property="appIcon9" destination="SyQ-Dc-fS8" id="1HC-5V-lxK"/>
                 <outlet property="recognitionWindow" destination="3817" id="3844"/>
             </connections>
         </customObject>
@@ -128,41 +131,56 @@
             </connections>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" appearanceType="lightContent" animationBehavior="default" id="3817" customClass="TaprRecognitionWindow">
-            <rect key="contentRect" x="674" y="464" width="300" height="200"/>
+            <rect key="contentRect" x="674" y="464" width="380" height="313"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" wantsLayer="YES" id="3818" customClass="TaprRecognitionView">
-                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                <rect key="frame" x="0.0" y="0.0" width="380" height="313"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView appearanceType="lightContent" id="RVX-m1-FM4">
-                        <rect key="frame" x="0.0" y="104" width="93" height="96"/>
+                        <rect key="frame" x="0.0" y="217" width="93" height="96"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="eby-8J-suD"/>
                     </imageView>
                     <imageView appearanceType="lightContent" id="e0K-dK-4Go">
-                        <rect key="frame" x="104" y="104" width="93" height="96"/>
+                        <rect key="frame" x="104" y="217" width="93" height="96"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="e1X-0F-JUz"/>
                     </imageView>
                     <imageView appearanceType="lightContent" id="hAe-CM-rUv">
-                        <rect key="frame" x="207" y="104" width="93" height="96"/>
+                        <rect key="frame" x="207" y="217" width="93" height="96"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="oSp-ql-MK5"/>
                     </imageView>
                     <imageView appearanceType="lightContent" id="F3Z-lU-mIt">
-                        <rect key="frame" x="0.0" y="0.0" width="93" height="96"/>
+                        <rect key="frame" x="0.0" y="113" width="93" height="96"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="8TQ-5t-P4K"/>
                     </imageView>
                     <imageView appearanceType="lightContent" id="1pN-Xm-YCH">
-                        <rect key="frame" x="104" y="0.0" width="93" height="96"/>
+                        <rect key="frame" x="104" y="113" width="93" height="96"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="U3F-wg-FLW"/>
                     </imageView>
                     <imageView appearanceType="lightContent" id="9Qp-nN-bRH">
-                        <rect key="frame" x="207" y="0.0" width="93" height="96"/>
+                        <rect key="frame" x="207" y="113" width="93" height="96"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="6st-6z-5fb"/>
+                    </imageView>
+                    <imageView appearanceType="lightContent" id="6k6-DB-1RH">
+                        <rect key="frame" x="-1" y="16" width="93" height="96"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="qas-v4-wXa"/>
+                    </imageView>
+                    <imageView appearanceType="lightContent" id="jYk-Cj-96M">
+                        <rect key="frame" x="119" y="16" width="93" height="96"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="FQI-Dg-zh7"/>
+                    </imageView>
+                    <imageView appearanceType="lightContent" id="SyQ-Dc-fS8">
+                        <rect key="frame" x="265" y="16" width="93" height="96"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="Yf0-Dg-DZe"/>
                     </imageView>
                 </subviews>
             </view>
