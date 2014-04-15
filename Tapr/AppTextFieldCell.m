@@ -40,9 +40,9 @@
 	[textShadow setShadowBlurRadius:AppButtonBlackTextShadowBlurRadius];
 
 	[attrString addAttribute:NSShadowAttributeName value:textShadow range:(NSRange) {0, [attrString length] }
-     ];
+	];
 	[attrString addAttribute:NSForegroundColorAttributeName value:myGreenColor range:(NSRange) {0, [attrString length] }
-     ];
+	];
 
 	NSSize labelSize = attrString.size;
 	NSRect labelRect = NSMakeRect(NSMidX(cellFrame) - (labelSize.width / 2.f), NSMidY(cellFrame) - (labelSize.height / 2.f), labelSize.width, labelSize.height);

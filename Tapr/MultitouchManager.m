@@ -141,7 +141,7 @@ static BOOL laptopLidClosed = NO;
 static void mtEventHandler(MTDeviceRef mtEventDevice, MTTouch mtEventTouches[], int mtEventTouchesNum, double mtEventTimestamp, int mtEventFrameId) {
 	if (MTDeviceIsBuiltIn && MTDeviceIsBuiltIn(mtEventDevice) && laptopLidClosed) {
 		/*When a Mac laptop lid is closed, it can cause the trackpad to send random
-         multitouch input (insane, I know!). Obviously we want to ignore that input.*/
+		   multitouch input (insane, I know!). Obviously we want to ignore that input.*/
 		return;
 	}
 

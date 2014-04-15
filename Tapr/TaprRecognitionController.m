@@ -101,29 +101,29 @@
 #pragma mark -
 #pragma mark Tap Event Handling
 - (int)selectionFromCoordinateX:(float)x andY:(float)y {
-    NSArray *points = @[[NSValue valueWithPoint:NSMakePoint(0.5, 0.5)],
-                              [NSValue valueWithPoint:NSMakePoint(0.5, 0.12)],
-                              [NSValue valueWithPoint:NSMakePoint(0.5, 0.88)],
-                              [NSValue valueWithPoint:NSMakePoint(0.12, 0.5)],
-                              [NSValue valueWithPoint:NSMakePoint(0.88, 0.5)],
-                              [NSValue valueWithPoint:NSMakePoint(0.25, 0.25)],
-                              [NSValue valueWithPoint:NSMakePoint(0.25, 0.75)],
-                              [NSValue valueWithPoint:NSMakePoint(0.75, 0.25)],
-                              [NSValue valueWithPoint:NSMakePoint(0.75, 0.75)]];
+	NSArray *points = @[[NSValue valueWithPoint:NSMakePoint(0.5, 0.5)],
+	                    [NSValue valueWithPoint:NSMakePoint(0.5, 0.12)],
+	                    [NSValue valueWithPoint:NSMakePoint(0.5, 0.88)],
+	                    [NSValue valueWithPoint:NSMakePoint(0.12, 0.5)],
+	                    [NSValue valueWithPoint:NSMakePoint(0.88, 0.5)],
+	                    [NSValue valueWithPoint:NSMakePoint(0.25, 0.25)],
+	                    [NSValue valueWithPoint:NSMakePoint(0.25, 0.75)],
+	                    [NSValue valueWithPoint:NSMakePoint(0.75, 0.25)],
+	                    [NSValue valueWithPoint:NSMakePoint(0.75, 0.75)]];
 
-    NSMutableDictionary *distances = [NSMutableDictionary dictionary];
+	NSMutableDictionary *distances = [NSMutableDictionary dictionary];
 
-    for (int i = 0; i < points.count; i++) {
-        NSPoint p = [points[i] pointValue];
-        float distance = sqrtf((p.x - x) * (p.x - x) + (p.y - y) * (p.y - y));
-        [distances setObject:@(i) forKey:@(distance)];
-    }
+	for (int i = 0; i < points.count; i++) {
+		NSPoint p = [points[i] pointValue];
+		float distance = sqrtf((p.x - x) * (p.x - x) + (p.y - y) * (p.y - y));
+		distances[@(distance)] = @(i);
+	}
 
-    NSArray *sortedDistances = [distances.allKeys sortedArrayUsingComparator: ^NSComparisonResult (NSNumber *a, NSNumber *b) {
+	NSArray *sortedDistances = [distances.allKeys sortedArrayUsingComparator: ^NSComparisonResult (NSNumber *a, NSNumber *b) {
 	    return [a compare:b];
 	}];
 
-    return [[distances objectForKey:sortedDistances[0]] intValue];
+	return [distances[sortedDistances[0]] intValue];
 }
 
 - (void)tapMultitouchEvent:(MultitouchEvent *)event {
@@ -234,15 +234,16 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 #pragma mark -
 #pragma Activation Controls
 - (void)configureAppIcons {
-    NSArray *mostActivatedArray = [_recognitionModel getMostActivatedAppArray];
-    NSArray *mostOpenedArray = [_recognitionModel getMostActivatedAppArray];;
-    if (mostActivatedArray.count > 8) {
-        _appArrayToUse = mostActivatedArray;
-    } else {
-        _appArrayToUse = mostOpenedArray;
-    }
+	NSArray *mostActivatedArray = [_recognitionModel getMostActivatedAppArray];
+	NSArray *mostOpenedArray = [_recognitionModel getMostActivatedAppArray];
+	if (mostActivatedArray.count > 8) {
+		_appArrayToUse = mostActivatedArray;
+	}
+	else {
+		_appArrayToUse = mostOpenedArray;
+	}
 
-    _appArrayToUse = [[[_appArrayToUse subarrayWithRange:NSMakeRange(0, 9)] sortedArrayUsingComparator: ^NSComparisonResult (Application *a, Application *b) {
+	_appArrayToUse = [[[_appArrayToUse subarrayWithRange:NSMakeRange(0, 9)] sortedArrayUsingComparator: ^NSComparisonResult (Application *a, Application *b) {
 	    return [a.displayName compare:b.displayName];
 	}] mutableCopy];
 
@@ -252,9 +253,9 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 	_appIcon4.image = ((Application *)_appArrayToUse[3]).icon;
 	_appIcon5.image = ((Application *)_appArrayToUse[4]).icon;
 	_appIcon6.image = ((Application *)_appArrayToUse[5]).icon;
-    _appIcon7.image = ((Application *)_appArrayToUse[6]).icon;
-    _appIcon8.image = ((Application *)_appArrayToUse[7]).icon;
-    _appIcon9.image = ((Application *)_appArrayToUse[8]).icon;
+	_appIcon7.image = ((Application *)_appArrayToUse[6]).icon;
+	_appIcon8.image = ((Application *)_appArrayToUse[7]).icon;
+	_appIcon9.image = ((Application *)_appArrayToUse[8]).icon;
 
 	[self setAppIconShadowsWithSelection:-2];
 }
@@ -342,11 +343,11 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 
 	[_recognitionWindow setFrame:windowRect display:NO];
 
-    float windowSize = windowRect.size.height;
+	float windowSize = windowRect.size.height;
 	float appSize = windowSize / 4.9;
-    float horizontalInset = appSize / 5;
-    float diagonalInset = windowSize / 9;
-    float centerAppSize = appSize * 1.3;
+	float horizontalInset = appSize / 5;
+	float diagonalInset = windowSize / 9;
+	float centerAppSize = appSize * 1.3;
 
 	[_appIcon1 setFrame:NSMakeRect((windowSize - centerAppSize) / 2, (windowSize - centerAppSize) / 2, centerAppSize, centerAppSize)];
 	[_appIcon2 setFrame:NSMakeRect((windowSize - appSize) / 2, horizontalInset, appSize, appSize)];
@@ -354,9 +355,9 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 	[_appIcon4 setFrame:NSMakeRect(horizontalInset, (windowSize - appSize) / 2, appSize, appSize)];
 	[_appIcon5 setFrame:NSMakeRect((windowSize - appSize) - horizontalInset, (windowSize - appSize) / 2, appSize, appSize)];
 	[_appIcon6 setFrame:NSMakeRect(diagonalInset + horizontalInset, diagonalInset + horizontalInset, appSize, appSize)];
-    [_appIcon7 setFrame:NSMakeRect(diagonalInset + horizontalInset, (windowSize - appSize) - (diagonalInset + horizontalInset), appSize, appSize)];
-    [_appIcon8 setFrame:NSMakeRect((windowSize - appSize) - (diagonalInset + horizontalInset), diagonalInset + horizontalInset, appSize, appSize)];
-    [_appIcon9 setFrame:NSMakeRect((windowSize - appSize) - (diagonalInset + horizontalInset), (windowSize - appSize) - (diagonalInset + horizontalInset), appSize, appSize)];
+	[_appIcon7 setFrame:NSMakeRect(diagonalInset + horizontalInset, (windowSize - appSize) - (diagonalInset + horizontalInset), appSize, appSize)];
+	[_appIcon8 setFrame:NSMakeRect((windowSize - appSize) - (diagonalInset + horizontalInset), diagonalInset + horizontalInset, appSize, appSize)];
+	[_appIcon9 setFrame:NSMakeRect((windowSize - appSize) - (diagonalInset + horizontalInset), (windowSize - appSize) - (diagonalInset + horizontalInset), appSize, appSize)];
 
 	[_recognitionWindow.contentView setNeedsDisplay:YES];
 }

@@ -6,15 +6,15 @@
 	self = [super initWithContentRect:contentRect styleMask:(NSBorderlessWindowMask | NSNonactivatingPanelMask) backing:bufferingType defer:flag];
 
 	/*
-     NSNormalWindowLevel
-     NSFloatingWindowLevel
-     NSSubmenuWindowLevel
-     NSTornOffMenuWindowLevel
-     NSMainMenuWindowLevel
-     NSStatusWindowLevel
-     NSModalPanelWindowLevel
-     NSPopUpMenuWindowLevel
-     NSScreenSaverWindowLevel
+	   NSNormalWindowLevel
+	   NSFloatingWindowLevel
+	   NSSubmenuWindowLevel
+	   NSTornOffMenuWindowLevel
+	   NSMainMenuWindowLevel
+	   NSStatusWindowLevel
+	   NSModalPanelWindowLevel
+	   NSPopUpMenuWindowLevel
+	   NSScreenSaverWindowLevel
 	 */
 
 	[self setLevel:NSPopUpMenuWindowLevel];
