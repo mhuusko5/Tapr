@@ -235,7 +235,7 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 #pragma Activation Controls
 - (void)configureAppIcons {
 	NSArray *mostActivatedArray = [_recognitionModel getMostActivatedAppArray];
-	NSArray *mostOpenedArray = [_recognitionModel getMostActivatedAppArray];
+	NSArray *mostOpenedArray = [_recognitionModel getMostOpenedAppArray];
 	if (mostActivatedArray.count > 8) {
 		_appArrayToUse = mostActivatedArray;
 	}
