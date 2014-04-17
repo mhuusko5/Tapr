@@ -191,30 +191,33 @@
 			CGImageRef windowImageRef = CGWindowListCreateImage(CGRectNull, kCGWindowListOptionIncludingWindow, [[appWindow objectForKey:(id)kCGWindowNumber] integerValue], kCGWindowImageBoundsIgnoreFraming);
 			float aspectRatio = (float)CGImageGetWidth(windowImageRef) / (float)CGImageGetHeight(windowImageRef);
 
-			NSRect windowRect = _recognitionWindow.frame;
-			float heightIncrease = (windowRect.size.height * 1.6 - windowRect.size.height);
-			windowRect.size.height += heightIncrease;
-			windowRect.origin.y -= heightIncrease / 2;
-			float widthIncrease = (windowRect.size.height * aspectRatio - windowRect.size.width);
-			windowRect.size.width += widthIncrease;
-			windowRect.origin.x -= widthIncrease / 2;
+            if (CGImageGetWidth(windowImageRef) > 100 && CGImageGetHeight(windowImageRef) > 100) {
+                NSRect windowRect = _recognitionWindow.frame;
+                float heightIncrease = (windowRect.size.height * 1.6 - windowRect.size.height);
+                windowRect.size.height += heightIncrease;
+                windowRect.origin.y -= heightIncrease / 2;
+                float widthIncrease = (windowRect.size.height * aspectRatio - windowRect.size.width);
+                windowRect.size.width += widthIncrease;
+                windowRect.origin.x -= widthIncrease / 2;
 
-			[_appPreviewWindow setFrame:windowRect display:YES];
+                [_appPreviewWindow setFrame:windowRect display:YES];
 
-			float borderRadius = windowRect.size.height / 45;
+                float borderRadius = windowRect.size.height / 45;
 
-			windowRect.size.height -= borderRadius;
-			windowRect.size.width -= borderRadius;
-			windowRect.origin = NSMakePoint(borderRadius / 2, borderRadius / 2);
-			[_appPreview setFrame:windowRect];
-			[_appPreview setImage:[[NSImage alloc] initWithCGImage:windowImageRef size:NSZeroSize]];
-			CGImageRelease(windowImageRef);
+                windowRect.size.height -= borderRadius;
+                windowRect.size.width -= borderRadius;
+                windowRect.origin = NSMakePoint(borderRadius / 2, borderRadius / 2);
+                [_appPreview setFrame:windowRect];
+                [_appPreview setImage:[[NSImage alloc] initWithCGImage:windowImageRef size:NSZeroSize]];
 
-			[_appPreviewWindow.contentView layer].cornerRadius = borderRadius / 2;
-			[_appPreviewWindow.contentView layer].backgroundColor = [NSColor colorWithCalibratedWhite:0.05 alpha:0.87].CGColor;
-			[_appPreviewWindow setLevel:_recognitionWindow.level - 1];
-			[_appPreviewWindow orderFrontRegardless];
-			[_appPreviewWindow setAlphaValue:1.0];
+                [_appPreviewWindow.contentView layer].cornerRadius = borderRadius / 2;
+                [_appPreviewWindow.contentView layer].backgroundColor = [NSColor colorWithCalibratedWhite:0.05 alpha:0.87].CGColor;
+                [_appPreviewWindow setLevel:_recognitionWindow.level - 1];
+                [_appPreviewWindow orderFrontRegardless];
+                [_appPreviewWindow setAlphaValue:1.0];
+            }
+
+            CGImageRelease(windowImageRef);
 		}
 	}
 }
