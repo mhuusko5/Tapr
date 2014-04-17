@@ -29,7 +29,9 @@
 #pragma mark -
 #pragma mark Tap Event Handling
 - (void)tapMultitouchEvent:(MultitouchEvent *)event;
-- (void)activateTappedApp:(Application *)tappedApp;
+- (void)activateTappedApp;
+- (void)showHoveredApp;
+- (void)hideHoveredApp;
 #pragma mark -
 
 #pragma mark -

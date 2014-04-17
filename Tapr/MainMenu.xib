@@ -48,6 +48,7 @@
         <customObject id="4210" userLabel="App Updater" customClass="SUUpdater"/>
         <customObject id="3781" customClass="TaprSetupController">
             <connections>
+                <outlet property="applicationPreviewOptionField" destination="7bx-0b-Ion" id="jtq-Au-8aZ"/>
                 <outlet property="loginStartOptionField" destination="4160" id="4203"/>
                 <outlet property="setupWindow" destination="2804" id="3846"/>
                 <outlet property="setupWindowBackground" destination="4097" id="3JJ-UG-13I"/>
@@ -65,23 +66,25 @@
                 <outlet property="appIcon7" destination="6k6-DB-1RH" id="7YZ-35-H5B"/>
                 <outlet property="appIcon8" destination="jYk-Cj-96M" id="K3y-UC-6gr"/>
                 <outlet property="appIcon9" destination="SyQ-Dc-fS8" id="1HC-5V-lxK"/>
+                <outlet property="appPreview" destination="mcK-iN-ojz" id="l1y-ev-FAG"/>
+                <outlet property="appPreviewWindow" destination="WwG-xl-Y2u" id="tzs-we-Afy"/>
                 <outlet property="recognitionWindow" destination="3817" id="3844"/>
             </connections>
         </customObject>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="2804" customClass="TaprSetupWindow">
-            <rect key="contentRect" x="674" y="464" width="204" height="76"/>
+            <rect key="contentRect" x="674" y="464" width="207" height="108"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="2805">
-                <rect key="frame" x="0.0" y="0.0" width="204" height="76"/>
+                <rect key="frame" x="0.0" y="0.0" width="207" height="108"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView id="4097" customClass="TaprSetupBackgroundView">
-                        <rect key="frame" x="0.0" y="0.0" width="204" height="76"/>
+                        <rect key="frame" x="0.0" y="0.0" width="207" height="108"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" controlSize="mini" alignment="left" imageScaling="axesIndependently" image="setupWindowBackground" id="4098"/>
                     </imageView>
                     <textField toolTip="Launch Tapr on login..." verticalHuggingPriority="750" id="4159">
-                        <rect key="frame" x="12" y="12" width="90" height="18"/>
+                        <rect key="frame" x="12" y="13" width="90" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Start at login?" id="4162" customClass="ShadowTextFieldCell">
                             <font key="font" metaFont="cellTitle"/>
@@ -89,8 +92,17 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <textField toolTip="Show app previews when hovering..." verticalHuggingPriority="750" id="XLp-fQ-M0d">
+                        <rect key="frame" x="12" y="44" width="167" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Show application previews?" id="0ha-HK-WAY" customClass="ShadowTextFieldCell">
+                            <font key="font" metaFont="cellTitle"/>
+                            <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                     <button id="4160">
-                        <rect key="frame" x="100" y="9" width="22" height="22"/>
+                        <rect key="frame" x="100" y="10" width="22" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="4161" customClass="AppButtonCell">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -101,7 +113,7 @@
                         </connections>
                     </button>
                     <button id="4222">
-                        <rect key="frame" x="12" y="42" width="180" height="22"/>
+                        <rect key="frame" x="12" y="74" width="183" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="bevel" title="Check for Updates" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4223" customClass="AppButtonCell">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -114,7 +126,7 @@
                         </connections>
                     </button>
                     <button id="2Yi-ey-q9B">
-                        <rect key="frame" x="132" y="10" width="60" height="22"/>
+                        <rect key="frame" x="132" y="11" width="63" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="bevel" title="Quit" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cnb-ro-RiB" customClass="AppButtonCell">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -122,6 +134,17 @@
                         </buttonCell>
                         <connections>
                             <action selector="closeAndQuit:" target="844" id="5lA-M3-t8V"/>
+                        </connections>
+                    </button>
+                    <button id="7bx-0b-Ion">
+                        <rect key="frame" x="178" y="41" width="22" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="iYg-un-MNT" customClass="AppButtonCell">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="applicationPreviewOptionChanged:" target="3781" id="LQl-Xv-D8l"/>
                         </connections>
                     </button>
                 </subviews>
@@ -205,6 +228,24 @@
                 </button>
             </subviews>
         </customView>
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" appearanceType="lightContent" animationBehavior="default" id="WwG-xl-Y2u" userLabel="Tapr Preview Window" customClass="TaprRecognitionWindow">
+            <rect key="contentRect" x="674" y="464" width="231" height="173"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <view key="contentView" wantsLayer="YES" id="KKF-uq-LPj">
+                <rect key="frame" x="0.0" y="0.0" width="231" height="173"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView appearanceType="lightContent" id="mcK-iN-ojz">
+                        <rect key="frame" x="0.0" y="0.0" width="231" height="173"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="Bpg-lt-5M7"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="3836" id="Zg5-9q-Kis"/>
+            </connections>
+        </window>
     </objects>
     <resources>
         <image name="MenuIcon" width="32" height="32"/>

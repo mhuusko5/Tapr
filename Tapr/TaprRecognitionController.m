@@ -6,6 +6,9 @@
 
 @property IBOutlet NSImageView *appIcon1, *appIcon2, *appIcon3, *appIcon4, *appIcon5, *appIcon6, *appIcon7, *appIcon8, *appIcon9;
 
+@property IBOutlet NSWindow *appPreviewWindow;
+@property IBOutlet NSImageView *appPreview;
+
 @property NSArray *appArrayToUse;
 
 @property NSArray *beforeThreeFingerTouches;
@@ -83,6 +86,8 @@
 			_noTapTimer = nil;
 		}
 
+		[self hideHoveredApp];
+
 		[[MultitouchManager sharedMultitouchManager] removeMultitouchListenersWithTarget:self andCallback:@selector(tapMultitouchEvent:)];
 		CGAssociateMouseAndMouseCursorPosition(YES);
 
@@ -139,10 +144,17 @@
 
 			[self setAppIconShadowsWithSelection:newAppSelection];
 
+			BOOL shouldShowApp = (_lastAppSelection != newAppSelection && _appController.taprSetupController.setupModel.applicationPreviewOption);
+
 			_lastAppSelection = newAppSelection;
+
+			if (shouldShowApp) {
+				[self hideHoveredApp];
+				[self performSelector:@selector(showHoveredApp) withObject:nil afterDelay:0.25];
+			}
 		}
 		else if (event.touches.count == 0 && _lastAppSelection > -1) {
-			[self activateTappedApp:_appArrayToUse[_lastAppSelection]];
+			[self activateTappedApp];
 		}
 		else if (event.touches.count > 1) {
 			[self stopDetectingTapWithForce:YES];
@@ -152,12 +164,67 @@
 	}
 }
 
-- (void)activateTappedApp:(Application *)tappedApp {
-	[tappedApp launchWithNewThread:YES];
+- (void)activateTappedApp {
+	[_appArrayToUse[_lastAppSelection] launchWithNewThread:YES];
 
 	[self stopDetectingTapWithForce:NO];
 
 	[self ignoreActivation:@[@YES, @0.1]];
+}
+
+- (void)showHoveredApp {
+	Application *hoveredApp = _appArrayToUse[_lastAppSelection];
+    
+	NSArray *hoveredRunningApps = [NSRunningApplication runningApplicationsWithBundleIdentifier:hoveredApp.bundleId];
+	NSRunningApplication *runningApp;
+	if (hoveredRunningApps && hoveredRunningApps.count > 0 && (runningApp = hoveredRunningApps[0])) {
+		NSArray *allWindows = (__bridge_transfer NSArray *)(CGWindowListCopyWindowInfo(kCGWindowListExcludeDesktopElements, kCGNullWindowID));
+		NSDictionary *appWindow;
+		for (NSDictionary *windowDict in allWindows) {
+			if (windowDict && [[windowDict objectForKey:(id)kCGWindowOwnerPID] integerValue] == runningApp.processIdentifier && [[windowDict objectForKey:(id)kCGWindowLayer] intValue] == 0 && [[windowDict objectForKey:(id)kCGWindowAlpha] floatValue] > 0.2 && ([[[windowDict objectForKey:(id)kCGWindowBounds] objectForKey:@"X"] intValue] + [[[windowDict objectForKey:(id)kCGWindowBounds] objectForKey:@"Y"] intValue]) != 0 && [windowDict objectForKey:(id)kCGWindowName] && [[windowDict objectForKey:(id)kCGWindowName] length] > 0) {
+				appWindow = windowDict;
+				break;
+			}
+		}
+
+		if (appWindow) {
+			CGImageRef windowImageRef = CGWindowListCreateImage(CGRectNull, kCGWindowListOptionIncludingWindow, [[appWindow objectForKey:(id)kCGWindowNumber] integerValue], kCGWindowImageBoundsIgnoreFraming);
+			float aspectRatio = (float)CGImageGetWidth(windowImageRef) / (float)CGImageGetHeight(windowImageRef);
+
+			NSRect windowRect = _recognitionWindow.frame;
+			float heightIncrease = (windowRect.size.height * 1.6 - windowRect.size.height);
+			windowRect.size.height += heightIncrease;
+			windowRect.origin.y -= heightIncrease / 2;
+			float widthIncrease = (windowRect.size.height * aspectRatio - windowRect.size.width);
+			windowRect.size.width += widthIncrease;
+			windowRect.origin.x -= widthIncrease / 2;
+
+			[_appPreviewWindow setFrame:windowRect display:YES];
+
+			float borderRadius = windowRect.size.height / 45;
+
+			windowRect.size.height -= borderRadius;
+			windowRect.size.width -= borderRadius;
+			windowRect.origin = NSMakePoint(borderRadius / 2, borderRadius / 2);
+			[_appPreview setFrame:windowRect];
+			[_appPreview setImage:[[NSImage alloc] initWithCGImage:windowImageRef size:NSZeroSize]];
+			CGImageRelease(windowImageRef);
+
+			[_appPreviewWindow.contentView layer].cornerRadius = borderRadius / 2;
+			[_appPreviewWindow.contentView layer].backgroundColor = [NSColor colorWithCalibratedWhite:0.05 alpha:0.87].CGColor;
+			[_appPreviewWindow setLevel:_recognitionWindow.level - 1];
+			[_appPreviewWindow orderFrontRegardless];
+			[_appPreviewWindow setAlphaValue:1.0];
+		}
+	}
+}
+
+- (void)hideHoveredApp {
+	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showHoveredApp) object:nil];
+	_appPreviewWindow.alphaValue = 0.0;
+	_appPreview.image = nil;
+	[_appPreviewWindow orderOut:self];
+	[_appPreviewWindow setFrameOrigin:NSMakePoint(-10000, -10000)];
 }
 
 #pragma mark -
@@ -316,6 +383,9 @@ CGEventRef handleEvent(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 		_recognitionWindow.alphaValue = 0.0;
 		[_recognitionWindow orderOut:self];
 		[_recognitionWindow setFrameOrigin:NSMakePoint(-10000, -10000)];
+
+		[self hideHoveredApp];
+
 		[NSApp hide:self];
 	}
 }

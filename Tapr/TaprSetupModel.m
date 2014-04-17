@@ -6,6 +6,7 @@
 #pragma mark Setup
 - (void)setup {
 	[self saveLoginStartOption:[self fetchLoginStartOption]];
+	[self fetchApplicationPreviewOption];
 }
 
 #pragma mark -
@@ -69,6 +70,23 @@
 		}
 		CFRelease(loginItems);
 	}
+}
+
+- (BOOL)fetchApplicationPreviewOption {
+	id storedApplicationPreviewOption;
+	if ((storedApplicationPreviewOption = [[NSUserDefaults standardUserDefaults] objectForKey:@"applicationPreviewOption"])) {
+		_applicationPreviewOption = [storedApplicationPreviewOption boolValue];
+	}
+	else {
+		[self saveApplicationPreviewOption:YES];
+	}
+
+	return _applicationPreviewOption;
+}
+
+- (void)saveApplicationPreviewOption:(BOOL)newChoice {
+	[[NSUserDefaults standardUserDefaults] setBool:(_applicationPreviewOption = newChoice) forKey:@"applicationPreviewOption"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 #pragma mark -

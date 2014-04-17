@@ -36,6 +36,7 @@
 #pragma mark -
 #pragma mark Tapr Options
 - (IBAction)loginStartOptionChanged:(id)sender;
+- (IBAction)loginStartOptionChanged:(id)sender;
 #pragma mark -
 
 @end
