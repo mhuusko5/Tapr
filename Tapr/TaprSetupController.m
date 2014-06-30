@@ -132,6 +132,10 @@
 	[self updateSetupControls];
 }
 
+- (IBAction)cleanAppSwitchHistory:(id)sender {
+    [self.appController.taprRecognitionController.recognitionModel cleanActiveAppSwitchDictionary];
+}
+
 #pragma mark -
 
 @end

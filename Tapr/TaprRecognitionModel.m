@@ -202,6 +202,12 @@
 	[_storage synchronize];
 }
 
+- (void)cleanActiveAppSwitchDictionary {
+    [_storage setObject:[NSKeyedArchiver archivedDataWithRootObject:(_activeAppSwitchDictionary = [NSMutableDictionary dictionary])] forKey:@"ActiveAppSwitchDictionary"];
+	[_storage synchronize];
+    [self generateActivatedAppDictionary];
+}
+
 #pragma mark -
 
 @end

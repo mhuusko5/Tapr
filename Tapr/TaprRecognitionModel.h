@@ -33,6 +33,7 @@
 - (void)logSwitchToApplication:(NSRunningApplication *)nextActiveApp;
 - (NSMutableDictionary *)fetchActiveAppSwitchDictionary;
 - (void)saveActiveAppSwitchDictionary;
+- (void)cleanActiveAppSwitchDictionary;
 #pragma mark -
 
 @end
