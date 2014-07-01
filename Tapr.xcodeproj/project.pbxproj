@@ -39,6 +39,8 @@
 		00D15F3B185553AF00336935 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D15F3A185553AF00336935 /* CoreServices.framework */; };
 		00D15F3F185553D100336935 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D15F3E185553D100336935 /* Carbon.framework */; };
 		00D15F41185553D900336935 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D15F40185553D900336935 /* QuartzCore.framework */; };
+		00E2A93219634EA9009DC01E /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E2A93119634EA9009DC01E /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		00E2A93419634F7F009DC01E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E2A93319634F7F009DC01E /* Security.framework */; };
 		00F894101885C39800EA5681 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F8940F1885C39800EA5681 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +117,9 @@
 		00D15F3A185553AF00336935 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		00D15F3E185553D100336935 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		00D15F40185553D900336935 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		00E2A93019634EA9009DC01E /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMoveApplication.h; sourceTree = "<group>"; };
+		00E2A93119634EA9009DC01E /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMoveApplication.m; sourceTree = "<group>"; };
+		00E2A93319634F7F009DC01E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		00F8940F1885C39800EA5681 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Tapr/Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00E2A93419634F7F009DC01E /* Security.framework in Frameworks */,
 				0021B2661855836100C42444 /* Sparkle.framework in Frameworks */,
 				0021B2641855835900C42444 /* MultitouchSupport.framework in Frameworks */,
 				00D15F41185553D900336935 /* QuartzCore.framework in Frameworks */,
@@ -155,6 +161,7 @@
 		00D15EB61855520C00336935 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00E2A93319634F7F009DC01E /* Security.framework */,
 				0021B2651855836100C42444 /* Sparkle.framework */,
 				0021B2631855835900C42444 /* MultitouchSupport.framework */,
 				00D15F40185553D900336935 /* QuartzCore.framework */,
@@ -184,7 +191,7 @@
 				00D15F441855542600336935 /* Tapr Recognition */,
 				00D15F431855541D00336935 /* Tapr Setup */,
 				00D15F391855537C00336935 /* Multitouch Support */,
-				00D15F42185553FF00336935 /* Categories */,
+				00D15F42185553FF00336935 /* Helpers */,
 				00D15F4B1855555A00336935 /* Supporting Files */,
 			);
 			path = Tapr;
@@ -207,9 +214,11 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		00D15F42185553FF00336935 /* Categories */ = {
+		00D15F42185553FF00336935 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				00E2A93019634EA9009DC01E /* PFMoveApplication.h */,
+				00E2A93119634EA9009DC01E /* PFMoveApplication.m */,
 				00D15F071855535500336935 /* NSStatusItemPrioritizer.h */,
 				00D15F081855535500336935 /* NSStatusItemPrioritizer.m */,
 				00D15F031855535500336935 /* NSBezierPath+MCAdditions.h */,
@@ -217,7 +226,7 @@
 				00D15F051855535500336935 /* NSColor+ColorExtensions.h */,
 				00D15F061855535500336935 /* NSColor+ColorExtensions.m */,
 			);
-			name = Categories;
+			name = Helpers;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -420,6 +429,7 @@
 				00D15F2A1855535500336935 /* MultitouchTouch.m in Sources */,
 				00D15F2C1855535500336935 /* NSColor+ColorExtensions.m in Sources */,
 				00D15F351855535500336935 /* TaprSetupBackgroundView.m in Sources */,
+				00E2A93219634EA9009DC01E /* PFMoveApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -34,6 +34,10 @@
 	[NSApp terminate:self];
 }
 
+- (void)applicationWillFinishLaunching:(NSNotification *)notification {
+    PFMoveToApplicationsFolderIfNecessary();
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
 	[_taprRecognitionController applicationDidFinishLaunching];
 	[_taprSetupController applicationDidFinishLaunching];
