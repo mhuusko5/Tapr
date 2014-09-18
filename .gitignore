@@ -1,2 +1,6 @@
+.DS_Store
 
-Tapr.xcodeproj/project.xcworkspace/xcuserdata/mhuusko.xcuserdatad/UserInterfaceState.xcuserstate
+*.xcuserstate
+*.xccheckout
+*.xcscheme
+*.xcsettings
