@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0021B2641855835900C42444 /* MultitouchSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0021B2631855835900C42444 /* MultitouchSupport.framework */; };
 		0021B2661855836100C42444 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0021B2651855836100C42444 /* Sparkle.framework */; };
-		0021B2671855836400C42444 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0021B2651855836100C42444 /* Sparkle.framework */; };
+		0021B2671855836400C42444 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0021B2651855836100C42444 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		00D15F1E1855535500336935 /* AppButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D15EEC1855535500336935 /* AppButtonCell.m */; };
 		00D15F1F1855535500336935 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D15EEE1855535500336935 /* AppController.m */; };
 		00D15F201855535500336935 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D15EF01855535500336935 /* Application.m */; };
@@ -350,7 +350,7 @@
 		00D15EAC1855520C00336935 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Mathew Huusko V";
 				TargetAttributes = {
 					00D15EB31855520C00336935 = {
@@ -430,7 +430,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -439,7 +439,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
