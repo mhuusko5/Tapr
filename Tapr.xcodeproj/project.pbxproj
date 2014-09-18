@@ -10,7 +10,6 @@
 		0021B2641855835900C42444 /* MultitouchSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0021B2631855835900C42444 /* MultitouchSupport.framework */; };
 		0021B2661855836100C42444 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0021B2651855836100C42444 /* Sparkle.framework */; };
 		0021B2671855836400C42444 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0021B2651855836100C42444 /* Sparkle.framework */; };
-		00D15EB81855520C00336935 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D15EB71855520C00336935 /* Cocoa.framework */; };
 		00D15F1E1855535500336935 /* AppButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D15EEC1855535500336935 /* AppButtonCell.m */; };
 		00D15F1F1855535500336935 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D15EEE1855535500336935 /* AppController.m */; };
 		00D15F201855535500336935 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D15EF01855535500336935 /* Application.m */; };
@@ -36,12 +35,13 @@
 		00D15F361855535500336935 /* TaprSetupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D15F191855535500336935 /* TaprSetupController.m */; };
 		00D15F371855535500336935 /* TaprSetupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D15F1B1855535500336935 /* TaprSetupModel.m */; };
 		00D15F381855535500336935 /* TaprSetupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D15F1D1855535500336935 /* TaprSetupWindow.m */; };
-		00D15F3B185553AF00336935 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D15F3A185553AF00336935 /* CoreServices.framework */; };
-		00D15F3F185553D100336935 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D15F3E185553D100336935 /* Carbon.framework */; };
-		00D15F41185553D900336935 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D15F40185553D900336935 /* QuartzCore.framework */; };
-		00E2A93219634EA9009DC01E /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E2A93119634EA9009DC01E /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		00E2A93419634F7F009DC01E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E2A93319634F7F009DC01E /* Security.framework */; };
 		00F894101885C39800EA5681 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F8940F1885C39800EA5681 /* Images.xcassets */; };
+		D040286619CA583500E372E7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D040286519CA583500E372E7 /* Security.framework */; };
+		D040286819CA583A00E372E7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D040286719CA583A00E372E7 /* QuartzCore.framework */; };
+		D040286A19CA583E00E372E7 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D040286919CA583E00E372E7 /* Carbon.framework */; };
+		D040286C19CA584300E372E7 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D040286B19CA584300E372E7 /* CoreServices.framework */; };
+		D040286E19CA584700E372E7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D040286D19CA584700E372E7 /* Cocoa.framework */; };
+		D040287119CA588F00E372E7 /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D040287019CA588F00E372E7 /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,9 +61,6 @@
 		0021B2631855835900C42444 /* MultitouchSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultitouchSupport.framework; path = ../../../../../System/Library/PrivateFrameworks/MultitouchSupport.framework; sourceTree = "<group>"; };
 		0021B2651855836100C42444 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Tapr/Sparkle.framework; sourceTree = "<group>"; };
 		00D15EB41855520C00336935 /* Tapr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tapr.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		00D15EB71855520C00336935 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		00D15EBA1855520C00336935 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		00D15EBC1855520C00336935 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		00D15EEB1855535500336935 /* AppButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppButtonCell.h; path = Tapr/AppButtonCell.h; sourceTree = "<group>"; };
 		00D15EEC1855535500336935 /* AppButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppButtonCell.m; path = Tapr/AppButtonCell.m; sourceTree = "<group>"; };
 		00D15EED1855535500336935 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
@@ -114,13 +111,14 @@
 		00D15F1B1855535500336935 /* TaprSetupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaprSetupModel.m; path = Tapr/TaprSetupModel.m; sourceTree = "<group>"; };
 		00D15F1C1855535500336935 /* TaprSetupWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaprSetupWindow.h; path = Tapr/TaprSetupWindow.h; sourceTree = "<group>"; };
 		00D15F1D1855535500336935 /* TaprSetupWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaprSetupWindow.m; path = Tapr/TaprSetupWindow.m; sourceTree = "<group>"; };
-		00D15F3A185553AF00336935 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		00D15F3E185553D100336935 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		00D15F40185553D900336935 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		00E2A93019634EA9009DC01E /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMoveApplication.h; sourceTree = "<group>"; };
-		00E2A93119634EA9009DC01E /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMoveApplication.m; sourceTree = "<group>"; };
-		00E2A93319634F7F009DC01E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		00F8940F1885C39800EA5681 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Tapr/Images.xcassets; sourceTree = "<group>"; };
+		D040286519CA583500E372E7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		D040286719CA583A00E372E7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		D040286919CA583E00E372E7 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Carbon.framework; sourceTree = DEVELOPER_DIR; };
+		D040286B19CA584300E372E7 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		D040286D19CA584700E372E7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		D040286F19CA588F00E372E7 /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFMoveApplication.h; path = Tapr/PFMoveApplication.h; sourceTree = "<group>"; };
+		D040287019CA588F00E372E7 /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFMoveApplication.m; path = Tapr/PFMoveApplication.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,13 +126,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E2A93419634F7F009DC01E /* Security.framework in Frameworks */,
+				D040286E19CA584700E372E7 /* Cocoa.framework in Frameworks */,
+				D040286C19CA584300E372E7 /* CoreServices.framework in Frameworks */,
+				D040286A19CA583E00E372E7 /* Carbon.framework in Frameworks */,
+				D040286819CA583A00E372E7 /* QuartzCore.framework in Frameworks */,
+				D040286619CA583500E372E7 /* Security.framework in Frameworks */,
 				0021B2661855836100C42444 /* Sparkle.framework in Frameworks */,
 				0021B2641855835900C42444 /* MultitouchSupport.framework in Frameworks */,
-				00D15F41185553D900336935 /* QuartzCore.framework in Frameworks */,
-				00D15F3F185553D100336935 /* Carbon.framework in Frameworks */,
-				00D15F3B185553AF00336935 /* CoreServices.framework in Frameworks */,
-				00D15EB81855520C00336935 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,25 +159,15 @@
 		00D15EB61855520C00336935 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				00E2A93319634F7F009DC01E /* Security.framework */,
+				D040286D19CA584700E372E7 /* Cocoa.framework */,
+				D040286B19CA584300E372E7 /* CoreServices.framework */,
+				D040286919CA583E00E372E7 /* Carbon.framework */,
+				D040286719CA583A00E372E7 /* QuartzCore.framework */,
+				D040286519CA583500E372E7 /* Security.framework */,
 				0021B2651855836100C42444 /* Sparkle.framework */,
 				0021B2631855835900C42444 /* MultitouchSupport.framework */,
-				00D15F40185553D900336935 /* QuartzCore.framework */,
-				00D15F3E185553D100336935 /* Carbon.framework */,
-				00D15F3A185553AF00336935 /* CoreServices.framework */,
-				00D15EB71855520C00336935 /* Cocoa.framework */,
-				00D15EB91855520C00336935 /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		00D15EB91855520C00336935 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				00D15EBA1855520C00336935 /* AppKit.framework */,
-				00D15EBC1855520C00336935 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		00D15EBD1855520C00336935 /* Tapr */ = {
@@ -217,8 +205,8 @@
 		00D15F42185553FF00336935 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				00E2A93019634EA9009DC01E /* PFMoveApplication.h */,
-				00E2A93119634EA9009DC01E /* PFMoveApplication.m */,
+				D040286F19CA588F00E372E7 /* PFMoveApplication.h */,
+				D040287019CA588F00E372E7 /* PFMoveApplication.m */,
 				00D15F071855535500336935 /* NSStatusItemPrioritizer.h */,
 				00D15F081855535500336935 /* NSStatusItemPrioritizer.m */,
 				00D15F031855535500336935 /* NSBezierPath+MCAdditions.h */,
@@ -429,7 +417,7 @@
 				00D15F2A1855535500336935 /* MultitouchTouch.m in Sources */,
 				00D15F2C1855535500336935 /* NSColor+ColorExtensions.m in Sources */,
 				00D15F351855535500336935 /* TaprSetupBackgroundView.m in Sources */,
-				00E2A93219634EA9009DC01E /* PFMoveApplication.m in Sources */,
+				D040287119CA588F00E372E7 /* PFMoveApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +461,7 @@
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -495,6 +484,7 @@
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
