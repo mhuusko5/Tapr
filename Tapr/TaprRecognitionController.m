@@ -14,9 +14,9 @@
 @property NSArray *beforeThreeFingerTouches;
 @property NSMutableArray *recentThreeFingerTouches;
 
-@property BOOL ignoringActivation, topSliding;
+@property BOOL ignoringActivation, bottomSliding;
 
-@property float referenceTopSlideX, switchableAppCount;
+@property float referenceBottomSlideX, switchableAppCount;
 
 @property int lastAppSelection;
 
@@ -234,6 +234,8 @@
 
 #pragma mark -
 
+static BOOL firstSwitch = true;
+
 #pragma mark -
 #pragma mark Activation Event Handling
 - (void)activationMultitouchEvent:(MultitouchEvent *)event {
@@ -286,9 +288,9 @@
             };
             
             MultitouchTouch *touch;
-            if (activeTouches == 1 && (touch = event.touches[0]) && touch.y > 0.94) {
+            if (activeTouches == 1 && (touch = event.touches[0]) && touch.y < 0.04) {
                 if (fabs(touch.velX) > 0.2) {
-                    if (!_topSliding) {
+                    if (!_bottomSliding) {
                         [NSApp activateIgnoringOtherApps:YES];
                         CGAssociateMouseAndMouseCursorPosition(NO);
                         
@@ -304,13 +306,13 @@
                         toggleKey(tab, kCGEventFlagMaskCommand, false);
                     }
                     
-                    _topSliding = YES;
+                    _bottomSliding = YES;
                     
-                    if (_referenceTopSlideX < 0) {
-                        _referenceTopSlideX = touch.x;
+                    if (_referenceBottomSlideX < 0) {
+                        _referenceBottomSlideX = touch.x;
                     }
                     
-                    float slid = _referenceTopSlideX - touch.x;
+                    float slid = _referenceBottomSlideX - touch.x;
                     if (fabs(slid) > 1.0 / (_switchableAppCount + 1.0)) {
                         if (slid < 0) {
                             toggleKey(rightArrow, NULL, true);
@@ -320,14 +322,19 @@
                             toggleKey(leftArrow, NULL, false);
                         }
                         
-                        _referenceTopSlideX = touch.x;
+                        _referenceBottomSlideX = touch.x;
                     }
                 }
-            } else if (_topSliding) {
+            } else if (_bottomSliding) {
                 if (activeTouches == 0) {
                     toggleKey(tab, NULL, false);
-                    toggleKey(enter, NULL, true);
-                    toggleKey(enter, NULL, false);
+                    
+                    if (!firstSwitch) {
+                        toggleKey(enter, NULL, true);
+                        toggleKey(enter, NULL, false);
+                    } else {
+                        firstSwitch = false;
+                    }
                 } else {
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                         toggleKey(escape, NULL, true);
@@ -338,9 +345,9 @@
                 [NSApp hide:self];
                 CGAssociateMouseAndMouseCursorPosition(YES);
                 
-                _topSliding = NO;
+                _bottomSliding = NO;
                 
-                _referenceTopSlideX = -1;
+                _referenceBottomSlideX = -1;
             }
         }
     }
@@ -358,7 +365,7 @@
 }
 
 - (CGEventRef)handleEvent:(CGEventRef)event withType:(int)type {
-	if (_listeningToTap || _topSliding) {
+	if (_listeningToTap || _bottomSliding) {
 		return NULL;
 	}
 

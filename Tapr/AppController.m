@@ -41,6 +41,8 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
 	[_taprRecognitionController applicationDidFinishLaunching];
 	[_taprSetupController applicationDidFinishLaunching];
+    
+    [NSApp hide:self];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag {
