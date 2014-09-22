@@ -36,6 +36,7 @@
 #pragma mark -
 #pragma mark Tapr Options
 - (IBAction)loginStartOptionChanged:(id)sender;
+- (IBAction)appCyclingOptionChanged:(id)sender;
 - (IBAction)applicationPreviewOptionChanged:(id)sender;
 - (IBAction)cleanAppSwitchHistory:(id)sender;
 #pragma mark -

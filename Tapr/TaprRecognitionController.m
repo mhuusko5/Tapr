@@ -14,7 +14,9 @@
 @property NSArray *beforeThreeFingerTouches;
 @property NSMutableArray *recentThreeFingerTouches;
 
-@property BOOL ignoringActivation;
+@property BOOL ignoringActivation, topSliding;
+
+@property float referenceTopSlideX, switchableAppCount;
 
 @property int lastAppSelection;
 
@@ -267,7 +269,81 @@
 
 			[_recentThreeFingerTouches removeAllObjects];
 		}
-	}
+        
+        if (_appController.taprSetupController.setupModel.appCyclingOption) {
+            CGKeyCode escape = 0x35;
+            CGKeyCode tab = 0x30;
+            CGKeyCode leftArrow = 0x7B;
+            CGKeyCode rightArrow = 0x7C;
+            CGKeyCode enter = 0x24;
+            void (^toggleKey)(CGKeyCode, CGEventFlags, BOOL) = ^(CGKeyCode key, CGEventFlags modifier, BOOL active) {
+                CGEventRef event = CGEventCreateKeyboardEvent(NULL, key, active);
+                if (modifier) {
+                    CGEventSetFlags(event, modifier);
+                }
+                CGEventPost(kCGHIDEventTap, event);
+                CFRelease(event);
+            };
+            
+            MultitouchTouch *touch;
+            if (activeTouches == 1 && (touch = event.touches[0]) && touch.y > 0.94) {
+                if (fabs(touch.velX) > 0.2) {
+                    if (!_topSliding) {
+                        [NSApp activateIgnoringOtherApps:YES];
+                        CGAssociateMouseAndMouseCursorPosition(NO);
+                        
+                        _switchableAppCount = 0;
+                        NSArray *runningApps = [[NSWorkspace sharedWorkspace] runningApplications];
+                        for (NSRunningApplication *app in runningApps) {
+                            if (app.activationPolicy == NSApplicationActivationPolicyRegular) {
+                                _switchableAppCount += 1;
+                            }
+                        }
+                        
+                        toggleKey(tab, kCGEventFlagMaskCommand, true);
+                        toggleKey(tab, kCGEventFlagMaskCommand, false);
+                    }
+                    
+                    _topSliding = YES;
+                    
+                    if (_referenceTopSlideX < 0) {
+                        _referenceTopSlideX = touch.x;
+                    }
+                    
+                    float slid = _referenceTopSlideX - touch.x;
+                    if (fabs(slid) > 1.0 / (_switchableAppCount + 1.0)) {
+                        if (slid < 0) {
+                            toggleKey(rightArrow, NULL, true);
+                            toggleKey(rightArrow, NULL, false);
+                        } else {
+                            toggleKey(leftArrow, NULL, true);
+                            toggleKey(leftArrow, NULL, false);
+                        }
+                        
+                        _referenceTopSlideX = touch.x;
+                    }
+                }
+            } else if (_topSliding) {
+                if (activeTouches == 0) {
+                    toggleKey(tab, NULL, false);
+                    toggleKey(enter, NULL, true);
+                    toggleKey(enter, NULL, false);
+                } else {
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        toggleKey(escape, NULL, true);
+                        toggleKey(escape, NULL, false);
+                    });
+                }
+                
+                [NSApp hide:self];
+                CGAssociateMouseAndMouseCursorPosition(YES);
+                
+                _topSliding = NO;
+                
+                _referenceTopSlideX = -1;
+            }
+        }
+    }
 }
 
 - (void)ignoreActivation:(NSArray *)ignoreAndSeconds {
@@ -282,7 +358,7 @@
 }
 
 - (CGEventRef)handleEvent:(CGEventRef)event withType:(int)type {
-	if (_listeningToTap) {
+	if (_listeningToTap || _topSliding) {
 		return NULL;
 	}
 

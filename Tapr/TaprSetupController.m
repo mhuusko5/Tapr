@@ -9,7 +9,7 @@
 
 @property IBOutlet TaprSetupBackgroundView *setupWindowBackground;
 
-@property IBOutlet NSButton *loginStartOptionField, *applicationPreviewOptionField;
+@property IBOutlet NSButton *loginStartOptionField, *appCyclingOptionField, *applicationPreviewOptionField;
 
 @end
 
@@ -49,6 +49,7 @@
 #pragma mark Interface Control
 - (void)updateSetupControls {
 	_loginStartOptionField.state = _setupModel.loginStartOption;
+    _appCyclingOptionField.state = _setupModel.appCyclingOption;
 	_applicationPreviewOptionField.state = _setupModel.applicationPreviewOption;
 
 	[_setupWindow.contentView setNeedsDisplay:YES];
@@ -124,6 +125,12 @@
 	_loginStartOptionField.state = [_setupModel fetchLoginStartOption];
 
 	[self updateSetupControls];
+}
+
+- (IBAction)appCyclingOptionChanged:(id)sender {
+    [_setupModel saveAppCyclingOption:_appCyclingOptionField.state];
+    
+    [self updateSetupControls];
 }
 
 - (IBAction)applicationPreviewOptionChanged:(id)sender {

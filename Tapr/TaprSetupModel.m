@@ -6,6 +6,7 @@
 #pragma mark Setup
 - (void)setup {
 	[self saveLoginStartOption:[self fetchLoginStartOption]];
+    [self fetchAppCyclingOption];
 	[self fetchApplicationPreviewOption];
 }
 
@@ -70,6 +71,23 @@
 		}
 		CFRelease(loginItems);
 	}
+}
+
+- (BOOL)fetchAppCyclingOption {
+    id storedAppCyclingOption;
+    if ((storedAppCyclingOption = [[NSUserDefaults standardUserDefaults] objectForKey:@"appCyclingOption"])) {
+        _appCyclingOption = [storedAppCyclingOption boolValue];
+    }
+    else {
+        [self saveAppCyclingOption:NO];
+    }
+    
+    return _appCyclingOption;
+}
+
+- (void)saveAppCyclingOption:(BOOL)newChoice {
+    [[NSUserDefaults standardUserDefaults] setBool:(_appCyclingOption = newChoice) forKey:@"appCyclingOption"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (BOOL)fetchApplicationPreviewOption {
