@@ -14,7 +14,7 @@
 		<string>https://github.com/mhuusko5/Tapr.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Tapr.xcodeproj/project.xcworkspace</string>
+	<string>Tapr.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>6B90BA9E503F726FF954E8CCF34F536A954A6666</key>

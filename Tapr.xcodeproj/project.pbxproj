@@ -42,6 +42,7 @@
 		D040286C19CA584300E372E7 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D040286B19CA584300E372E7 /* CoreServices.framework */; };
 		D040286E19CA584700E372E7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D040286D19CA584700E372E7 /* Cocoa.framework */; };
 		D040287119CA588F00E372E7 /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D040287019CA588F00E372E7 /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D082CBFF1A33BE8F009CB2F2 /* NSImage+M5Darkable.m in Sources */ = {isa = PBXBuildFile; fileRef = D082CBFE1A33BE8F009CB2F2 /* NSImage+M5Darkable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -119,6 +120,8 @@
 		D040286D19CA584700E372E7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		D040286F19CA588F00E372E7 /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFMoveApplication.h; path = Tapr/PFMoveApplication.h; sourceTree = "<group>"; };
 		D040287019CA588F00E372E7 /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFMoveApplication.m; path = Tapr/PFMoveApplication.m; sourceTree = "<group>"; };
+		D082CBFD1A33BE8F009CB2F2 /* NSImage+M5Darkable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+M5Darkable.h"; sourceTree = "<group>"; };
+		D082CBFE1A33BE8F009CB2F2 /* NSImage+M5Darkable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+M5Darkable.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +214,8 @@
 				00D15F081855535500336935 /* NSStatusItemPrioritizer.m */,
 				00D15F031855535500336935 /* NSBezierPath+MCAdditions.h */,
 				00D15F041855535500336935 /* NSBezierPath+MCAdditions.m */,
+				D082CBFD1A33BE8F009CB2F2 /* NSImage+M5Darkable.h */,
+				D082CBFE1A33BE8F009CB2F2 /* NSImage+M5Darkable.m */,
 				00D15F051855535500336935 /* NSColor+ColorExtensions.h */,
 				00D15F061855535500336935 /* NSColor+ColorExtensions.m */,
 			);
@@ -404,6 +409,7 @@
 				00D15F331855535500336935 /* TaprRecognitionView.m in Sources */,
 				00D15F241855535500336935 /* Launchable.m in Sources */,
 				00D15F2D1855535500336935 /* NSStatusItemPrioritizer.m in Sources */,
+				D082CBFF1A33BE8F009CB2F2 /* NSImage+M5Darkable.m in Sources */,
 				00D15F211855535500336935 /* AppSegmentedCell.m in Sources */,
 				00D15F361855535500336935 /* TaprSetupController.m in Sources */,
 				00D15F2B1855535500336935 /* NSBezierPath+MCAdditions.m in Sources */,
