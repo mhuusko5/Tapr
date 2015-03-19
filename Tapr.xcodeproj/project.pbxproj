@@ -120,8 +120,8 @@
 		D040286D19CA584700E372E7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		D040286F19CA588F00E372E7 /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFMoveApplication.h; path = Tapr/PFMoveApplication.h; sourceTree = "<group>"; };
 		D040287019CA588F00E372E7 /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFMoveApplication.m; path = Tapr/PFMoveApplication.m; sourceTree = "<group>"; };
-		D082CBFD1A33BE8F009CB2F2 /* NSImage+M5Darkable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+M5Darkable.h"; sourceTree = "<group>"; };
-		D082CBFE1A33BE8F009CB2F2 /* NSImage+M5Darkable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+M5Darkable.m"; sourceTree = "<group>"; };
+		D082CBFD1A33BE8F009CB2F2 /* NSImage+M5Darkable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSImage+M5Darkable.h"; path = "Tapr/NSImage+M5Darkable.h"; sourceTree = "<group>"; };
+		D082CBFE1A33BE8F009CB2F2 /* NSImage+M5Darkable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+M5Darkable.m"; path = "Tapr/NSImage+M5Darkable.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

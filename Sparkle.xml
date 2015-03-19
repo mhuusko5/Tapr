@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Tapr Update</title>
+        <link>https://raw.githubusercontent.com/mhuusko5/Tapr/master/Sparkle.xml</link>
+        <description>Tapr Update</description>
+        <language>en</language>
+        <item>
+            <title>Version 1.25</title>
+            <description>1.12, add option to display preview of app being hovered on if it's running. 1.13, add clean slate option/action. 1.21, add option to be able to cycle through Cmd-Tab switcher with single finger slide across *BOTTOM* of trackpad. 1.22, support Yosemite dark mode. 1.25, bug fixes.</description>
+            <enclosure url="https://github.com/mhuusko5/Tapr/releases/download/1.25/Tapr.zip" sparkle:version="1.25"/>
+        </item>
+    </channel>
+</rss>
