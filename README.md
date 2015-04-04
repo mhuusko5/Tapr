@@ -2,7 +2,7 @@
 
 Rapidly switch and preview apps on your Mac with multitouch trackpad taps.
 
-Signed/packaged/auto-updating version download [here](http://goo.gl/0yd82F).
+Signed/packaged/auto-updating version download [here](http://tiny.cc/tapr-mac-download).
 
 Demo video below.
 
