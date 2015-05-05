@@ -9,7 +9,7 @@
             <title>Version 1.26</title>
             <description>*IMPORTANT*: 1.26 is a transition to a new code signing (security) profile, so it requires a fresh installer – click "Learn more..." to download this installer. Run it and Tapr will work/update as normal from now on. Thanks!</description>
             <sparkle:version>1.26</sparkle:version>
-            <link>https://github.com/mhuusko5/Gestr/releases/download/1.26/Tapr.pkg</link>
+            <link>https://github.com/mhuusko5/Tapr/releases/download/1.26/Tapr.pkg</link>
           </item>
     </channel>
 </rss>
