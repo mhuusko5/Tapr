@@ -6,9 +6,10 @@
         <description>Tapr Update</description>
         <language>en</language>
         <item>
-            <title>Version 1.25</title>
-            <description>1.12, add option to display preview of app being hovered on if it's running. 1.13, add clean slate option/action. 1.21, add option to be able to cycle through Cmd-Tab switcher with single finger slide across *BOTTOM* of trackpad. 1.22, support Yosemite dark mode. 1.25, bug fixes.</description>
-            <enclosure url="https://github.com/mhuusko5/Tapr/releases/download/1.25/Tapr.zip" sparkle:version="1.25"/>
-        </item>
+            <title>Version 1.26</title>
+            <description>*IMPORTANT*: 1.26 is a transition to a new code signing (security) profile, so it requires a fresh installer – click "Learn more..." to download this installer. Run it and Tapr will work/update as normal from now on. Thanks!</description>
+            <sparkle:version>1.26</sparkle:version>
+            <link>https://github.com/mhuusko5/Gestr/releases/download/1.26/Tapr.pkg</link>
+          </item>
     </channel>
 </rss>

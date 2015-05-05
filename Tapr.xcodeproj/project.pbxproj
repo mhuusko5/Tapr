@@ -359,7 +359,7 @@
 				ORGANIZATIONNAME = "Mathew Huusko V";
 				TargetAttributes = {
 					00D15EB31855520C00336935 = {
-						DevelopmentTeam = KG7LGVJ8EA;
+						DevelopmentTeam = EGQME33F5E;
 					};
 				};
 			};
@@ -434,6 +434,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -444,6 +445,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 			};
